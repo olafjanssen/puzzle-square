@@ -46,6 +46,37 @@ body {
 	left: 50%;
 }
 
+#menu {
+	box-shadow: 0 0 1em black;
+	border-left: 0.5em solid #222;	background-color: #333;
+	text-align: center;	
+	font-size: 1.5em;
+	position: fixed;
+	width: 300px;
+	height: 100%;
+	color: #eee;
+	right: 0;
+}
+
+#menu form {
+	width: 90%;
+	display: block;
+	position: relative;
+	left: 5%;
+}
+
+#menu form > * {
+	display: block;
+	width: 100%;
+	margin: 1em 0;
+}
+
+#menu select {
+	-webkit-appearance: none;
+	font-size: 1em;
+	padding: 0.5em;
+}
+
 #backside,
 #table {
 	border: 0.5em solid rgba(0,0,0,0.8);

@@ -16,13 +16,31 @@
 </head>
 <body>
 <div id="floor">	
-<div id="play-area">
-	<div id="table"></div>
-	<div id="stack"></div>
-	<div id="backside"></div>
-</div>
-</div>
+	<div id="play-area">
+		<div id="table"></div>
+		<div id="stack"></div>
+		<div id="backside"></div>
+	</div>
 <div id="overlay">
+</div>
+</div>
+<div id="menu">
+	<form>
+		<label>Deck:</label>
+		<select id="deckChoice">
+			<option value="all">all</option>
+			<option value="deck1">deck 1</option>
+		</select>
+		<label>Game type:</label>
+		<select id="gameTypeChoice">
+			<option value="all">all</option>
+			<option value="one-border">one trait</option>
+			<option value="two-borders">two traits</option>
+			<option value="only-traits">traits only</option>
+			<option value="four-random">random fill</option>
+		</select>
+		<button>restart</button>
+	</form>
 </div>
 
 	<script>

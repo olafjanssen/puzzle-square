@@ -199,8 +199,6 @@ Grid.prototype.fillCard = function(col, row) {
 	// find the card
 	var tempStack = this.stack.concat();
 	for(var card=0;card<tempStack.length;card++) {
-			console.log(card);
-			console.log(tempStack[card]);
 		if(this.validateCard(col,row, tempStack[card])){
 			this.setCard(col, row, tempStack[card]);
 			// then remove it from the real stack
