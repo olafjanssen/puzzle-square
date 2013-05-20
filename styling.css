@@ -1,0 +1,207 @@
+
+body * {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}	
+
+body {
+	-webkit-perspective: 1000;
+}
+
+#floor {
+	background-image: -webkit-linear-gradient(90deg, rgba(200,0,0,.5) 50%, transparent 50%), -webkit-linear-gradient(0deg, 	rgba(200,0,0,.5) 50%, transparent 50%);
+	background-image: -moz-linear-gradient(90deg, rgba(200,0,0,.5) 50%, transparent 50%), -moz-linear-gradient(rgba(200,0,0,.5) 50%, transparent 50%);
+	background-image: -ms-linear-gradient(90deg, rgba(200,0,0,.5) 50%, transparent 50%), -ms-linear-gradient(rgba(200,0,0,.5) 50%, transparent 50%);
+	background-image: -o-linear-gradient(90deg, rgba(200,0,0,.5) 50%, transparent 50%), -o-linear-gradient(rgba(200,0,0,.5) 50%, transparent 50%);
+	background-image: linear-gradient(90deg, rgba(200,0,0,.5) 50%, transparent 50%), linear-gradient(rgba(200,0,0,.5) 50%, transparent 50%);
+	background-size: 25px 25px;
+	background-color: white;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+}
+
+#overlay {
+	visibility: hidden;
+	background-color: rgba(0,0,0,0.1);
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	left: 0;	
+	top: 0;
+}
+
+.full-board #overlay {
+	visibility: visible;
+}
+
+#play-area {
+	margin-left: -490px;
+	position: absolute;
+	width: 980px;
+	height: 100%;
+	left: 50%;
+}
+
+#backside,
+#table {
+	border: 0.5em solid rgba(0,0,0,0.8);
+	background-color: white;
+	display: inline-block;
+	border-radius: 0.5em;
+	position: absolute;
+	padding: 1em;
+	right: 1em;
+	top: 1em;
+	-webkit-transition: -webkit-transform 1s;
+	-webkit-backface-visibility: hidden;
+}
+
+.full-board #table {
+	-webkit-transform: rotateY(180deg);
+}
+
+#backside {
+	-webkit-transform: rotateY(180deg);
+	background-size: cover;
+}
+
+.img1 {
+	background-image: url(images/image1.jpg);
+}
+
+.img2 {
+	background-image: url(images/image2.jpg);
+}
+
+.img3 {
+	background-image: url(images/image3.jpg);
+}
+
+.img4 {
+	background-image: url(images/image4.jpg);
+}
+
+.img5 {
+	background-image: url(images/image5.jpg);
+}
+
+#backside > table {
+	visibility: hidden;
+}
+
+.full-board #backside {
+	-webkit-transform: rotateY(360deg);
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table td {
+	border: 2px solid rgba(0,0,0,0.5);
+	text-align: center;
+	width: 100px;
+	height: 100px;
+}
+
+table tr td:first-child,
+table tr:last-child td,
+table tr td:last-child,
+table tr:first-child td {
+	border: none;
+}
+
+table tr:last-child td[ondrop],
+table tr:first-child td[ondrop] {
+	border-left: 2px dashed rgba(0,0,0,0.5);
+	border-right: 2px dashed rgba(0,0,0,0.5);
+}
+
+table tr td[ondrop]:first-child,
+table tr td[ondrop]:last-child {
+	border-top: 2px dashed rgba(0,0,0,0.5);
+	border-bottom: 2px dashed rgba(0,0,0,0.5);
+}
+
+
+table td[ondrop] {
+	background-color: rgba(0,0,0,0.05);
+}
+
+#stack {
+	-webkit-transition: -webkit-transform 1s ease, opacity 1s ease;
+	border: 0.5em solid rgba(0,0,0,0.8);
+	background-color: white;
+	border-radius: 0.5em;
+	position: absolute;
+	margin-top: -50px;
+	height: 100px;
+	width: 100px;
+	left: 5em;
+	top: 50%;
+}
+
+#stack > .card {
+	border: 2px solid rgba(0,0,0,0.5);
+	background-color: white;
+	text-align: center;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.animate-dnd {
+	-webkit-transition: all 0.5s ease;
+}
+
+.card {
+	background-image: url(deck1.png);
+	-webkit-box-sizing: border-box;	
+	display: inline-block;
+	background-size: 500%;
+	height: 100px;
+	width: 100px;
+}
+
+.full-board #stack {
+	-webkit-transform: translateX(-300%);
+	opacity: 0;
+}
+
+/* deck 1 */
+.card[color=yellow] {
+	background-position-x: 0;
+}
+.card[color=purple] {
+	background-position-x: 25%;
+}
+.card[color=red] {
+	background-position-x: 50%;
+}
+.card[color=blue] {
+	background-position-x: 75%;
+}
+.card:not([color]) {
+	background-position-x: 100%;
+}
+
+.card[shape=butterfly] {
+	background-position-y: 25%; 
+}
+.card[shape=cars] {
+	background-position-y: 50%; 
+}
+.card[shape=flags] {
+	background-position-y: 75%; 
+}
+.card[shape=doll] {
+	background-position-y: 100%; 
+}
+.card:not([shape]) {
+	background-position-y: 0%; 
+}
+

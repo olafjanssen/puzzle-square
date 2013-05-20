@@ -1,0 +1,44 @@
+<html>
+<head>
+	<script src='card.js'></script>
+	<script src='deck.js'></script>
+	<script src='decks.js'></script>
+	<script src='grid.js'></script>
+	<script src='state.js'></script>
+	<script src='appController.js'></script>
+	<script src='gameSettings.js'></script>
+
+	<link rel="stylesheet" type="text/css" href="styling.css">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" /> 
+	<meta name="viewport" content = "width = device-width, initial-scale = 1, user-scalable = no" />  
+
+</head>
+<body>
+<div id="floor">	
+<div id="play-area">
+	<div id="table"></div>
+	<div id="stack"></div>
+	<div id="backside"></div>
+</div>
+</div>
+<div id="overlay">
+</div>
+
+	<script>
+		// disable scrolling
+		function stopScrolling( touchEvent ) { touchEvent.preventDefault(); }
+		// document.addEventListener( 'touchstart' , stopScrolling , false );
+		document.addEventListener( 'touchmove' , stopScrolling , false );
+		// global (bad) shuffling method
+		function shuffle(o){ //v1.0
+    		for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    		return o;
+		};
+		// start the app
+		var appController = new AppController(new State());
+		appController.startNewGame(appController.getGameSettings());
+
+	</script>
+</body>
+</html>
