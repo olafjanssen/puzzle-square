@@ -69,7 +69,8 @@ Grid.prototype.render = function() {
 		var offsetX = dragCard.offsetLeft - event.clientX;
 		var offsetY = dragCard.offsetTop - event.clientY;
 		dragCard.classList.remove("animate-dnd");
-        
+        dragCard.classList.add("during-drag");
+
         var mouseMoveListener = function(event) {
         	dragCard.style.left = (offsetX + event.clientX) + "px";  
         	dragCard.style.top = (offsetY + event.clientY) + "px";
@@ -88,6 +89,7 @@ Grid.prototype.render = function() {
 			} else {
 				setTimeout(function(){
 					dragCard.classList.add("animate-dnd");
+      			  	dragCard.classList.remove("during-drag");
         			dragCard.style.top = "";
         			dragCard.style.left = "";
         		}, 50)
@@ -100,7 +102,8 @@ Grid.prototype.render = function() {
 	draggableCard.addEventListener('touchstart', function(event) {
 		var offsetX = dragCard.offsetLeft - event.changedTouches[0].pageX;
 		var offsetY = dragCard.offsetTop - event.changedTouches[0].pageY;
-		dragCard.classList.remove("animate-dnd");
+		dragCard.classList.remove("animate-dnd"); 
+	  	dragCard.classList.add("during-drag");
         dragCard.addEventListener('touchmove', function(event) {
         	dragCard.style.left = (offsetX + event.changedTouches[0].pageX) + "px";  
         	dragCard.style.top = (offsetY + event.changedTouches[0].pageY) + "px";
@@ -116,6 +119,7 @@ Grid.prototype.render = function() {
 			} else {
 				setTimeout(function(){
 					dragCard.classList.add("animate-dnd");
+					dragCard.classList.remove("during-drag");					
         			dragCard.style.top = "";
         			dragCard.style.left = "";
         		}, 50)
