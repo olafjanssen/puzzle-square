@@ -3,8 +3,8 @@
 function AppController(userState){
 	this.userState = userState;
 	var app = this;
-	document.getElementById("overlay").addEventListener("click", function(event){ app.startNewGame(app.getGameSettings()); }, false);
-	document.getElementById("overlay").addEventListener("touchstart", function(event){ app.startNewGame(app.getGameSettings()); }, false);
+	document.getElementById("overlay").addEventListener("click", function(event){ app.startLevel(); }, false);
+	document.getElementById("overlay").addEventListener("touchstart", function(event){ app.startLevel(); }, false);
 }
 
 AppController.prototype.startNewGame = function(gameSettings) {
@@ -48,16 +48,27 @@ AppController.prototype.startNewGame = function(gameSettings) {
 		}
 	}
 	grid.render();
+	document.getElementById("backside").className = "";
+	document.getElementById("backside").classList.add(gameSettings.imageClassName);
 }
 
 AppController.prototype.finishGame = function() {
-	var imgNumber = 1+parseInt(Math.random() * 4);
-	document.getElementById("backside").className = "";
-	document.getElementById("backside").classList.add("img"+imgNumber);
 	setTimeout(function(){document.body.classList.add("full-board");}, 1000);
+	localStorage["level"] = parseInt(localStorage["level"])+1;
 }
 
 AppController.prototype.getGameSettings = function() {
 	return new GameSettings(deck1(), document.getElementById("gameTypeChoice").value);
 }
+
+AppController.prototype.startLevel = function(){
+	var level = localStorage["level"];
+	if (level === undefined){
+		localStorage["level"] = 1;
+		level = 1;
+	}
+	var gameSettings = levels["level"+level];
+	this.startNewGame(gameSettings);
+}
+
 	

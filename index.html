@@ -3,10 +3,11 @@
 	<script src='card.js'></script>
 	<script src='deck.js'></script>
 	<script src='decks.js'></script>
+	<script src='gameSettings.js'></script>
+	<script src='levels.js'></script>
 	<script src='grid.js'></script>
 	<script src='state.js'></script>
 	<script src='appController.js'></script>
-	<script src='gameSettings.js'></script>
 
 	<link rel="stylesheet" type="text/css" href="styling.css">
 
@@ -42,8 +43,12 @@
 		<button>restart</button>
 	</form>
 </div>
+<div id="splash">
+</div>
 
 	<script>
+		setTimeout(function(){document.getElementById("splash").style.display = "none";}, 3000);
+
 		// disable scrolling
 		function stopScrolling( touchEvent ) { touchEvent.preventDefault(); }
 		// document.addEventListener( 'touchstart' , stopScrolling , false );
@@ -55,7 +60,9 @@
 		};
 		// start the app
 		var appController = new AppController(new State());
-		appController.startNewGame(appController.getGameSettings());
+		//appController.startNewGame(appController.getGameSettings());
+		appController.startLevel();
+
 
 	</script>
 </body>
