@@ -18,7 +18,7 @@
 
 </head>
 <body>
-<div id="floor">	
+<div id="floor">
 	<div id="play-area">
 		<div id="table"></div>
 		<div id="stack"></div>
@@ -30,12 +30,17 @@
 <div id="menu-icon"></div>
 <div id="menu">
 </div>
+<div id="title">
+	<div id='title-image'></div>
+	<div class='title-message'>
+	</div>
+</div>
 <div id="splash">
 </div>
 
 	<script>
 
-		localStorage.clear();
+		// localStorage.clear();
 		// localStorage["level"] = 3;
 
 		// disable scrolling
@@ -63,12 +68,13 @@
 		// start the app
 		var levelMenu = new LevelMenu();
 		var appController = new AppController(new State());
-		//appController.startNewGame(appController.getGameSettings());
-		// appController.startLevel();
+		
 		document.body.onload = function(){
-			setTimeout(function(){document.getElementById("splash").style.display = "none";}, 3000);
+			setTimeout(function(){
+				document.getElementById("splash").style.display = "none";
+			}, 3000);
 		}
-
+		document.body.classList.add("show-title");
 	</script>
 </body>
 </html>

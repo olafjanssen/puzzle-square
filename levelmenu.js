@@ -38,6 +38,7 @@ LevelMenu.prototype.render = function() {
 
 		container.appendChild(button);
 	}
+	container.scrollTop = container.offsetHeight;
 
 }
 

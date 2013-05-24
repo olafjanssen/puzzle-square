@@ -6,15 +6,23 @@ function AppController(userState){
 	var app = this;
 
 	var finisherListener = function(event){ 
+				levelMenu.render();
 				document.body.setAttribute("state", "between-games");
 				setTimeout(function(){
 					app.startLevel(app.level+1);
 				}, 2000);
 			};
+
+	var hideTitlePage = function(event) { 
+		document.body.classList.remove("show-title");
+	}			
+	
 	if (Modernizr.touch){
 		document.getElementById("overlay").addEventListener("touchstart", finisherListener, false);
+		document.getElementById("title").addEventListener("touchstart", hideTitlePage, false);
 	} else {
 		document.getElementById("overlay").addEventListener("mouseup", finisherListener, false);
+		document.getElementById("title").addEventListener("mouseup", hideTitlePage, false);
 	}
 	document.body.setAttribute("state", "selecting");
 }
