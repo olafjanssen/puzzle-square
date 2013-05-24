@@ -1,5 +1,6 @@
 <html>
 <head>
+	<script src='modernizr.js'></script>
 	<script src='card.js'></script>
 	<script src='deck.js'></script>
 	<script src='decks.js'></script>
@@ -8,6 +9,7 @@
 	<script src='grid.js'></script>
 	<script src='state.js'></script>
 	<script src='appController.js'></script>
+	<script src="levelmenu.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="styling.css">
 
@@ -25,44 +27,47 @@
 <div id="overlay">
 </div>
 </div>
+<div id="menu-icon"></div>
 <div id="menu">
-	<form>
-		<label>Deck:</label>
-		<select id="deckChoice">
-			<option value="all">all</option>
-			<option value="deck1">deck 1</option>
-		</select>
-		<label>Game type:</label>
-		<select id="gameTypeChoice">
-			<option value="all">all</option>
-			<option value="one-border">one trait</option>
-			<option value="two-borders">two traits</option>
-			<option value="only-traits">traits only</option>
-			<option value="four-random">random fill</option>
-		</select>
-		<button>restart</button>
-	</form>
 </div>
 <div id="splash">
 </div>
 
 	<script>
-		setTimeout(function(){document.getElementById("splash").style.display = "none";}, 3000);
+
+		localStorage.clear();
+		// localStorage["level"] = 3;
 
 		// disable scrolling
 		function stopScrolling( touchEvent ) { touchEvent.preventDefault(); }
 		// document.addEventListener( 'touchstart' , stopScrolling , false );
 		document.addEventListener( 'touchmove' , stopScrolling , false );
+		document.addEventListener( 'click', stopScrolling, false);
+
 		// global (bad) shuffling method
 		function shuffle(o){ //v1.0
     		for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
     		return o;
 		};
+
+		function addOver(element) {
+			if (Modernizr.touch) {
+				element.addEventListener("touchstart", function(){ element.classList.add("onover")}, false);
+				element.addEventListener("touchend", function(){ element.classList.remove("onover")}, false);
+			} else {
+				element.addEventListener("mouseover", function(){ element.classList.add("onover")}, false);
+				element.addEventListener("mouseout", function(){ element.classList.remove("onover")}, false);
+			}
+		}
+
 		// start the app
+		var levelMenu = new LevelMenu();
 		var appController = new AppController(new State());
 		//appController.startNewGame(appController.getGameSettings());
-		appController.startLevel();
-
+		// appController.startLevel();
+		document.body.onload = function(){
+			setTimeout(function(){document.getElementById("splash").style.display = "none";}, 3000);
+		}
 
 	</script>
 </body>

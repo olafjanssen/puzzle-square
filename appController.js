@@ -2,24 +2,36 @@
 
 function AppController(userState){
 	this.userState = userState;
+	this.level = 0;
 	var app = this;
-	document.getElementById("overlay").addEventListener("click", function(event){ app.startLevel(); }, false);
-	document.getElementById("overlay").addEventListener("touchstart", function(event){ app.startLevel(); }, false);
+
+	var finisherListener = function(event){ 
+				document.body.setAttribute("state", "between-games");
+				setTimeout(function(){
+					app.startLevel(app.level+1);
+				}, 2000);
+			};
+	if (Modernizr.touch){
+		document.getElementById("overlay").addEventListener("touchstart", finisherListener, false);
+	} else {
+		document.getElementById("overlay").addEventListener("mouseup", finisherListener, false);
+	}
+	document.body.setAttribute("state", "selecting");
 }
 
 AppController.prototype.startNewGame = function(gameSettings) {
 	document.body.classList.remove("full-board");
 	var deck = gameSettings.deck;
 	var traitsMap = shuffle(deck.traitCardMap);
-	var grid; 
-
+	var size = gameSettings.gridSize;
 	var allIndex = parseInt(Math.random() * 4);
 
+	var grid; 
 	// setting up the grid in different ways depending on the game settings
 	if (gameSettings.setupType == "one-border" || allIndex==0){
 		var allCards = deck.playCards.concat(traitsMap[0]);
-		grid = new Grid(4,4, shuffle(traitsMap[0]), [], shuffle(allCards), [1, 0, 0, 0]);
-		for(var col=0;col<4; col++){
+		grid = new Grid(size[0],size[1], shuffle(traitsMap[0]), [], shuffle(allCards), [1, 0, 0, 0]);
+		for(var col=0;col<size[0]; col++){
 			grid.fillCard(col+1, 0);
 		}
 	} else if (gameSettings.setupType == "two-borders" || allIndex==1){
@@ -53,22 +65,25 @@ AppController.prototype.startNewGame = function(gameSettings) {
 }
 
 AppController.prototype.finishGame = function() {
-	setTimeout(function(){document.body.classList.add("full-board");}, 1000);
-	localStorage["level"] = parseInt(localStorage["level"])+1;
+	if (this.level > parseInt(localStorage["level"])){
+		localStorage["level"] = this.level;
+	}
+	setTimeout(function(){
+		document.body.classList.add("full-board");
+	}, 1000);
 }
 
 AppController.prototype.getGameSettings = function() {
 	return new GameSettings(deck1(), document.getElementById("gameTypeChoice").value);
 }
 
-AppController.prototype.startLevel = function(){
-	var level = localStorage["level"];
-	if (level === undefined){
-		localStorage["level"] = 1;
-		level = 1;
-	}
+AppController.prototype.startLevel = function(level){
+	console.log("starting: " + level);
 	var gameSettings = levels["level"+level];
+	this.level = level;
 	this.startNewGame(gameSettings);
+	levelMenu.setCurrentLevel(level);	
+	document.body.setAttribute("state","playing");
 }
 
 	

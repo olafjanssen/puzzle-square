@@ -4,7 +4,6 @@ function Grid(cols, rows, colTraitCards, rowTraitCards, stack, traitDirections){
 	this.traitDirections = traitDirections;
 	this.cols = cols;
 	this.rows = rows;
-	this.stack = stack;
 	this.colTraitCards = colTraitCards;
 	this.rowTraitCards = rowTraitCards;
 	this.cards = new Array(cols+2);
@@ -12,10 +11,37 @@ function Grid(cols, rows, colTraitCards, rowTraitCards, stack, traitDirections){
 		this.cards[col] = new Array(rows);
 	}
 	this.numberFilled = 0;
+
+	// clean up stack
+	this.stack = stack;
+	var tempStack = this.stack.concat();
+	var tempFill = new Array(cols+2);
+	for(var col=0; col<cols+2; col++){
+		tempFill[col] = new Array(rows);
+	}
+	for(var card=0;card<tempStack.length;card++) {
+		var valid = false;
+		for(var col=0; col<cols+2; col++){
+			for(var row=0; row<rows+2; row++){
+				if(this.validateCard(col,row, tempStack[card]) && tempFill[col][row] === undefined){ 
+					valid = true; 
+					tempFill[col][row] = true;
+					break;
+				}
+			}			
+		}
+		// if cannot be placed in the grid remove it
+		if (!valid) {
+			this.stack.splice(this.stack.indexOf(tempStack[card]),1);
+		}
+	}
+
 }
 
 Grid.prototype.render = function() {
 	var table = document.createElement("table");
+	table.setAttribute("cols", this.cols);
+	table.setAttribute("rows", this.rows);
 	for(var row=0;row<this.rows+2;row++){
 		var tr = document.createElement("tr");
 		for(var col=0;col<this.cols+2;col++){
@@ -37,17 +63,8 @@ Grid.prototype.render = function() {
 	document.getElementById("table").innerHTML = "";
 	document.getElementById("table").appendChild(table);
 
-	// draw backside
-	var faketable = document.createElement("table");
-	for(var row=0;row<this.rows+2;row++){
-		var tr = document.createElement("tr");
-		for(var col=0;col<this.cols+2;col++){
-			tr.appendChild(document.createElement("td"));
-		}
-		faketable.appendChild(tr);
-	}
-	document.getElementById("backside").innerHTML = "";
-	document.getElementById("backside").appendChild(faketable);
+	table.style.marginLeft = (-table.clientWidth/2) + "px";
+	table.style.marginTop = (-table.clientHeight/2) + "px";
 
 	// render the stack
 	document.getElementById("stack").innerHTML = "";
