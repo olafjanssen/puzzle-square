@@ -52,7 +52,7 @@ body {
 /* title page */
 
 #title {
-	-webkit-transition: opacity 1s ease, visibility 0s ease 1s;
+	-webkit-transition: opacity 0.25s ease, visibility 0s ease 0.25s;
 	background-color: white;
 	position: fixed;
 	top; 0;
@@ -82,15 +82,11 @@ body {
 #title-image::after {
 	content: "* product may contain rectangles";
 	position: absolute;
-	bottom: 0;
+	bottom: 1em;
 	right: 3em;
 	font-style: italic;
 	font-family: Arial;
 }
-
-
-
-
 
 #floor {
 	width: 100%;
@@ -100,7 +96,7 @@ body {
 
 #overlay {
 	visibility: hidden;
-	background-color: rgba(0,0,0,0.1);
+	background-color: rgba(0,0,0,0.01);
 	position: fixed;
 	height: 100%;
 	width: 100%;
@@ -108,7 +104,7 @@ body {
 	top: 0;
 }
 
-.full-board #overlay {
+.selecting #overlay {
 	visibility: visible;
 }
 
@@ -136,17 +132,18 @@ body {
 	left: 0;
 }
 
-body[state="between-games"] #menu, 
-body[state="selecting"] #menu {
+.selecting #menu {
 	-webkit-transform: translateX(0);
 }
 
 #menu > div {
+	-webkit-overflow-scrolling: touch;
 	position: relative;
 	overflow-y: scroll;
 	width: 120%;
 	height: 100%;
 	left: -10%;
+	padding: 1em 0;
 }
 
 .menu-button {
@@ -175,17 +172,23 @@ body[state="selecting"] #menu {
 	color: black;
 }
 
-.menu-button.onover {
+.menu-button:not([moved]).onover {
 	box-shadow: 0 0 20px white;
 	cursor: pointer;
 }
 
+.show-title #menu-icon .menu-button,
+.full-board #menu-icon .menu-button {
+	-webkit-transform: scale(0.5) translateY(-300%);
+}
+
 #menu-icon .menu-button {
+	-webkit-transition: -webkit-transform 1s;
+	-webkit-transform: scale(0.5);
 	position: fixed;
 	left: -1em;
 	top: -2em;
 	border-width: 10px;
-	-webkit-transform: scale(0.5);
 }
 
 #backside,
@@ -204,7 +207,8 @@ body[state="selecting"] #menu {
 	top: 1em;
 }
 
-body[state="selecting"] #table,
+.show-title #table,
+.selecting #table,
 body[state="between-games"] #table,
 body[state="between-games"] #backside {
 	-webkit-transform: translateY(-200%);
@@ -217,6 +221,45 @@ body[state="between-games"] #backside {
 #backside {
 	-webkit-transform: rotateY(180deg);
 	background-size: cover;
+}
+
+@-webkit-keyframes focus-button-animation {
+	0% { -webkit-transform: scale(1); }
+	50% { -webkit-transform: scale(0.5); }
+	100% { -webkit-transform: scale(1); }
+}
+
+.focus-button {
+	-webkit-transition: opacity 1s ease, visibility 0s ease 1s;
+	-webkit-animation: focus-button-animation 3s ease infinite;
+	box-shadow: 0 0 5em red, 0 0 5em red, 0 0 5em red;
+	background: rgba(255,0,0,1);
+	border-radius: 10em;
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.show-next-focus .focus-button {
+	visibility: visible;
+	opacity: 1;
+}
+
+#next-focus {
+	margin-top: -50px;
+	left: 2em;
+	top: 50%;
+}
+
+#title-focus {
+	visibility: visible;
+	margin-left: -50px;
+	bottom: 4em;
+	opacity: 1;
+	left: 50%;
 }
 
 .img1 {
@@ -331,7 +374,8 @@ table tr td[ondrop]:last-child {
 	width: 100px;
 }
 
-body[state="selecting"] #stack,
+.show-title #stack,
+.selecting #stack,
 body[state="between-games"] #stack,
 .full-board #stack {
 	-webkit-transform: translateX(-300%);

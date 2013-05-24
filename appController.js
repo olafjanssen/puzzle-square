@@ -7,6 +7,7 @@ function AppController(userState){
 
 	var finisherListener = function(event){ 
 				levelMenu.render();
+				document.body.classList.remove("show-next-focus");
 				document.body.setAttribute("state", "between-games");
 				setTimeout(function(){
 					app.startLevel(app.level+1);
@@ -15,16 +16,16 @@ function AppController(userState){
 
 	var hideTitlePage = function(event) { 
 		document.body.classList.remove("show-title");
+		app.startLevel(parseInt(localStorage["level"])+1);
 	}			
 	
 	if (Modernizr.touch){
-		document.getElementById("overlay").addEventListener("touchstart", finisherListener, false);
-		document.getElementById("title").addEventListener("touchstart", hideTitlePage, false);
+		document.getElementById("next-focus").addEventListener("touchstart", finisherListener, false);
+		document.getElementById("title-focus").addEventListener("touchstart", hideTitlePage, false);
 	} else {
-		document.getElementById("overlay").addEventListener("mouseup", finisherListener, false);
-		document.getElementById("title").addEventListener("mouseup", hideTitlePage, false);
+		document.getElementById("next-focus").addEventListener("mouseup", finisherListener, false);
+		document.getElementById("title-focus").addEventListener("mouseup", hideTitlePage, false);
 	}
-	document.body.setAttribute("state", "selecting");
 }
 
 AppController.prototype.startNewGame = function(gameSettings) {
@@ -78,6 +79,9 @@ AppController.prototype.finishGame = function() {
 	}
 	setTimeout(function(){
 		document.body.classList.add("full-board");
+		setTimeout(function(){
+			document.body.classList.add("show-next-focus");
+		}, 1000);
 	}, 1000);
 }
 
@@ -86,12 +90,12 @@ AppController.prototype.getGameSettings = function() {
 }
 
 AppController.prototype.startLevel = function(level){
-	console.log("starting: " + level);
 	var gameSettings = levels["level"+level];
 	this.level = level;
 	this.startNewGame(gameSettings);
 	levelMenu.setCurrentLevel(level);	
 	document.body.setAttribute("state","playing");
+	document.body.classList.remove("selecting");
 }
 
 	

@@ -22,6 +22,7 @@
 	<div id="play-area">
 		<div id="table"></div>
 		<div id="stack"></div>
+		<div id="next-focus" class='focus-button'></div>
 		<div id="backside"></div>
 	</div>
 <div id="overlay">
@@ -34,20 +35,20 @@
 	<div id='title-image'></div>
 	<div class='title-message'>
 	</div>
+	<div id="title-focus" class='focus-button'></div>
 </div>
 <div id="splash">
 </div>
 
 	<script>
-
 		// localStorage.clear();
-		// localStorage["level"] = 3;
+		localStorage["level"] = 3;
 
 		// disable scrolling
 		function stopScrolling( touchEvent ) { touchEvent.preventDefault(); }
 		// document.addEventListener( 'touchstart' , stopScrolling , false );
-		document.addEventListener( 'touchmove' , stopScrolling , false );
-		document.addEventListener( 'click', stopScrolling, false);
+		// document.addEventListener( 'touchmove' , stopScrolling , false );
+		// document.addEventListener( 'click', stopScrolling, false);
 
 		// global (bad) shuffling method
 		function shuffle(o){ //v1.0
@@ -68,7 +69,7 @@
 		// start the app
 		var levelMenu = new LevelMenu();
 		var appController = new AppController(new State());
-		
+
 		document.body.onload = function(){
 			setTimeout(function(){
 				document.getElementById("splash").style.display = "none";

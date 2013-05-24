@@ -6,6 +6,13 @@ function LevelMenu(){
 		this.rotations[level] = parseInt(Math.random() * 11) - 5;
 	}
 	this.render();
+
+	if (Modernizr.touch){
+			document.getElementById("overlay").addEventListener("touchend", function(){ document.body.classList.remove("selecting"); }, false);
+	} else {
+			document.getElementById("overlay").addEventListener("mouseup", function(){ document.body.classList.remove("selecting"); }, false);
+	}
+
 }
 
 LevelMenu.prototype.render = function() {
@@ -31,7 +38,16 @@ LevelMenu.prototype.render = function() {
 		addOver(button);
 
 		if (Modernizr.touch){
-			button.addEventListener("touchend", function(){ appController.startLevel(parseInt(this.getAttribute("level"))); }, false);
+			button.addEventListener("touchend", function(){ 
+				if (this.getAttribute("moved") === undefined){
+					appController.startLevel(parseInt(this.getAttribute("level"))); 
+				} else {
+					this.removeAttribute("moved");
+				}
+			}, false);
+			button.addEventListener("touchmove", function(){ 
+				this.setAttribute("moved");
+			}, false);
 		} else {
 			button.addEventListener("mouseup", function(){ appController.startLevel(parseInt(this.getAttribute("level"))); }, false);
 		}
@@ -56,9 +72,9 @@ LevelMenu.prototype.setCurrentLevel = function(level) {
 	addOver(button);
 
 	if (Modernizr.touch){
-		button.addEventListener("touchend", function(){ document.body.setAttribute("state","selecting"); }, false);
+		button.addEventListener("touchend", function(){ document.body.classList.add("selecting"); }, false);
 	} else {
-		button.addEventListener("mouseup", function(){ document.body.setAttribute("state","selecting"); }, false);
+		button.addEventListener("mouseup", function(){ document.body.classList.add("selecting"); }, false);
 	}
 	element.appendChild(button);
 

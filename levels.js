@@ -6,6 +6,7 @@ var levels = {
 	level4: new GameSettings(deck1(), [4, 2], "one-border", "img4"),
 	level5: new GameSettings(deck1(), [4, 4], "one-border", "img5"),
 	level6: new GameSettings(deck1(), [2, 2], "two-borders", "img1"),
-	level7: new GameSettings(deck1(), [4, 4], "four-random", "img2") 
+	level7: new GameSettings(deck1(), [4, 4], "two-borders", "img2"),
+	level8: new GameSettings(deck1(), [4, 4], "four-random", "img3") 
 };
 
