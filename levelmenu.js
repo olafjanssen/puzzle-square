@@ -39,7 +39,7 @@ LevelMenu.prototype.render = function() {
 
 		if (Modernizr.touch){
 			button.addEventListener("touchend", function(){ 
-				if (this.getAttribute("moved") === undefined){
+				if (this.getAttribute("moved") == null){
 					appController.startLevel(parseInt(this.getAttribute("level"))); 
 				} else {
 					this.removeAttribute("moved");

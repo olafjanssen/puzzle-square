@@ -42,11 +42,13 @@
 
 	<script>
 		// localStorage.clear();
-		localStorage["level"] = 3;
+		localStorage["level"] = 7;
 
 		// disable scrolling
-		function stopScrolling( touchEvent ) { touchEvent.preventDefault(); }
-		// document.addEventListener( 'touchstart' , stopScrolling , false );
+		function stopScrolling( touchEvent ) { 
+			if (!document.body.classList.contains("selecting") || event.target == document.getElementById("overlay")) {touchEvent.preventDefault();} 
+		}
+		document.body.addEventListener( 'touchstart' , stopScrolling , false );
 		// document.addEventListener( 'touchmove' , stopScrolling , false );
 		// document.addEventListener( 'click', stopScrolling, false);
 
