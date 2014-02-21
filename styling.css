@@ -32,7 +32,7 @@ body {
 #splash {
 	background-color: white;
 	position: fixed;
-	top; 0;
+	top: 0;
 	left: 0;
 	height: 100%;
 	width: 100%;
@@ -54,13 +54,13 @@ body {
 #title {
 	-webkit-transition: opacity 0.25s ease, visibility 0s ease 0.25s;
 	background-color: white;
-	position: fixed;
-	top; 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	opacity: 0;
-	visibility: hidden;
+    visibility: hidden;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    left: 0;
+    top: 0;
 }
 
 .show-title #title {
@@ -263,23 +263,23 @@ body[state="between-games"] #backside {
 }
 
 .img1 {
-	background-image: url(images/image1.jpg);
+	background-image: url(images/levels/image1.jpg);
 }
 
 .img2 {
-	background-image: url(images/image2.jpg);
+	background-image: url(images/levels/image2.jpg);
 }
 
 .img3 {
-	background-image: url(images/image3.jpg);
+	background-image: url(images/levels/image3.jpg);
 }
 
 .img4 {
-	background-image: url(images/image4.jpg);
+	background-image: url(images/levels/image4.jpg);
 }
 
 .img5 {
-	background-image: url(images/image5.jpg);
+	background-image: url(images/levels/image5.jpg);
 }
 
 #backside > table {
@@ -366,7 +366,7 @@ table tr td[ondrop]:last-child {
 }
 
 .card {
-	background-image: url(deck1.png);
+	background-image: url(images/decks/deck1.png);
 	-webkit-box-sizing: border-box;	
 	display: inline-block;
 	background-size: 500%;
