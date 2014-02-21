@@ -39,13 +39,15 @@ function Grid(cols, rows, colTraitCards, rowTraitCards, stack, traitDirections){
 }
 
 Grid.prototype.render = function() {
-	var table = document.createElement("table");
+	var table = document.createElement("div");
 	table.setAttribute("cols", this.cols);
 	table.setAttribute("rows", this.rows);
 	for(var row=0;row<this.rows+2;row++){
-		var tr = document.createElement("tr");
 		for(var col=0;col<this.cols+2;col++){
-			var td = document.createElement("td");
+			var td = document.createElement("div");
+            td.classList.add("grid-cell");
+            td.style.width = (100/(this.cols+2)) + "%";
+            td.style.height = (100/(this.rows+2)) + "%";
 			// draw the cards
 			if (this.isDropPosition(col, row)) {
 				td.setAttribute("ondrop","");
@@ -56,10 +58,9 @@ Grid.prototype.render = function() {
 				var card = this.cards[col][row ].render();
 				td.appendChild(card);
 			}
-			tr.appendChild(td);
+            table.appendChild(td);
 		}
-		table.appendChild(tr);
-	}	
+	}
 	document.getElementById("table").innerHTML = "";
 	document.getElementById("table").appendChild(table);
 
