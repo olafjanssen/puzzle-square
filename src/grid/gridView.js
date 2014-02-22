@@ -58,9 +58,8 @@ var GridView = (function (eventBus) {
         if (row == rows + 1 && col > 0 && col <= cols && traitDirections[2] == 1) {
             return true;
         }
-        if (col == 0 && row > 0 && row <= rows && traitDirections[3] == 1) {
-            return true;
-        }
+        return col == 0 && row > 0 && row <= rows && traitDirections[3] == 1;
+
     }
 
     function getElement() {

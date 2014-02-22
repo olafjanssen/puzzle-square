@@ -13,7 +13,7 @@
     <script src='src/grid/gridView.js'></script>
     <script src='src/title/titlePresenter.js'></script>
     <script src="src/splash/splashPresenter.js"></script>
-	    <script src='src/state.js'></script>
+	<script src='src/state.js'></script>
 	<script src='src/appController.js'></script>
 	<script src="src/levelmenu.js"></script>
 
@@ -58,9 +58,10 @@
 
 		// global (bad) shuffling method
 		function shuffle(o){ //v1.0
-    		for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    		for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x) {
+            }
     		return o;
-		};
+		}
 
 		function addOver(element) {
 			if (Modernizr.touch) {

@@ -141,40 +141,22 @@ Grid.prototype.render = function() {
         	}
         }, false);
     }, false);
-}
-
-Grid.prototype.isDropPosition = function(col, row) {
-	if (col>0 && row>0 && col<=this.cols && row<=this.rows){
-		return true;
-	}
-	if (row==0 && col>0 && col<=this.cols && this.traitDirections[0]==1){
-		return true;
-	}
-	if (col==this.cols+1 && row>0 && row<=this.rows && this.traitDirections[1]==1){
-		return true;
-	}
-	if (row==this.rows+1 && col>0 && col<=this.cols && this.traitDirections[2]==1){
-		return true;
-	}
-	if (col==0 && row>0 && row<=this.rows && this.traitDirections[3]==1){
-		return true;
-	}
-}
+};
 
 Grid.prototype.setCard = function(col, row, card) {
 	this.cards[col][row] = card;
-}
+};
 
 Grid.prototype.dropCard = function(col, row) {
 	this.setCard(col, row, this.stack.shift());
 	this.render();
 	this.numberFilled++;
 	this.handleFullTable();
-}
+};
 
 Grid.prototype.validateCard = function(col, row) {
 	return this.validateCard(col, row, this.stack[0]);
-}
+};
 
 Grid.prototype.validateCard = function(col, row, card) {
 	if (row==0 && col>0 && col<=this.cols && this.traitDirections[0]==1){
@@ -212,7 +194,7 @@ Grid.prototype.validateCard = function(col, row, card) {
 		return true;
 	}
 	return false;
-}
+};
 
 Grid.prototype.fillCard = function(col, row) {
 	// find the card
@@ -228,11 +210,11 @@ Grid.prototype.fillCard = function(col, row) {
 			this.stack.splice(this.stack.indexOf(tempStack[card]),1);
 		}
 	}
-}
+};
 
 Grid.prototype.handleFullTable = function() {
 	if (this.stack.length > 0){
 		return;
 	}
 	appController.finishGame();
-}
+};

@@ -7,7 +7,7 @@ var TitlePresenter = (function (eventBus) {
 
     eventBus.subscribe(Messages.SPLASH_PAGE_FINISHED, function(){
         setVisibility(true);
-    })
+    });
 
     function setVisibility(isVisible){
         if (isVisible){

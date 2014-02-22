@@ -23,7 +23,7 @@ LevelMenu.prototype.render = function() {
 	} else {
 		maxLevel = parseInt(maxLevel);
 	}
-	var menuElement = document.getElementById("menu");
+//	var menuElement = document.getElementById("menu");
 	var container = document.createElement("div");
 	menu.innerHTML = "";
 	menu.appendChild(container);
@@ -56,7 +56,7 @@ LevelMenu.prototype.render = function() {
 	}
 	container.scrollTop = container.offsetHeight;
 
-}
+};
 
 LevelMenu.prototype.setCurrentLevel = function(level) {
 	var element = document.getElementById("menu-icon");
@@ -79,4 +79,4 @@ LevelMenu.prototype.setCurrentLevel = function(level) {
 	element.appendChild(button);
 
 	this.render();
-}
+};

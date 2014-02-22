@@ -9,7 +9,7 @@ var SplashPresenter = (function (eventBus) {
     setTimeout(function () {
         document.getElementById("splash").style.display = "none";
 
-        amplify.publish(Messages.SPLASH_PAGE_FINISHED);
+        eventBus.publish(Messages.SPLASH_PAGE_FINISHED);
     }, SPLASH_DELAY);
 
 }(amplify));

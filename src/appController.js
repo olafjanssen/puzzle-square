@@ -5,7 +5,7 @@ function AppController(userState){
 	this.level = 0;
 	var app = this;
 
-	var finisherListener = function(event){ 
+	var finisherListener = function(){
 				levelMenu.render();
 				document.body.classList.remove("show-next-focus");
 				document.body.setAttribute("state", "between-games");
@@ -14,10 +14,10 @@ function AppController(userState){
 				}, 2000);
 			};
 
-	var hideTitlePage = function(event) { 
+	var hideTitlePage = function() {
 		document.body.classList.remove("show-title");
 		app.startLevel(parseInt(localStorage["level"])+1);
-	}			
+	};
 	
 	if (Modernizr.touch){
 		document.getElementById("next-focus").addEventListener("touchstart", finisherListener, false);
@@ -76,7 +76,7 @@ AppController.prototype.startNewGame = function(gameSettings) {
 
 	document.getElementById("backside").className = "";
 	document.getElementById("backside").classList.add(gameSettings.imageClassName);
-}
+};
 
 AppController.prototype.finishGame = function() {
 	if (this.level > parseInt(localStorage["level"])){
@@ -88,7 +88,7 @@ AppController.prototype.finishGame = function() {
 			document.body.classList.add("show-next-focus");
 		}, 1000);
 	}, 1000);
-}
+};
 
 AppController.prototype.startLevel = function(level){
 	var gameSettings = levels["level"+level];
@@ -97,6 +97,6 @@ AppController.prototype.startLevel = function(level){
 	levelMenu.setCurrentLevel(level);	
 	document.body.setAttribute("state","playing");
 	document.body.classList.remove("selecting");
-}
+};
 
 	
