@@ -1,12 +1,17 @@
 <html>
 <head>
-	<script src='src/modernizr.js'></script>
-	<script src='src/card.js'></script>
+	<script src='requires/modernizr.js'></script>
+	<script src='requires/jquery-2.1.0.min.js'></script>
+    <script src='requires/amplify.min.js'></script>
+    <script src="src/common/messages.js"></script>
+    <script src='src/model/card.js'></script>
 	<script src='src/deck.js'></script>
 	<script src='src/decks.js'></script>
 	<script src='src/gameSettings.js'></script>
 	<script src='src/levels.js'></script>
-	<script src='src/grid/grid.js'></script>
+	<script src='src/grid/gridController.js'></script>
+    <script src='src/grid/gridView.js'></script>
+    <script src="src/splash/splashView.js"></script>
 	<script src='src/state.js'></script>
 	<script src='src/appController.js'></script>
 	<script src="src/levelmenu.js"></script>
@@ -49,8 +54,6 @@
 			if (!document.body.classList.contains("selecting") || event.target == document.getElementById("overlay")) {touchEvent.preventDefault();} 
 		}
 		document.body.addEventListener( 'touchstart' , stopScrolling , false );
-		// document.addEventListener( 'touchmove' , stopScrolling , false );
-		// document.addEventListener( 'click', stopScrolling, false);
 
 		// global (bad) shuffling method
 		function shuffle(o){ //v1.0
@@ -72,11 +75,6 @@
 		var levelMenu = new LevelMenu();
 		var appController = new AppController(new State());
 
-		document.body.onload = function(){
-			setTimeout(function(){
-				document.getElementById("splash").style.display = "none";
-			}, 3000);
-		}
 		document.body.classList.add("show-title");
 	</script>
 </body>
