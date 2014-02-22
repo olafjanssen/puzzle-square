@@ -39,30 +39,30 @@ function Grid(cols, rows, colTraitCards, rowTraitCards, stack, traitDirections){
 }
 
 Grid.prototype.render = function() {
-	var table = document.createElement("div");
-	table.setAttribute("cols", this.cols);
-	table.setAttribute("rows", this.rows);
-	for(var row=0;row<this.rows+2;row++){
-		for(var col=0;col<this.cols+2;col++){
-			var td = document.createElement("div");
-            td.classList.add("grid-cell");
-            td.style.width = (100/(this.cols+2)) + "%";
-            td.style.height = (100/(this.rows+2)) + "%";
-			// draw the cards
-			if (this.isDropPosition(col, row)) {
-				td.setAttribute("ondrop","");
-			}
-			td.setAttribute("col", col);
-			td.setAttribute("row", row);
-			if (!(this.cards[col][row] === undefined)) {
-				var card = this.cards[col][row ].render();
-				td.appendChild(card);
-			}
-            table.appendChild(td);
-		}
-	}
-	document.getElementById("table").innerHTML = "";
-	document.getElementById("table").appendChild(table);
+//	var table = document.createElement("div");
+//	table.setAttribute("cols", this.cols);
+//	table.setAttribute("rows", this.rows);
+//	for(var row=0;row<this.rows+2;row++){
+//		for(var col=0;col<this.cols+2;col++){
+//			var td = document.createElement("div");
+//            td.classList.add("grid-cell");
+//            td.style.width = (100/(this.cols+2)) + "%";
+//            td.style.height = (100/(this.rows+2)) + "%";
+//			// draw the cards
+//			if (this.isDropPosition(col, row)) {
+//				td.setAttribute("ondrop","");
+//			}
+//			td.setAttribute("col", col);
+//			td.setAttribute("row", row);
+//			if (!(this.cards[col][row] === undefined)) {
+//				var card = this.cards[col][row ].render();
+//				td.appendChild(card);
+//			}
+//            table.appendChild(td);
+//		}
+//	}
+//	document.getElementById("table").innerHTML = "";
+//	document.getElementById("table").appendChild(table);
 
 	// render the stack
 	document.getElementById("stack").innerHTML = "";
@@ -220,6 +220,10 @@ Grid.prototype.fillCard = function(col, row) {
 	for(var card=0;card<tempStack.length;card++) {
 		if(this.validateCard(col,row, tempStack[card])){
 			this.setCard(col, row, tempStack[card]);
+
+            // publish card dropped event
+            amplify.publish(Messages.CARD_DROPPED, {col: col, row: row, card: tempStack[card]});
+
 			// then remove it from the real stack
 			this.stack.splice(this.stack.indexOf(tempStack[card]),1);
 		}
