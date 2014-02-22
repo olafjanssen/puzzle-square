@@ -1,0 +1,37 @@
+#title {
+  -webkit-transition: opacity 0.25s ease, visibility 0s ease 0.25s;
+  background-color: white;
+  visibility: hidden;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  left: 0;
+  top: 0;
+}
+
+.show-title #title {
+  -webkit-transition: none;
+  visibility: visible;
+  opacity: 1;
+}
+
+#title-image {
+  background: url("../images/puzzlesquare.jpg") no-repeat;
+  background-size: 100%;
+  margin-left: -150px;
+  position: absolute;
+  height: 375px;
+  width: 300px;
+  left: 50%;
+  top: 3em;
+}
+
+#title-image::after {
+  content: "* product may contain rectangles";
+  position: absolute;
+  font-style: italic;
+  font-family: Arial;
+  bottom: 1em;
+  right: 3em;
+}

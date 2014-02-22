@@ -5,14 +5,15 @@
     <script src='requires/amplify.min.js'></script>
     <script src="src/common/messages.js"></script>
     <script src='src/model/card.js'></script>
-	<script src='src/deck.js'></script>
+	<script src='src/model/deck.js'></script>
 	<script src='src/decks.js'></script>
 	<script src='src/gameSettings.js'></script>
 	<script src='src/levels.js'></script>
 	<script src='src/grid/gridController.js'></script>
     <script src='src/grid/gridView.js'></script>
-    <script src="src/splash/splashView.js"></script>
-	<script src='src/state.js'></script>
+    <script src='src/title/titlePresenter.js'></script>
+    <script src="src/splash/splashPresenter.js"></script>
+	    <script src='src/state.js'></script>
 	<script src='src/appController.js'></script>
 	<script src="src/levelmenu.js"></script>
 
@@ -75,7 +76,6 @@
 		var levelMenu = new LevelMenu();
 		var appController = new AppController(new State());
 
-		document.body.classList.add("show-title");
 	</script>
 </body>
 </html>

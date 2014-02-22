@@ -29,65 +29,6 @@ body {
   100% {opacity: 0; }
 }
 
-#splash {
-  background-color: white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-}
-
-#splash::after {
-  -webkit-animation: splash-animation 3s ease 1 both;
-  background: url(../images/flurryflakes.png) no-repeat 50% 50%;
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* title page */
-
-#title {
-  -webkit-transition: opacity 0.25s ease, visibility 0s ease 0.25s;
-  background-color: white;
-  visibility: hidden;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  left: 0;
-  top: 0;
-}
-
-.show-title #title {
-  opacity: 1;
-  visibility: visible;
-}
-
-#title-image {
-  position: absolute;
-  background: url("../images/puzzlesquare.jpg") no-repeat;
-  background-size: 100%;
-  width: 300px;
-  height: 375px;
-  top: 3em;
-  left: 50%;
-  margin-left: -150px;
-}
-
-#title-image::after {
-  content: "* product may contain rectangles";
-  position: absolute;
-  bottom: 1em;
-  right: 3em;
-  font-style: italic;
-  font-family: Arial;
-}
-
 #floor {
   width: 100%;
   height: 100%;
@@ -372,3 +313,5 @@ body[state="between-games"] #stack,
 }
 
 @import "grid/grid";
+@import "splash/splash";
+@import "title/title.less";
