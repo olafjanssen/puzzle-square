@@ -64,9 +64,6 @@ Grid.prototype.render = function() {
 	document.getElementById("table").innerHTML = "";
 	document.getElementById("table").appendChild(table);
 
-	table.style.marginLeft = (-table.clientWidth/2) + "px";
-	table.style.marginTop = (-table.clientHeight/2) + "px";
-
 	// render the stack
 	document.getElementById("stack").innerHTML = "";
 	if (this.stack.length==0){
