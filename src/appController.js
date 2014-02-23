@@ -14,11 +14,6 @@ function AppController(userState){
 				}, 2000);
 			};
 
-//	var hideTitlePage = function() {
-//		document.body.classList.remove("show-title");
-//		app.startLevel(parseInt(localStorage["level"])+1);
-//	};
-	
 	if (Modernizr.touch){
 		document.getElementById("next-focus").addEventListener("touchstart", finisherListener, false);
 	} else {

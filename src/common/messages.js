@@ -13,7 +13,11 @@ var Messages = {
     NEW_STACK_CREATED: "new-stack-created",
     NEW_TRAITS_CHOSEN: "new-traits-chosen",
 
+    NEW_PLAYABLE_CARD: "new-playable-card",
+
     CARD_DROPPED: "card-dropped",
+    CARD_DROP_ATTEMPTED: "card-drop-attempted",
+    CARD_DROP_REFUSED: "card-drop-refused",
     POSITION_FILLED: "position-filled"
     
 };
