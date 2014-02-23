@@ -11,7 +11,6 @@ var GridController = (function (eventBus) {
     });
 
     eventBus.subscribe(Messages.NEW_TRAITS_CHOSEN, function (data) {
-        console.log(data);
         colTraitCards = data[0];
         rowTraitCards = data[1];
     });

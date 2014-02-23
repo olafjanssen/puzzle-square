@@ -14,17 +14,15 @@ function AppController(userState){
 				}, 2000);
 			};
 
-	var hideTitlePage = function() {
-		document.body.classList.remove("show-title");
-		app.startLevel(parseInt(localStorage["level"])+1);
-	};
+//	var hideTitlePage = function() {
+//		document.body.classList.remove("show-title");
+//		app.startLevel(parseInt(localStorage["level"])+1);
+//	};
 	
 	if (Modernizr.touch){
 		document.getElementById("next-focus").addEventListener("touchstart", finisherListener, false);
-		document.getElementById("title-focus").addEventListener("touchstart", hideTitlePage, false);
 	} else {
 		document.getElementById("next-focus").addEventListener("mouseup", finisherListener, false);
-		document.getElementById("title-focus").addEventListener("mouseup", hideTitlePage, false);
 	}
 }
 
