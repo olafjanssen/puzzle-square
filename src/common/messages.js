@@ -8,5 +8,10 @@ var Messages = {
 
     // game updates
     NEW_GAME_STARTED: "new-game-started",
-    CARD_DROPPED: "card-dropped"
+    NEW_GRID_NEEDED: "new-grid-needed",
+
+    NEW_STACK_CREATED: "new-stack-created",
+
+    CARD_DROPPED: "card-dropped",
+    POSITION_FILLED: "position-filled"
 };
