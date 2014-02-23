@@ -26,13 +26,10 @@ var GridController = (function (eventBus) {
         } else if (row == 0 || row == rows + 1) {
             eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: colTraitCards[col - 1]});
         } else {
-            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: new Card([colTraitCards[col - 1], rowTraitCards[row - 1]])});
+            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: rowTraitCards[row -1].withMergedCard(colTraitCards[col-1])});
         }
     }
 }(amplify));
-
-
-
 
 
 function Grid(cols, rows, colTraitCards, rowTraitCards, stack, traitDirections) {

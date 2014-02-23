@@ -70,9 +70,9 @@ var GameFactory = (function (eventBus) {
         for (var row = 0; row < size[1]; row++) {
             rowList.push(row);
         }
-        rowList = shuffle(rowList);
-        for (var col = 0; col < 5; col++) {
-            eventBus.publish(Messages.POSITION_FILLED, {col: size[0] + 1, row: rowList[col] + 1});
+        rowList = shuffle(rowList.concat());
+        for (var col = 0; col < size[0]; col++) {
+            eventBus.publish(Messages.POSITION_FILLED, {col: col + 1, row: rowList[col] + 1});
         }
     }
 

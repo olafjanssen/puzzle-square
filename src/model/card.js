@@ -4,6 +4,14 @@ function Card(traits){
 	this.traits = traits;
 } 
 
+Card.prototype.withMergedCard = function(card){
+    var newCard = new Card(this.traits);
+    for (var trait in card.traits) {
+        newCard.traits[trait] = card.traits[trait];
+    }
+    return newCard;
+}
+
 /*
 	Does the card have the given trait?
 	@param key	the trait key name
