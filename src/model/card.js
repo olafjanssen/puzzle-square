@@ -10,7 +10,7 @@ Card.prototype.withMergedCard = function (card) {
         newCard.traits[trait] = card.traits[trait];
     }
     return newCard;
-}
+};
 
 Card.prototype.equals = function (card) {
     for (var trait in card.traits) {
@@ -24,7 +24,7 @@ Card.prototype.equals = function (card) {
         }
     }
     return true;
-}
+};
 
 /*
  Does the card have the given trait?
