@@ -6,7 +6,7 @@
 
 var GridView = (function (eventBus) {
 
-    eventBus.subscribe(Messages.NEW_GAME_STARTED, function (data) {
+    eventBus.subscribe(Messages.NEW_GRID_NEEDED, function (data) {
         render(data.cols, data.rows, data.traitDirections);
     });
 

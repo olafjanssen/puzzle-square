@@ -11,7 +11,9 @@ var Messages = {
     NEW_GRID_NEEDED: "new-grid-needed",
 
     NEW_STACK_CREATED: "new-stack-created",
+    NEW_TRAITS_CHOSEN: "new-traits-chosen",
 
     CARD_DROPPED: "card-dropped",
     POSITION_FILLED: "position-filled"
+    
 };

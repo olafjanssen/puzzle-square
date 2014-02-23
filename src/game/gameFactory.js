@@ -9,9 +9,6 @@ var GameFactory = (function (eventBus) {
     });
 
     function createNewGame(gameSettings) {
-        var deck = gameSettings.deck;
-        var traitsMap = shuffle(deck.traitCardMap);
-
         switch (gameSettings.setupType) {
             case SetupType.ONE_BORDER:
                 setUpOneBorder(gameSettings);
@@ -30,6 +27,11 @@ var GameFactory = (function (eventBus) {
     }
 
     function setUpOneBorder(gameSettings) {
+        var allCards = gameSettings.deck.playCards.concat(gameSettings.deck.traitCardMap[0]);
+        eventBus.publish(Messages.NEW_STACK_CREATED, shuffle(allCards));
+
+        eventBus.publish(Messages.NEW_TRAITS_CHOSEN, shuffle(gameSettings.deck.traitCardMap));
+
         var size = gameSettings.gridSize;
         eventBus.publish(Messages.NEW_GRID_NEEDED, {cols: size[0], rows: size[1], traitDirections: [1, 0, 0, 0]});
 
@@ -39,6 +41,11 @@ var GameFactory = (function (eventBus) {
     }
 
     function setUpTwoBorders(gameSettings) {
+        var allCards = gameSettings.deck.playCards.concat(gameSettings.deck.traitCardMap[0]).concat(gameSettings.deck.traitCardMap[1]);
+        eventBus.publish(Messages.NEW_STACK_CREATED, shuffle(allCards));
+
+        eventBus.publish(Messages.NEW_TRAITS_CHOSEN, shuffle(gameSettings.deck.traitCardMap));
+
         var size = gameSettings.gridSize;
         eventBus.publish(Messages.NEW_GRID_NEEDED, {cols: size[0], rows: size[1], traitDirections: [1, 1, 0, 0]});
 
@@ -51,6 +58,11 @@ var GameFactory = (function (eventBus) {
     }
 
     function setUpFourRandom(gameSettings) {
+        var allCards = gameSettings.deck.playCards.concat(gameSettings.deck.traitCardMap[0]).concat(gameSettings.deck.traitCardMap[1]);
+        eventBus.publish(Messages.NEW_STACK_CREATED, shuffle(allCards));
+
+        eventBus.publish(Messages.NEW_TRAITS_CHOSEN, shuffle(gameSettings.deck.traitCardMap));
+
         var size = gameSettings.gridSize;
         eventBus.publish(Messages.NEW_GRID_NEEDED, {cols: size[0], rows: size[1], traitDirections: [1, 1, 0, 0]});
 
@@ -65,6 +77,11 @@ var GameFactory = (function (eventBus) {
     }
 
     function setUpTraitsOnly(gameSettings) {
+        var allCards = gameSettings.deck.playCards.concat(gameSettings.deck.traitCardMap[0]).concat(gameSettings.deck.traitCardMap[1]);
+        eventBus.publish(Messages.NEW_STACK_CREATED, shuffle(allCards));
+
+        eventBus.publish(Messages.NEW_TRAITS_CHOSEN, shuffle(gameSettings.deck.traitCardMap));
+
         var size = gameSettings.gridSize;
         eventBus.publish(Messages.NEW_GRID_NEEDED, {cols: size[0], rows: size[1], traitDirections: [1, 1, 0, 0]});
 
