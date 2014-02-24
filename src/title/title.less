@@ -1,19 +1,17 @@
 #title {
-  -webkit-transition: opacity 0.25s ease, visibility 0s ease 0.25s;
+  -webkit-transition: -webkit-transform 0.25s ease;
+  -webkit-transform: translate3d(0, 100%, 0);
   background-color: white;
-  visibility: hidden;
   position: fixed;
   height: 100%;
   width: 100%;
-  opacity: 0;
   left: 0;
   top: 0;
 }
 
 .show-title #title {
   -webkit-transition: none;
-  visibility: visible;
-  opacity: 1;
+  -webkit-transform: none;
 }
 
 #title-image {

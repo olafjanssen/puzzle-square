@@ -2,7 +2,7 @@
  * Created by olafjanssen on 24/02/14.
  */
 
-var LayoutManager = (function(eventBus){
+var LayoutManager = (function (eventBus) {
 
     eventBus.subscribe(Messages.NEW_GRID_NEEDED, function (data) {
         this.cols = data.cols;
@@ -49,6 +49,12 @@ var LayoutManager = (function(eventBus){
         style.height = h + "px";
         style.marginTop = (-mh / 2) + "px";
         style.marginRight = (-mw / 2) + "px";
+
+        var stackStyle = document.getElementById("stack").style;
+        stackStyle.width = (w / (this.cols + 2)) + "px";
+        stackStyle.height = (h / (this.rows + 2)) + "px";
+        stackStyle.marginTop = (clientRatio < gridRatio ? (h / 2) - ((w / (this.cols + 2)) / 2) : -(w / (this.cols + 2)) / 2) + "px";
+        stackStyle.marginRight = (clientRatio >= gridRatio ? (w / 2) - ((h / (this.rows + 2)) / 2) : -(h / (this.rows + 2)) / 2) + "px";
     }
 
 }(amplify));
