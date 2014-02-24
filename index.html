@@ -30,7 +30,7 @@
 <body>
 <div id="floor">
 	<div id="play-area">
-		<div id="table"></div>
+		<div id="grid"></div>
 		<div id="stack"></div>
 		<div id="next-focus" class='focus-button'></div>
 		<div id="backside"></div>
@@ -79,10 +79,11 @@
 
 		// start the app
 		var levelMenu = new LevelMenu();
-//		var appController = new AppController(new State());
 
-        amplify.publish(Messages.NEW_GAME_STARTED, levels.level7);
-
+        $(document).ready(function() {
+            amplify.publish(Messages.UI_READY);
+            amplify.publish(Messages.NEW_GAME_STARTED, levels.level7);
+        });
 	</script>
 </body>
 </html>

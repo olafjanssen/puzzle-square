@@ -4,6 +4,7 @@
 
 var Messages = {
     // ui changes
+    UI_READY: "ui-ready",
     SPLASH_PAGE_FINISHED: "splash-page-finished",
 
     // game updates
