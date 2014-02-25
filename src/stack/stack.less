@@ -1,0 +1,22 @@
+#stack {
+  position: absolute;
+  right: 50%;
+  top: 50%;
+
+  & > .card {
+    background-color: white;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    &.during-drag {
+      -webkit-transform: scale(1.5);
+      -webkit-transition: -webkit-transform 0.5s ease;
+    }
+
+    &.animate-dnd {
+      -webkit-transition: all 0.5s ease;
+    }
+  }
+}
+

@@ -180,28 +180,12 @@ body {
   -webkit-transform: rotateY(360deg);
 }
 
-#stack {
-  position: absolute;
-  right: 50%;
-  top: 50%;
-}
-
-#stack > .card {
-  background-color: white;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
-
-.animate-dnd {
-  -webkit-transition: all 0.5s ease;
-}
-
 .card {
-  background-image: url(../images/decks/deck1.png);
+  background: url(../images/decks/deck1.png);
   -webkit-box-sizing: border-box;
   display: block;
   background-size: 500%;
+  position: relative;
 }
 
 //.show-title #stack,
@@ -211,11 +195,6 @@ body {
 //  -webkit-transform: translateX(-300%);
 //  opacity: 0;
 //}
-
-.card.during-drag {
-  -webkit-transform: scale(1.5);
-  -webkit-transition: -webkit-transform 0.5s ease;
-}
 
 /* deck 1 */
 .card[color=yellow] {
@@ -253,3 +232,4 @@ body {
 @import "grid/grid";
 @import "splash/splash";
 @import "title/title.less";
+@import "stack/stack";
