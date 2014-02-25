@@ -26,7 +26,7 @@
 	<link rel="stylesheet" type="text/css" href="src/puzzlesquare.css">
 
 	<meta name="apple-mobile-web-app-capable" content="yes" /> 
-	<meta name="viewport" content = "width = device-width, initial-scale = 1, user-scalable = no" />  
+	<meta name="viewport" content="width = device-width, initial-scale = 1, user-scalable = no" />
 
 </head>
 <body>
@@ -37,7 +37,6 @@
 		<div id="next-focus" class='focus-button'></div>
 		<div id="backside"></div>
 	</div>
-<div id="overlay">
 </div>
 </div>
 <div id="menu-icon"></div>
@@ -58,7 +57,7 @@
 
 		// disable scrolling
 		function stopScrolling( touchEvent ) { 
-			if (!document.body.classList.contains("selecting") || event.target == document.getElementById("overlay")) {touchEvent.preventDefault();} 
+			if (!document.body.classList.contains("selecting")) {touchEvent.preventDefault();}
 		}
 		document.body.addEventListener( 'touchstart' , stopScrolling , false );
 

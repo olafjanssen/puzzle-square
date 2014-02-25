@@ -35,20 +35,6 @@ body {
   position: fixed;
 }
 
-#overlay {
-  visibility: hidden;
-  background-color: rgba(0,0,0,0.01);
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-}
-
-.selecting #overlay {
-  visibility: visible;
-}
-
 #play-area {
 }
 
@@ -218,13 +204,13 @@ body {
   background-size: 500%;
 }
 
-.show-title #stack,
-.selecting #stack,
-body[state="between-games"] #stack,
-.full-board #stack {
-  -webkit-transform: translateX(-300%);
-  opacity: 0;
-}
+//.show-title #stack,
+//.selecting #stack,
+//body[state="between-games"] #stack,
+//.full-board #stack {
+//  -webkit-transform: translateX(-300%);
+//  opacity: 0;
+//}
 
 .card.during-drag {
   -webkit-transform: scale(1.5);

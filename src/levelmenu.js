@@ -6,13 +6,6 @@ function LevelMenu(){
 		this.rotations[level] = parseInt(Math.random() * 11) - 5;
 	}
 	this.render();
-
-	if (Modernizr.touch){
-			document.getElementById("overlay").addEventListener("touchend", function(){ document.body.classList.remove("selecting"); }, false);
-	} else {
-			document.getElementById("overlay").addEventListener("mouseup", function(){ document.body.classList.remove("selecting"); }, false);
-	}
-
 }
 
 LevelMenu.prototype.render = function() {
