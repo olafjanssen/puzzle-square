@@ -26,43 +26,27 @@ var GridView = (function (eventBus) {
         this.rows = rows;
 
         var grid = document.createElement("div");
-        grid.setAttribute("cols", cols);
-        grid.setAttribute("rows", rows);
-        for (var row = 0; row < rows + 2; row++) {
-            for (var col = 0; col < cols + 2; col++) {
-                var td = document.createElement("div");
-                td.classList.add("grid-cell");
-                td.style.width = (100 / (cols + 2)) + "%";
-                td.style.height = (100 / (rows + 2)) + "%";
-                // draw the cards
-                if (isDropPosition(col, row, cols, rows, traitDirections)) {
-                    td.setAttribute("ondrop", "");
-                }
-                td.setAttribute("col", col);
-                td.setAttribute("row", row);
-                grid.appendChild(td);
+        var cellWidth = (100 / (cols + traitDirections[1] + traitDirections[3])) + "%";
+        var cellHeight = (100 / (rows + traitDirections[0] + traitDirections[2])) + "%";
+
+        for (var row = -traitDirections[0]; row < rows + traitDirections[2]; row++) {
+            for (var col = -traitDirections[3]; col < cols + traitDirections[1]; col++) {
+                grid.appendChild(createNewGridCellElement(cellWidth, cellHeight, col, row));
             }
         }
         getElement().innerHTML = "";
         getElement().appendChild(grid);
     }
 
-    // checks whether the position in the grid is a drop position (or a border position)
-    function isDropPosition(col, row, cols, rows, traitDirections) {
-        if (col > 0 && row > 0 && col <= cols && row <= rows) {
-            return true;
-        }
-        if (row == 0 && col > 0 && col <= cols && traitDirections[0] == 1) {
-            return true;
-        }
-        if (col == cols + 1 && row > 0 && row <= rows && traitDirections[1] == 1) {
-            return true;
-        }
-        if (row == rows + 1 && col > 0 && col <= cols && traitDirections[2] == 1) {
-            return true;
-        }
-        return col == 0 && row > 0 && row <= rows && traitDirections[3] == 1;
-
+    function createNewGridCellElement(width, height, col, row) {
+        var cell = document.createElement("div");
+        cell.classList.add("grid-cell");
+        cell.style.width = width;
+        cell.style.height = height;
+        cell.setAttribute("ondrop", "");
+        cell.setAttribute("col", col);
+        cell.setAttribute("row", row);
+        return cell;
     }
 
     function getElement() {

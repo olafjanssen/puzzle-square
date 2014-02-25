@@ -24,12 +24,12 @@ var GridController = (function (eventBus) {
     });
 
     function fillPosition(col, row) {
-        if (col == 0 || col == cols + 1) {
-            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: rowTraitCards[row - 1]});
-        } else if (row == 0 || row == rows + 1) {
-            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: colTraitCards[col - 1]});
+        if (col == -1 || col == cols) {
+            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: rowTraitCards[row]});
+        } else if (row == -1 || row == rows) {
+            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: colTraitCards[col]});
         } else {
-            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: rowTraitCards[row - 1].withMergedCard(colTraitCards[col - 1])});
+            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: rowTraitCards[row].withMergedCard(colTraitCards[col])});
         }
     }
 
@@ -42,12 +42,12 @@ var GridController = (function (eventBus) {
     }
 
     function validateCard(col, row, card) {
-        if (col == 0 || col == cols + 1) {
-            return card.equals(rowTraitCards[row - 1]);
-        } else if (row == 0 || row == rows + 1) {
-            return card.equals(colTraitCards[col - 1]);
+        if (col == -1 || col == cols) {
+            return card.equals(rowTraitCards[row]);
+        } else if (row == -1 || row == rows) {
+            return card.equals(colTraitCards[col]);
         } else {
-            return card.equals(rowTraitCards[row - 1].withMergedCard(colTraitCards[col - 1]));
+            return card.equals(rowTraitCards[row].withMergedCard(colTraitCards[col]));
         }
     }
 
