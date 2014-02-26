@@ -3,9 +3,20 @@
   transform: @arg;
 }
 
+.transition(@arg) {
+  -webkit-transition: @arg;
+  -moz-transition: @arg;
+  transition: @arg;
+}
+
+.transform-transition(@arg) {
+  -webkit-transition: -webkit-transform @arg;
+  -moz-transition: -moz-transform @arg;
+  transition: transform @arg;
+}
+
 .animation(@arg) {
   -webkit-animation: @arg;
   -moz-animation: @arg;
-  -ms-animation: @arg;
   animation: @arg;
 }

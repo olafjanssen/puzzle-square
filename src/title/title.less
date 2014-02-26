@@ -1,6 +1,6 @@
 #title {
-  -webkit-transition: -webkit-transform 0.25s ease;
-  -webkit-transform: translate3d(0, 100%, 0);
+  .transform-transition(0.25s ease);
+  .transform(translate3d(0, 100%, 0));
 
   background-color: white;
   position: fixed;
@@ -11,8 +11,8 @@
 }
 
 .show-title #title {
-  -webkit-transition: none;
-  -webkit-transform: none;
+  .transition(none);
+  .transform(none);
 }
 
 #title-image {
