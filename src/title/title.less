@@ -1,6 +1,7 @@
 #title {
   -webkit-transition: -webkit-transform 0.25s ease;
   -webkit-transform: translate3d(0, 100%, 0);
+
   background-color: white;
   position: fixed;
   height: 100%;
@@ -16,13 +17,13 @@
 
 #title-image {
   background: url("../images/puzzlesquare.jpg") no-repeat;
-  background-size: 100%;
-  margin-left: -150px;
+  background-position: center;
+  background-size: contain;
   position: absolute;
-  height: 375px;
-  width: 300px;
-  left: 50%;
-  top: 3em;
+  height: 50%;
+  width: 100%;
+  left: 0;
+  top: 0;
 }
 
 #title-image::after {
@@ -30,6 +31,18 @@
   position: absolute;
   font-style: italic;
   font-family: Arial;
-  bottom: 1em;
-  right: 3em;
+  text-align: center;
+  bottom: -1em;
+  width: 100%;
+  right: 0;
+}
+
+#title-focus {
+  visibility: visible;
+  margin-left: -12.5%;
+  bottom: 12.5%;
+  height: 25%;
+  width: 25%;
+  opacity: 1;
+  left: 50%;
 }
