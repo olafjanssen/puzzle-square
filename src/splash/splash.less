@@ -7,8 +7,7 @@
   width: 100%;
 }
 
-#splash::after {
-  .animation(splash-animation 3s ease 1 both);
+#splash-image {
   background: url(../images/flurryflakes.png) no-repeat 50% 50%;
   background-size: 50%;
   position: absolute;
@@ -17,32 +16,4 @@
   content: "";
   left: 0;
   top: 0;
-}
-
-@-webkit-keyframes splash-animation {
-  0% { opacity: 0; }
-  25% {opacity: 1; }
-  75% {opacity: 1; }
-  100% {opacity: 0; }
-}
-
-@-moz-keyframes splash-animation {
-  0% { opacity: 0; }
-  25% {opacity: 1; }
-  75% {opacity: 1; }
-  100% {opacity: 0; }
-}
-
-@-ms-keyframes splash-animation {
-  0% { opacity: 0; }
-  25% {opacity: 1; }
-  75% {opacity: 1; }
-  100% {opacity: 0; }
-}
-
-@keyframes splash-animation {
-  0% { opacity: 0; }
-  25% {opacity: 1; }
-  75% {opacity: 1; }
-  100% {opacity: 0; }
 }

@@ -2,29 +2,17 @@
  * Created by olafjanssen on 22/02/14.
  */
 
+var TitlePresenter = (function (eventBus, $) {
 
-var TitlePresenter = (function (eventBus) {
+    var TITLE_CONTAINER = "#title";
+    var START_BUTTON = "#title-focus";
 
     eventBus.subscribe(Messages.SPLASH_PAGE_FINISHED, function () {
-        setVisibility(true);
 
-        if (Modernizr.touch) {
-            document.getElementById("title-focus").addEventListener("touchstart", function () {
-                setVisibility(false)
-            }, false);
-        } else {
-            document.getElementById("title-focus").addEventListener("mouseup", function () {
-                setVisibility(false)
-            }, false);
-        }
+        $(START_BUTTON).click(function(){
+            $(TITLE_CONTAINER).fadeOut();
+        });
+
     });
 
-    function setVisibility(isVisible) {
-        if (isVisible) {
-            document.body.classList.add("show-title");
-        } else {
-            document.body.classList.remove("show-title");
-        }
-    }
-
-}(amplify));
+}(amplify, $));
