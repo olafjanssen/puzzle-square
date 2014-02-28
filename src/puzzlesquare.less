@@ -10,8 +10,8 @@ body * {
 }
 
 body {
-  background-color: lightblue;
   -webkit-perspective: 1000;
+  background-color: #fff;
   padding: 0;
   margin: 0;
 }
@@ -36,7 +36,8 @@ body {
 #menu {
   -webkit-transition: -webkit-transform 1s ease;
   -webkit-transform: translateX(-100%);
-  border-right: 0.5em solid #222;	background-color: #333;
+  border-right: 0.5em solid #222;
+  background-color: #333;
   box-shadow: 0 0 1em black;
   text-align: center;
   overflow: hidden;
@@ -168,11 +169,13 @@ body {
 }
 
 .card {
-  background: url(../images/decks/deck1.png);
+  background-image: url(../images/decks/deck1.png);
+  background-color: #ddd;
   -webkit-box-sizing: border-box;
-  display: block;
   background-size: 500%;
+  border-radius: 0.5em;
   position: relative;
+  display: block;
 }
 
 //.show-title #stack,
