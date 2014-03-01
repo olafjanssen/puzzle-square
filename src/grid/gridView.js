@@ -25,7 +25,7 @@ var GridView = (function (eventBus) {
         this.cols = cols;
         this.rows = rows;
 
-        var grid = document.createElement("div");
+        var grid = document.createDocumentFragment();
         var cellWidth = (100 / (cols + traitDirections[1] + traitDirections[3])) + "%";
         var cellHeight = (100 / (rows + traitDirections[0] + traitDirections[2])) + "%";
 

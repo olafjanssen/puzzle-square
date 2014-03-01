@@ -22,29 +22,29 @@ var LayoutManager = (function (eventBus) {
     function updateLayout() {
         var ac = this.traitDirections[1] + this.traitDirections[3];
         var ar = this.traitDirections[0] + this.traitDirections[2];
-
+        
         var gridRatio = (this.cols + ac) / (this.rows + ar);
-        var clientRatio = document.body.clientWidth / document.body.clientHeight;
+        var clientRatio = window.innerWidth / window.innerHeight;
 
         var w, h, mw, mh;
         if (clientRatio < gridRatio) {
-            mw = w = 0.9 * document.body.clientWidth;
-            if (gridRatio * w * (this.cols + ac + 2) / (this.cols + ac) < document.body.clientHeight) {
+            mw = w = 0.9 * window.innerWidth;
+            if (gridRatio * w * (this.cols + ac + 2) / (this.cols + ac) < window.innerHeight) {
                 h = gridRatio * w;
                 mh = gridRatio * w * (this.cols + ac + 2) / (this.cols + ac);
             } else {
-                h = 0.9 * document.body.clientHeight * (this.cols + ac) / (this.cols + ac + 2);
-                mh = 0.9 * document.body.clientHeight;
+                h = 0.9 * window.innerHeight * (this.cols + ac) / (this.cols + ac + 2);
+                mh = 0.9 * window.innerHeight;
                 mw = w = gridRatio * h;
             }
         } else {
-            mh = h = 0.9 * document.body.clientHeight;
-            if (gridRatio * h * (this.rows + ar+2) / (this.rows + ar) < document.body.clientWidth) {
+            mh = h = 0.9 * window.innerHeight;
+            if (gridRatio * h * (this.rows + ar+2) / (this.rows + ar) < window.innerWidth) {
                 w = gridRatio * h;
                 mw = gridRatio * w * (this.rows + ar + 2) / (this.rows + ar);
             } else {
-                w = 0.9 * document.body.clientWidth * (this.rows + ar) / (this.rows + ar + 2);
-                mw = 0.9 * document.body.clientWidth;
+                w = 0.9 * window.innerWidth * (this.rows + ar) / (this.rows + ar + 2);
+                mw = 0.9 * window.innerWidth;
                 mh = h = gridRatio * w;
             }
         }

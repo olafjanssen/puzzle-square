@@ -1,17 +1,23 @@
+<!DOCTYPE HTML>
 <html>
 <head>
-	<script src='requires/modernizr.js'></script>
-	<script src='requires/jquery-2.1.0.min.js'></script>
+    <title>Puzzle Square</title>
+    <meta charset="utf-8">
+    <!--<meta name="apple-mobile-web-app-capable" content="yes"/>-->
+    <meta name="viewport" content="width = device-width, initial-scale = 1, user-scalable = no"/>
+
+    <script src='requires/modernizr.js'></script>
+    <script src='requires/jquery-2.1.0.min.js'></script>
     <script src='requires/amplify.min.js'></script>
     <script src="src/common/messages.js"></script>
 
     <script src='src/model/card.js'></script>
-	<script src='src/model/deck.js'></script>
-	<script src='src/model/decks.js'></script>
-	<script src='src/layout/layout.js'></script>
+    <script src='src/model/deck.js'></script>
+    <script src='src/model/decks.js'></script>
+    <script src='src/layout/layout.js'></script>
     <script src='src/gameSettings.js'></script>
     <script src='src/game/gameFactory.js'></script>
-	<script src='src/model/levels.js'></script>
+    <script src='src/model/levels.js'></script>
     <script src="src/model/setupType.js"></script>
     <script src='src/grid/gridController.js'></script>
     <script src='src/grid/gridView.js'></script>
@@ -23,69 +29,67 @@
     <script src='src/appController.js'></script>
     <script src="src/levelmenu.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="src/puzzlesquare.css">
+    <link rel="stylesheet" type="text/css" href="src/puzzlesquare.css">
 
-	<meta name="apple-mobile-web-app-capable" content="yes" /> 
-	<meta name="viewport" content="width = device-width, initial-scale = 1, user-scalable = no" />
+    <script>
+        // disable scrolling
+        function stopScrolling(touchEvent) {
+            if (!document.body.classList.contains("selecting")) {
+                touchEvent.preventDefault();
+            }
+        }
+
+        // global (bad) shuffling method
+        function shuffle(o) { //v1.0
+            for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x) {
+            }
+            return o;
+        }
+
+        function addOver(element) {
+            if (Modernizr.touch) {
+                element.addEventListener("touchstart", function () {
+                    element.classList.add("onover")
+                }, false);
+                element.addEventListener("touchend", function () {
+                    element.classList.remove("onover")
+                }, false);
+            } else {
+                element.addEventListener("mouseover", function () {
+                    element.classList.add("onover")
+                }, false);
+                element.addEventListener("mouseout", function () {
+                    element.classList.remove("onover")
+                }, false);
+            }
+        }
+
+        // start the app
+        $(document).ready(function () {
+            document.body.addEventListener('touchstart', stopScrolling, false);
+
+            amplify.publish(Messages.UI_READY);
+            amplify.publish(Messages.NEW_GAME_STARTED, levels.level7);
+        });
+    </script>
 
 </head>
 <body>
 <div id="floor">
-	<div id="play-area">
-		<div id="grid"></div>
-		<div id="stack"></div>
-		<div id="next-focus" class='focus-button'></div>
-		<div id="backside"></div>
-	</div>
-</div>
-</div>
-<div id="menu-icon"></div>
-<div id="menu">
+    <div id="play-area">
+        <div id="grid"></div>
+        <div id="stack"></div>
+        <div id="next-focus" class='focus-button'></div>
+        <div id="backside"></div>
+    </div>
 </div>
 <div id="title">
-	<div id='title-image'></div>
-	<div class='title-message'>
-	</div>
-	<div id="title-focus" class='focus-button'></div>
+    <div id='title-image'></div>
+    <div class='title-message'></div>
+    <div id="title-focus" class='focus-button'></div>
 </div>
 <div id="splash">
     <div id="splash-image"></div>
 </div>
-
-	<script>
-		// localStorage.clear();
-		localStorage["level"] = 7;
-
-		// disable scrolling
-		function stopScrolling( touchEvent ) { 
-			if (!document.body.classList.contains("selecting")) {touchEvent.preventDefault();}
-		}
-		document.body.addEventListener( 'touchstart' , stopScrolling , false );
-
-		// global (bad) shuffling method
-		function shuffle(o){ //v1.0
-    		for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x) {
-            }
-    		return o;
-		}
-
-		function addOver(element) {
-			if (Modernizr.touch) {
-				element.addEventListener("touchstart", function(){ element.classList.add("onover")}, false);
-				element.addEventListener("touchend", function(){ element.classList.remove("onover")}, false);
-			} else {
-				element.addEventListener("mouseover", function(){ element.classList.add("onover")}, false);
-				element.addEventListener("mouseout", function(){ element.classList.remove("onover")}, false);
-			}
-		}
-
-		// start the app
-		var levelMenu = new LevelMenu();
-
-        $(document).ready(function() {
-            amplify.publish(Messages.UI_READY);
-            amplify.publish(Messages.NEW_GAME_STARTED, levels.level7);
-        });
-	</script>
 </body>
 </html>
