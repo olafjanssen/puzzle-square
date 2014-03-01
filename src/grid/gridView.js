@@ -31,7 +31,21 @@ var GridView = (function (eventBus) {
 
         for (var row = -traitDirections[0]; row < rows + traitDirections[2]; row++) {
             for (var col = -traitDirections[3]; col < cols + traitDirections[1]; col++) {
-                grid.appendChild(createNewGridCellElement(cellWidth, cellHeight, col, row));
+                var cell = createNewGridCellElement(cellWidth, cellHeight, col, row);
+                cell.setAttribute("ondrop", "");
+                if (traitDirections[0] && row == -1){
+                    cell.classList.add("trait-top");
+                }
+                if (traitDirections[1] && col == cols){
+                    cell.classList.add("trait-right");
+                }
+                if (traitDirections[2] && row == rows){
+                    cell.classList.add("trait-bottom");
+                }
+                if (traitDirections[3] && row == -1){
+                    cell.classList.add("trait-left");
+                }
+                grid.appendChild(cell);
             }
         }
         getElement().innerHTML = "";
@@ -43,7 +57,6 @@ var GridView = (function (eventBus) {
         cell.classList.add("grid-cell");
         cell.style.width = width;
         cell.style.height = height;
-        cell.setAttribute("ondrop", "");
         cell.setAttribute("col", col);
         cell.setAttribute("row", row);
         return cell;

@@ -9,6 +9,15 @@
     width: 95%;
   }
 
+  &.trait-top.trait-left,
+  &.trait-top.trait-right,
+  &.trait-bottom.trait-left,
+  &.trait-bottom.trait-right {
+    &::after {
+      visibility: hidden;
+    }
+  }
+
   &:empty::after {
     background: #ddd;
     border-radius: 0.5em;
@@ -25,14 +34,3 @@
   right: 50%;
   top: 50%;
 }
-
-//.show-title #grid,
-//.selecting #grid,
-//body[state="between-games"] #table,
-//body[state="between-games"] #backside {
-//  -webkit-transform: translateY(-200%);
-//}
-//
-//.full-board #grid {
-//  -webkit-transform: rotateY(180deg);
-//}
