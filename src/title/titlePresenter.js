@@ -9,7 +9,7 @@ var TitlePresenter = (function (eventBus, $) {
 
     eventBus.subscribe(Messages.SPLASH_PAGE_FINISHED, function () {
 
-        $(START_BUTTON).click(function(){
+        $(START_BUTTON).on('touchend click', function () {
             $(TITLE_CONTAINER).fadeOut();
         });
 
