@@ -47,13 +47,13 @@ var GameFactory = (function (eventBus) {
         eventBus.publish(Messages.NEW_TRAITS_CHOSEN, shuffle(gameSettings.deck.traitCardMap));
 
         var size = gameSettings.gridSize;
-        eventBus.publish(Messages.NEW_GRID_NEEDED, {cols: size[0], rows: size[1], traitDirections: [1, 1, 0, 0]});
+        eventBus.publish(Messages.NEW_GRID_NEEDED, {cols: size[0], rows: size[1], traitDirections: [1, 0, 0, 1]});
 
         for (var col = 0; col < size[0]; col++) {
             eventBus.publish(Messages.POSITION_FILLED, {col: col, row: -1});
         }
         for (var row = 0; row < size[1]; row++) {
-            eventBus.publish(Messages.POSITION_FILLED, {col: size[0], row: row});
+            eventBus.publish(Messages.POSITION_FILLED, {col: -1, row: row});
         }
     }
 
