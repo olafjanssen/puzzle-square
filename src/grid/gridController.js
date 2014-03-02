@@ -2,12 +2,16 @@
 
 var GridController = (function (eventBus) {
 
+    var traitDirections;
     var colTraitCards, rowTraitCards;
     var cols, rows;
+    var droppedCoordinates;
 
     eventBus.subscribe(Messages.NEW_GRID_NEEDED, function (data) {
         cols = data.cols;
         rows = data.rows;
+        traitDirections = data.traitDirections;
+        droppedCoordinates = [];
     });
 
     eventBus.subscribe(Messages.NEW_TRAITS_CHOSEN, function (data) {
@@ -23,14 +27,20 @@ var GridController = (function (eventBus) {
         attemptDrop(data.col, data.row, data.card);
     });
 
+    eventBus.subscribe(Messages.CARD_DROPPED, function (data) {
+        droppedCoordinates.push(data.col + ", " + data.row);
+        console.log(droppedCoordinates);
+    });
+
     eventBus.subscribe(Messages.NEW_PLAYABLE_CARD, function (data) {
         validateCardInGrid(data);
     });
 
     function validateCardInGrid(card) {
-        for (var col = -1; col <= this.cols; col++) {
-            for (var row = -1; row <= this.rows; row++) {
-                if (validateCard(col, row, card)) {
+        for (var col = -traitDirections[1]; col < this.cols + traitDirections[3]; col++) {
+            for (var row = -traitDirections[0]; row < this.rows + traitDirections[2]; row++) {
+                if (droppedCoordinates.indexOf(col + ", " + row) == -1 && validateCard(col, row, card)) {
+                    console.log(col + " " + row);
                     return;
                 }
             }

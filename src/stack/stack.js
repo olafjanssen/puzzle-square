@@ -32,6 +32,7 @@ var Stack = (function (eventBus) {
 
     function removeCard(card) {
         stack.splice(stack.indexOf(card), 1);
+        console.log(stack.length + " " + card.render().outerHTML);
     }
 
 }(amplify));

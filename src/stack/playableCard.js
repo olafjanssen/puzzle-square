@@ -15,6 +15,10 @@ var PlayableCard = (function (eventBus) {
         onDropRefused();
     });
 
+    eventBus.subscribe(Messages.NEW_CARD_NOT_IN_GRID, function (data) {
+        getElement().innerHTML = "";
+    });
+
     function getElement() {
         return document.getElementById("stack");
     }
@@ -35,6 +39,8 @@ var PlayableCard = (function (eventBus) {
         playableCard = card.render();
 
         getElement().appendChild(playableCard);
+
+        console.log("drawing: " + playableCard.outerHTML);
 
         // touch handling
         playableCard.addEventListener('mousedown', function (event) {
