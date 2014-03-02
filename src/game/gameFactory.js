@@ -30,7 +30,7 @@ var GameFactory = (function (eventBus) {
         var allCards = gameSettings.deck.playCards.concat(gameSettings.deck.traitCardMap[0]);
         eventBus.publish(Messages.NEW_STACK_CREATED, shuffle(allCards));
 
-        eventBus.publish(Messages.NEW_TRAITS_CHOSEN, shuffle(gameSettings.deck.traitCardMap));
+        eventBus.publish(Messages.NEW_TRAITS_CHOSEN, {colTraits: shuffle(gameSettings.deck.traitCardMap[0]), rowTraits: []});
 
         var size = gameSettings.gridSize;
         eventBus.publish(Messages.NEW_GRID_NEEDED, {cols: size[0], rows: size[1], traitDirections: [1, 0, 0, 0]});
@@ -44,7 +44,7 @@ var GameFactory = (function (eventBus) {
         var allCards = gameSettings.deck.playCards.concat(gameSettings.deck.traitCardMap[0]).concat(gameSettings.deck.traitCardMap[1]);
         eventBus.publish(Messages.NEW_STACK_CREATED, shuffle(allCards));
 
-        eventBus.publish(Messages.NEW_TRAITS_CHOSEN, shuffle(gameSettings.deck.traitCardMap));
+        eventBus.publish(Messages.NEW_TRAITS_CHOSEN, {colTraits: shuffle(gameSettings.deck.traitCardMap[0]), rowTraits: shuffle(gameSettings.deck.traitCardMap[1])});
 
         var size = gameSettings.gridSize;
         eventBus.publish(Messages.NEW_GRID_NEEDED, {cols: size[0], rows: size[1], traitDirections: [1, 0, 0, 1]});
@@ -61,7 +61,7 @@ var GameFactory = (function (eventBus) {
         var allCards = gameSettings.deck.playCards.concat(gameSettings.deck.traitCardMap[0]).concat(gameSettings.deck.traitCardMap[1]);
         eventBus.publish(Messages.NEW_STACK_CREATED, shuffle(allCards));
 
-        eventBus.publish(Messages.NEW_TRAITS_CHOSEN, shuffle(gameSettings.deck.traitCardMap));
+        eventBus.publish(Messages.NEW_TRAITS_CHOSEN, {colTraits: shuffle(gameSettings.deck.traitCardMap[0]), rowTraits: shuffle(gameSettings.deck.traitCardMap[1])});
 
         var size = gameSettings.gridSize;
         eventBus.publish(Messages.NEW_GRID_NEEDED, {cols: size[0], rows: size[1], traitDirections: [1, 1, 0, 0]});
@@ -80,7 +80,7 @@ var GameFactory = (function (eventBus) {
         var allCards = gameSettings.deck.playCards.concat(gameSettings.deck.traitCardMap[0]).concat(gameSettings.deck.traitCardMap[1]);
         eventBus.publish(Messages.NEW_STACK_CREATED, shuffle(allCards));
 
-        eventBus.publish(Messages.NEW_TRAITS_CHOSEN, shuffle(gameSettings.deck.traitCardMap));
+        eventBus.publish(Messages.NEW_TRAITS_CHOSEN, {colTraits: shuffle(gameSettings.deck.traitCardMap[0]), rowTraits: shuffle(gameSettings.deck.traitCardMap[1])});
 
         var size = gameSettings.gridSize;
         eventBus.publish(Messages.NEW_GRID_NEEDED, {cols: size[0], rows: size[1], traitDirections: [1, 1, 0, 0]});

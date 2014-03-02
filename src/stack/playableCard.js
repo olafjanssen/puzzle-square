@@ -9,7 +9,7 @@ var PlayableCard = (function (eventBus) {
 
     eventBus.subscribe(Messages.NEW_PLAYABLE_CARD, function (data) {
         onNewPlayableCard(data);
-    });
+    }, 1); // requires high priority as a renderer
 
     eventBus.subscribe(Messages.CARD_DROP_REFUSED, function (data) {
         onDropRefused();

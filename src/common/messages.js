@@ -15,6 +15,7 @@ var Messages = {
     NEW_TRAITS_CHOSEN: "new-traits-chosen",
 
     NEW_PLAYABLE_CARD: "new-playable-card",
+    NEW_CARD_NOT_IN_GRID: "new-card-not-in-grid",
 
     CARD_DROPPED: "card-dropped",
     CARD_DROP_ATTEMPTED: "card-drop-attempted",

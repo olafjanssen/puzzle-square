@@ -11,8 +11,8 @@ var GridController = (function (eventBus) {
     });
 
     eventBus.subscribe(Messages.NEW_TRAITS_CHOSEN, function (data) {
-        colTraitCards = data[0];
-        rowTraitCards = data[1];
+        colTraitCards = data.colTraits;
+        rowTraitCards = data.rowTraits;
     });
 
     eventBus.subscribe(Messages.POSITION_FILLED, function (data) {
@@ -22,6 +22,21 @@ var GridController = (function (eventBus) {
     eventBus.subscribe(Messages.CARD_DROP_ATTEMPTED, function (data) {
         attemptDrop(data.col, data.row, data.card);
     });
+
+    eventBus.subscribe(Messages.NEW_PLAYABLE_CARD, function (data) {
+        validateCardInGrid(data);
+    });
+
+    function validateCardInGrid(card) {
+        for (var col = -1; col <= this.cols; col++) {
+            for (var row = -1; row <= this.rows; row++) {
+                if (validateCard(col, row, card)) {
+                    return;
+                }
+            }
+        }
+        eventBus.publish(Messages.NEW_CARD_NOT_IN_GRID, card);
+    }
 
     function fillPosition(col, row) {
         if (col == -1 || col == cols) {
@@ -47,7 +62,13 @@ var GridController = (function (eventBus) {
         } else if (row == -1 || row == rows) {
             return card.equals(colTraitCards[col]);
         } else {
-            return card.equals(rowTraitCards[row].withMergedCard(colTraitCards[col]));
+            if (!rowTraitCards[row]) {
+                return card.hasAllTraitsOf(colTraitCards[col]);
+            } else if (!colTraitCards[col]) {
+                return card.hasAllTraitsOf(rowTraitCards[row]);
+            } else {
+                return card.hasAllTraitsOf(rowTraitCards[row]) && card.hasAllTraitsOf(colTraitCards[col]);
+            }
         }
     }
 

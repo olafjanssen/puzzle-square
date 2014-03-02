@@ -13,6 +13,9 @@ Card.prototype.withMergedCard = function (card) {
 };
 
 Card.prototype.equals = function (card) {
+    if (!card){
+        return false;
+    }
     for (var trait in card.traits) {
         if (!this.hasTrait(trait) || !this.hasTraitValue(trait, card.traits[trait])) {
             return false;
@@ -25,6 +28,18 @@ Card.prototype.equals = function (card) {
     }
     return true;
 };
+
+Card.prototype.hasAllTraitsOf = function(card) {
+    if (!card){
+        return false;
+    }
+    for (var trait in card.traits) {
+        if (!this.hasTrait(trait) || !this.hasTraitValue(trait, card.traits[trait])) {
+            return false;
+        }
+    }
+    return true;
+}
 
 /*
  Does the card have the given trait?
