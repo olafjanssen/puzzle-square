@@ -10,9 +10,13 @@
     height: 100%;
     width: 100%;
 
+    &.animate-card {
+      .animation(dragged-card-animation 3s ease infinite);
+    }
+
     &.during-drag {
       .transform-transition(0.5s ease);
-      .transform(scale(1.5));
+      .transform(rotate(-10deg) scale(1.5));
     }
 
     &.animate-dnd {
@@ -21,3 +25,14 @@
   }
 }
 
+@-webkit-keyframes dragged-card-animation {
+  0% {
+    -webkit-transform: rotate(-10deg) scale(1.5);
+  }
+  50% {
+    -webkit-transform: rotate(10deg) scale(1.5);
+  }
+  100% {
+    -webkit-transform: rotate(-10deg) scale(1.5);
+  }
+}

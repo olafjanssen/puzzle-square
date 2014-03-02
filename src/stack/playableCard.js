@@ -5,6 +5,7 @@
 var PlayableCard = (function (eventBus) {
 
     var playableCard;
+    var cardJiggleTimer;
 
     eventBus.subscribe(Messages.NEW_PLAYABLE_CARD, function (data) {
         onNewPlayableCard(data);
@@ -42,6 +43,10 @@ var PlayableCard = (function (eventBus) {
             playableCard.classList.remove("animate-dnd");
             playableCard.classList.add("during-drag");
 
+            var cardJiggleTimer = setTimeout(function () {
+                playableCard.classList.add("animate-card");
+            }, 500);
+
             var mouseMoveListener = function (event) {
                 playableCard.style.left = (offsetX + event.clientX) + "px";
                 playableCard.style.top = (offsetY + event.clientY) + "px";
@@ -50,6 +55,11 @@ var PlayableCard = (function (eventBus) {
                 // remove listeners
                 playableCard.removeEventListener("mouseup", mouseUpListener);
                 document.removeEventListener("mousemove", mouseMoveListener);
+
+                // remove jiggle animation
+                playableCard.classList.remove("animate-card");
+                clearInterval(cardJiggleTimer);
+
                 // find drop target
                 getElement().style.display = "none";
                 var elem = document.elementFromPoint(event.clientX, event.clientY);
