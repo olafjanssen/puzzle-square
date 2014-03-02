@@ -22,43 +22,57 @@ var LayoutManager = (function (eventBus) {
     function updateLayout() {
         var ac = this.traitDirections[1] + this.traitDirections[3];
         var ar = this.traitDirections[0] + this.traitDirections[2];
-        
+
         var gridRatio = (this.cols + ac) / (this.rows + ar);
         var clientRatio = window.innerWidth / window.innerHeight;
 
         var w, h, mw, mh;
-        if (clientRatio < gridRatio) {
+        if (clientRatio < 1) {
             mw = w = 0.9 * window.innerWidth;
-            if (gridRatio * w * (this.cols + ac + 2) / (this.cols + ac) < window.innerHeight) {
-                h = gridRatio * w;
-                mh = gridRatio * w * (this.cols + ac + 2) / (this.cols + ac);
+            if (w / gridRatio * (this.rows + ar + 2) / (this.rows + ar) < 0.9 * window.innerHeight) {
+                h = w / gridRatio;
+                mh = w / gridRatio * (this.rows + ar + 2) / (this.rows + ar);
             } else {
-                h = 0.9 * window.innerHeight * (this.cols + ac) / (this.cols + ac + 2);
+                h = 0.9 * window.innerHeight * (this.rows + ar) / (this.rows + ar + 2);
                 mh = 0.9 * window.innerHeight;
                 mw = w = gridRatio * h;
             }
         } else {
             mh = h = 0.9 * window.innerHeight;
-            if (gridRatio * h * (this.rows + ar+2) / (this.rows + ar) < window.innerWidth) {
+            if (gridRatio * h * (this.cols + ac + 2) / (this.cols + ac) < 0.9 * window.innerWidth) {
                 w = gridRatio * h;
-                mw = gridRatio * w * (this.rows + ar + 2) / (this.rows + ar);
+                mw = gridRatio * h * (this.cols + ac + 2) / (this.cols + ac);
             } else {
-                w = 0.9 * window.innerWidth * (this.rows + ar) / (this.rows + ar + 2);
+                w = 0.9 * window.innerWidth * (this.cols + ac) / (this.cols + ac + 2);
                 mw = 0.9 * window.innerWidth;
-                mh = h = gridRatio * w;
+                mh = h = w / gridRatio;
             }
         }
         var style = document.getElementById("grid").style;
         style.width = w + "px";
         style.height = h + "px";
-        style.marginTop = (-mh / 2) + "px";
-        style.marginRight = (-mw / 2) + "px";
+
+        var floorStyle = document.getElementById("floor").style;
+        floorStyle.width = mw + "px";
+        floorStyle.height = mh + "px";
+        floorStyle.marginTop = (-mh / 2) + "px";
+        floorStyle.marginLeft = (-mw / 2) + "px";
 
         var stackStyle = document.getElementById("stack").style;
         stackStyle.width = (w / (this.cols + ac)) + "px";
         stackStyle.height = (h / (this.rows + ar)) + "px";
-        stackStyle.marginTop = (clientRatio < gridRatio ? (h / 2) - ((w / (this.cols + ac)) / 2) : -(w / (this.cols + ac)) / 2) + "px";
-        stackStyle.marginRight = (clientRatio >= gridRatio ? (w / 2) - ((h / (this.rows + ar)) / 2) : -(h / (this.rows + ar)) / 2) + "px";
+        if (clientRatio < 1 ) {
+            stackStyle.marginBottom = "0";
+            stackStyle.marginRight = (-(w / (this.cols + ac)) / 2) + "px";
+            stackStyle.bottom = "0";
+            stackStyle.right = "50%";
+        } else {
+            stackStyle.marginBottom = (-(h / (this.rows + ar)) / 2) + "px";
+            stackStyle.marginRight = 0;
+            stackStyle.bottom = "50%";
+            stackStyle.right = "0";
+        }
+
     }
 
 }(amplify));
