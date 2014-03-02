@@ -4,7 +4,7 @@
 
 // connection of grid with the DOM
 
-var GridView = (function (eventBus) {
+var GridView = (function (eventBus, $) {
 
     eventBus.subscribe(Messages.NEW_GRID_NEEDED, function (data) {
         render(data.cols, data.rows, data.traitDirections);
@@ -33,16 +33,16 @@ var GridView = (function (eventBus) {
             for (var col = -traitDirections[3]; col < cols + traitDirections[1]; col++) {
                 var cell = createNewGridCellElement(cellWidth, cellHeight, col, row);
                 cell.setAttribute("ondrop", "");
-                if (traitDirections[0] && row == -1){
+                if (traitDirections[0] && row == -1) {
                     cell.classList.add("trait-top");
                 }
-                if (traitDirections[1] && col == cols){
+                if (traitDirections[1] && col == cols) {
                     cell.classList.add("trait-right");
                 }
-                if (traitDirections[2] && row == rows){
+                if (traitDirections[2] && row == rows) {
                     cell.classList.add("trait-bottom");
                 }
-                if (traitDirections[3] && row == -1){
+                if (traitDirections[3] && row == -1) {
                     cell.classList.add("trait-left");
                 }
                 grid.appendChild(cell);
@@ -50,6 +50,20 @@ var GridView = (function (eventBus) {
         }
         getElement().innerHTML = "";
         getElement().appendChild(grid);
+
+        // set off screen
+        $(".grid-cell").each(function () {
+            var rot = Math.random()*7200 - 3600;
+            var phi = Math.random()*2*Math.PI;
+            var rho = Math.floor( Math.random() * 2 + 2);
+            $(this).css({transform: 'translate3d(' + Math.cos(phi) * rho * innerWidth + 'px,' + Math.sin(phi) * rho * innerHeight + 'px,0) rotate(' + rot + 'deg)'});
+        });
+        // animate back again
+        setTimeout(function() {
+            $(".grid-cell").each(function () {
+                $(this).css({transform: 'translate3d(' + 0 + 'px,' + 0 + 'px,0)'});
+            });
+        }, 0);
     }
 
     function createNewGridCellElement(width, height, col, row) {
@@ -66,7 +80,7 @@ var GridView = (function (eventBus) {
         return document.getElementById("grid");
     }
 
-}(amplify));
+}(amplify, $));
 
 
 
