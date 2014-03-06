@@ -7,9 +7,9 @@ var PlayableCard = (function (eventBus) {
     var playableCard;
     var cardJiggleTimer;
 
-    eventBus.subscribe(Messages.NEW_PLAYABLE_CARD, function (data) {
+    eventBus.subscribe(Messages.NEW_CARD_IN_GRID, function (data) {
         onNewPlayableCard(data);
-    }, 1); // requires high priority as a renderer
+    });
 
     eventBus.subscribe(Messages.CARD_DROP_REFUSED, function (data) {
         onDropRefused();
@@ -39,8 +39,6 @@ var PlayableCard = (function (eventBus) {
         playableCard = card.render();
 
         getElement().appendChild(playableCard);
-
-        console.log("drawing: " + playableCard.outerHTML);
 
         // touch handling
         playableCard.addEventListener('mousedown', function (event) {

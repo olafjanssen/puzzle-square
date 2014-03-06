@@ -31,8 +31,13 @@ var Stack = (function (eventBus) {
     }
 
     function removeCard(card) {
-        stack.splice(stack.indexOf(card), 1);
-        console.log(stack.length + " " + card.render().outerHTML);
+        var index;
+        for (index = 0; index < stack.length; index++) {
+            if (stack[index].equals(card)) {
+                stack.splice(index, 1);
+                break;
+            }
+        }
     }
 
 }(amplify));

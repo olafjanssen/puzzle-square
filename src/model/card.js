@@ -1,7 +1,10 @@
 // Card class, can be a trait card or a play card
 
 function Card(traits) {
-    this.traits = traits;
+    this.traits = {};
+    for(var trait in traits){
+        this.traits[trait] = traits[trait];
+    }
 }
 
 Card.prototype.withMergedCard = function (card) {

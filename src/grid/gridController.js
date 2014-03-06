@@ -29,7 +29,6 @@ var GridController = (function (eventBus) {
 
     eventBus.subscribe(Messages.CARD_DROPPED, function (data) {
         droppedCoordinates.push(data.col + ", " + data.row);
-        console.log(droppedCoordinates);
     });
 
     eventBus.subscribe(Messages.NEW_PLAYABLE_CARD, function (data) {
@@ -40,7 +39,7 @@ var GridController = (function (eventBus) {
         for (var col = -traitDirections[1]; col < this.cols + traitDirections[3]; col++) {
             for (var row = -traitDirections[0]; row < this.rows + traitDirections[2]; row++) {
                 if (droppedCoordinates.indexOf(col + ", " + row) == -1 && validateCard(col, row, card)) {
-                    console.log(col + " " + row);
+                    eventBus.publish(Messages.NEW_CARD_IN_GRID, card);
                     return;
                 }
             }
@@ -67,9 +66,9 @@ var GridController = (function (eventBus) {
     }
 
     function validateCard(col, row, card) {
-        if (col == -1 || col == cols) {
+        if (row > -1 && (col == -1 || col == cols)) {
             return card.equals(rowTraitCards[row]);
-        } else if (row == -1 || row == rows) {
+        } else if (col > -1 && (row == -1 || row == rows)) {
             return card.equals(colTraitCards[col]);
         } else {
             if (!rowTraitCards[row]) {
@@ -81,5 +80,4 @@ var GridController = (function (eventBus) {
             }
         }
     }
-
 }(amplify));
