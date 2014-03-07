@@ -11,7 +11,7 @@ var TitlePresenter = (function (eventBus, $) {
 
         $(START_BUTTON).on('touchend click', function () {
             $(TITLE_CONTAINER).fadeOut();
-            eventBus.publish(Messages.NEW_GAME_STARTED, levels.level8);
+            eventBus.publish(Messages.NEW_GAME_STARTED, levels.level7);
         });
 
     });

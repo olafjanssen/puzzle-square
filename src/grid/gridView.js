@@ -15,10 +15,24 @@ var GridView = (function (eventBus, $) {
     });
 
     function setCard(col, row, card) {
+        var fx = document.createElement("div");
+        fx.classList.add("card-fx");
+
         var cardElement = card.render();
         var gridCell = getElement().querySelector("[col='" + col + "'][row='" + row + "']");
         gridCell.innerHTML = "";
+        gridCell.appendChild(fx);
         gridCell.appendChild(cardElement);
+
+        setTimeout(function () {
+            fx.classList.add("dropped")
+            cardElement.classList.add("dropped")
+        }, 0);
+
+
+        setTimeout(function () {
+            fx.parentNode.removeChild(fx);
+        }, 2000);
     }
 
     function render(cols, rows, traitDirections) {
@@ -53,13 +67,13 @@ var GridView = (function (eventBus, $) {
 
         // set off screen
         $(".grid-cell").each(function () {
-            var rot = Math.random()*7200 - 3600;
-            var phi = Math.random()*2*Math.PI;
-            var rho = Math.floor( Math.random() * 2 + 2);
+            var rot = Math.random() * 7200 - 3600;
+            var phi = Math.random() * 2 * Math.PI;
+            var rho = Math.floor(Math.random() * 2 + 2);
             $(this).css({transform: 'translate3d(' + Math.cos(phi) * rho * innerWidth + 'px,' + Math.sin(phi) * rho * innerHeight + 'px,0) rotate(' + rot + 'deg)'});
         });
         // animate back again
-        setTimeout(function() {
+        setTimeout(function () {
             $(".grid-cell").each(function () {
                 $(this).css({transform: 'translate3d(' + 0 + 'px,' + 0 + 'px,0)'});
             });
