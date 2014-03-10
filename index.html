@@ -25,6 +25,7 @@
     <script src='src/stack/stack.js'></script>
     <script src='src/title/titlePresenter.js'></script>
     <script src="src/splash/splashPresenter.js"></script>
+    <script src="src/betwixt/betwixtPresenter.js"></script>
     <script src='src/state.js'></script>
     <script src='src/appController.js'></script>
     <script src="src/levelmenu.js"></script>
@@ -67,7 +68,6 @@
         // start the app
         $(document).ready(function () {
             document.body.addEventListener('touchstart', stopScrolling, false);
-
             amplify.publish(Messages.UI_READY);
         });
     </script>
@@ -78,9 +78,12 @@
     <div id="play-area">
         <div id="grid"></div>
         <div id="stack"></div>
-        <div id="next-focus" class='focus-button'></div>
         <div id="backside"></div>
     </div>
+</div>
+<div id="betwixt">
+    <div id="win-image"></div>
+    <div id="next-focus" class='focus-button'></div>
 </div>
 <div id="title">
     <div id='title-image'></div>

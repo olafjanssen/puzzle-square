@@ -1,0 +1,45 @@
+
+#betwixt {
+  margin: -20em 0 0 -20em;
+  text-align: center;
+  position: absolute;
+  display: none;
+  height: 40em;
+  width: 40em;
+  left: 50%;
+  top: 50%;
+  opacity: 0;
+  .transition(opacity 4s ease);
+
+  .fx& {
+    opacity: 1;
+
+    #win-image {
+      .transform(rotate(72000deg));
+    }
+  }
+
+  #win-image {
+    .transition(all 2s ease-out);
+    background-size: cover;
+    border: 1em solid #ddd;
+    margin: 0 auto;
+    height: 20em;
+    width: 20em;
+  }
+
+  #next-focus {
+    margin: 4em auto;
+    position: static;
+  }
+
+  &.show {
+    display: block;
+
+    #next-focus {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
