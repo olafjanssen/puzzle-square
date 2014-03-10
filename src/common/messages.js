@@ -21,6 +21,7 @@ var Messages = {
     CARD_DROPPED: "card-dropped",
     CARD_DROP_ATTEMPTED: "card-drop-attempted",
     CARD_DROP_REFUSED: "card-drop-refused",
-    POSITION_FILLED: "position-filled"
+    POSITION_FILLED: "position-filled",
+    GRID_IS_FILLED: "grid-is-filled"
     
 };

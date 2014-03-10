@@ -6,12 +6,14 @@ var GridController = (function (eventBus) {
     var colTraitCards, rowTraitCards;
     var cols, rows;
     var droppedCoordinates;
+    var gridCells;
 
     eventBus.subscribe(Messages.NEW_GRID_NEEDED, function (data) {
         cols = data.cols;
         rows = data.rows;
         traitDirections = data.traitDirections;
         droppedCoordinates = [];
+        gridCells = (cols + traitDirections[1] + traitDirections[3]) * (rows + traitDirections[0] + traitDirections[2]);
     });
 
     eventBus.subscribe(Messages.NEW_TRAITS_CHOSEN, function (data) {
@@ -29,6 +31,9 @@ var GridController = (function (eventBus) {
 
     eventBus.subscribe(Messages.CARD_DROPPED, function (data) {
         droppedCoordinates.push(data.col + ", " + data.row);
+        if (isGridFull()){
+            eventBus.publish(Messages.GRID_IS_FILLED);
+        }
     });
 
     eventBus.subscribe(Messages.NEW_PLAYABLE_CARD, function (data) {
@@ -79,5 +84,9 @@ var GridController = (function (eventBus) {
                 return card.hasAllTraitsOf(rowTraitCards[row]) && card.hasAllTraitsOf(colTraitCards[col]);
             }
         }
+    }
+
+    function isGridFull() {
+        return droppedCoordinates.length == gridCells;
     }
 }(amplify));

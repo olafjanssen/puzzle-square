@@ -6,6 +6,8 @@
 
 var GridView = (function (eventBus, $) {
 
+    var cols, rows;
+
     eventBus.subscribe(Messages.NEW_GRID_NEEDED, function (data) {
         render(data.cols, data.rows, data.traitDirections);
     });
@@ -13,6 +15,22 @@ var GridView = (function (eventBus, $) {
     eventBus.subscribe(Messages.CARD_DROPPED, function (data) {
         setCard(data.col, data.row, data.card)
     });
+
+    eventBus.subscribe(Messages.GRID_IS_FILLED, function (data) {
+        onGridFilled();
+    });
+
+    function onGridFilled() {
+        // set off screen
+        getElement().classList.add("grid-filled");
+        setTimeout(function () {
+            $(".grid-cell").each(function () {
+                var offset = parseInt($(this).attr("row")) * parseInt($(this).height());
+                var rotation = Math.random()* 360 - 180;
+                $(this).css({transform: 'translate3d(0px,' + (2 * innerHeight + 1 * offset) + 'px, 0) rotate('+rotation+'deg)'});
+            });
+        }, 2000);
+    }
 
     function setCard(col, row, card) {
         var fx = document.createElement("div");
