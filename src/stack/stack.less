@@ -1,5 +1,11 @@
 #stack {
   position: absolute;
+  opacity: 0;
+
+  &.show {
+    .transition(opacity 2s ease);
+    opacity: 1;
+  }
 
   & > .card {
     .transform(scale(1.25));

@@ -27,6 +27,11 @@ var Stack = (function (eventBus) {
     });
 
     function initStack(deck) {
+        document.getElementById("stack").classList.remove("show");
+        setTimeout(function () {
+            document.getElementById("stack").classList.add("show");
+        }, 1000);
+
         stack = deck.concat();
     }
 

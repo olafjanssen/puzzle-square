@@ -10,8 +10,9 @@ var BetwixtPresenter = (function (eventBus, $) {
 
     var currentImageClassName;
 
-    eventBus.subscribe(Messages.NEW_GAME_STARTED, function(data) {
+    eventBus.subscribe(Messages.NEW_GAME_STARTED, function (data) {
         document.getElementById(ELEMENT_ID).classList.remove("show");
+        document.getElementById(ELEMENT_ID).classList.remove("fx");
         currentImageClassName = data.imageClassName;
     })
 
@@ -19,13 +20,32 @@ var BetwixtPresenter = (function (eventBus, $) {
         onGridFilled();
     });
 
+    eventBus.subscribe(Messages.UI_READY, function () {
+        updateLayout();
+        window.addEventListener("resize", function (event) {
+            updateLayout();
+        });
+
+        $("#"+BUTTON_ELEMENT_ID).on('touchend click', function () {
+            eventBus.publish(Messages.NEXT_LEVEL_REQUESTED);
+        });
+    });
+
+    var cols, rows, traitDirections;
+
+    function updateLayout() {
+        var currentSize = window.innerWidth > window.innerHeight ? window.innerHeight : window.innerWidth;
+        var fontSize = currentSize / 800;
+        $("#" + ELEMENT_ID).css({fontSize: fontSize + "em"});
+    }
+
     function onGridFilled() {
         document.getElementById(ELEMENT_ID).classList.add("show");
         document.getElementById(IMAGE_ELEMENT_ID).classList.add(currentImageClassName);
 
         setTimeout(function () {
             document.getElementById(ELEMENT_ID).classList.add("fx");
-        }, 4000);
+        }, 3000);
     }
 
 }(amplify, $));
