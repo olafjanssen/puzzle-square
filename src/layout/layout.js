@@ -4,7 +4,10 @@
 
 var LayoutManager = (function (eventBus) {
 
+    var hasGrid = false;
+
     eventBus.subscribe(Messages.NEW_GRID_NEEDED, function (data) {
+        hasGrid = true;
         this.cols = data.cols;
         this.rows = data.rows;
         this.traitDirections = data.traitDirections;
@@ -13,7 +16,9 @@ var LayoutManager = (function (eventBus) {
 
     eventBus.subscribe(Messages.UI_READY, function () {
         window.addEventListener("resize", function (event) {
-            updateLayout();
+            if (hasGrid) {
+                updateLayout();
+            }
         })
     });
 
@@ -61,7 +66,7 @@ var LayoutManager = (function (eventBus) {
         var stackStyle = document.getElementById("stack").style;
         stackStyle.width = (w / (this.cols + ac)) + "px";
         stackStyle.height = (h / (this.rows + ar)) + "px";
-        if (clientRatio < 1 ) {
+        if (clientRatio < 1) {
             stackStyle.marginBottom = "0";
             stackStyle.marginRight = (-(w / (this.cols + ac)) / 2) + "px";
             stackStyle.bottom = "0";
