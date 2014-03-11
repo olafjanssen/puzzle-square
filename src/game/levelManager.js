@@ -4,7 +4,7 @@
 
 var LevelManager = (function (eventBus) {
 
-    var currentLevel = 0;
+    var currentLevel = 5;
 
     eventBus.subscribe(Messages.NEXT_LEVEL_REQUESTED, function (data) {
         ++currentLevel;

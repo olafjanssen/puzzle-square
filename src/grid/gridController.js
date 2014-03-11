@@ -13,7 +13,7 @@ var GridController = (function (eventBus) {
         rows = data.rows;
         traitDirections = data.traitDirections;
         droppedCoordinates = [];
-        gridCells = (cols + traitDirections[1] + traitDirections[3]) * (rows + traitDirections[0] + traitDirections[2]);
+        gridCells = (cols * rows) + rows * (traitDirections[1] + traitDirections[3]) + cols * (traitDirections[0] + traitDirections[2]);
     });
 
     eventBus.subscribe(Messages.NEW_TRAITS_CHOSEN, function (data) {
@@ -31,7 +31,7 @@ var GridController = (function (eventBus) {
 
     eventBus.subscribe(Messages.CARD_DROPPED, function (data) {
         droppedCoordinates.push(data.col + ", " + data.row);
-        if (isGridFull()){
+        if (isGridFull()) {
             eventBus.publish(Messages.GRID_IS_FILLED);
         }
     });
@@ -41,7 +41,7 @@ var GridController = (function (eventBus) {
     });
 
     function validateCardInGrid(card) {
-        for (var col = -traitDirections[1]; col < this.cols + traitDirections[3]; col++) {
+        for (var col = -traitDirections[3]; col < this.cols + traitDirections[1]; col++) {
             for (var row = -traitDirections[0]; row < this.rows + traitDirections[2]; row++) {
                 if (droppedCoordinates.indexOf(col + ", " + row) == -1 && validateCard(col, row, card)) {
                     eventBus.publish(Messages.NEW_CARD_IN_GRID, card);
