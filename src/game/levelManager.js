@@ -4,11 +4,11 @@
 
 var LevelManager = (function (eventBus) {
 
-    var currentLevel = 5;
+    var currentLevel = -1;
 
     eventBus.subscribe(Messages.NEXT_LEVEL_REQUESTED, function (data) {
         ++currentLevel;
-        eventBus.publish(Messages.NEW_GAME_STARTED, levels['level' + currentLevel]);
+        eventBus.publish(Messages.NEW_GAME_STARTED, levels[currentLevel]);
     });
 
 }(amplify));

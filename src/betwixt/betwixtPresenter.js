@@ -13,7 +13,7 @@ var BetwixtPresenter = (function (eventBus, $) {
     eventBus.subscribe(Messages.NEW_GAME_STARTED, function (data) {
         document.getElementById(ELEMENT_ID).classList.remove("show");
         document.getElementById(ELEMENT_ID).classList.remove("fx");
-        currentImageClassName = data.imageClassName;
+        currentImageClassName = data.settings.imageClassName;
     })
 
     eventBus.subscribe(Messages.GRID_IS_FILLED, function (data) {

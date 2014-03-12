@@ -5,7 +5,7 @@
 var GameFactory = (function (eventBus) {
 
     eventBus.subscribe(Messages.NEW_GAME_STARTED, function (data) {
-        createNewGame(data);
+        createNewGame(data.settings);
     });
 
     function createNewGame(gameSettings) {
