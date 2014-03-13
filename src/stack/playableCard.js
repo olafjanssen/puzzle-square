@@ -36,7 +36,7 @@ var PlayableCard = (function (eventBus) {
         // render the stack
         getElement().innerHTML = "";
 
-        playableCard = card.render();
+        playableCard = Card.render(card);
 
         getElement().appendChild(playableCard);
 

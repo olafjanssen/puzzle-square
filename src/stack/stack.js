@@ -38,7 +38,7 @@ var Stack = (function (eventBus) {
     function removeCard(card) {
         var index;
         for (index = 0; index < stack.length; index++) {
-            if (stack[index].equals(card)) {
+            if (Card.equals(stack[index], card)) {
                 stack.splice(index, 1);
                 break;
             }

@@ -72,16 +72,16 @@ var GridController = (function (eventBus) {
 
     function validateCard(col, row, card) {
         if (row > -1 && (col == -1 || col == cols)) {
-            return card.equals(rowTraitCards[row]);
+            return Card.equals(card, rowTraitCards[row]);
         } else if (col > -1 && (row == -1 || row == rows)) {
-            return card.equals(colTraitCards[col]);
+            return Card.equals(card, colTraitCards[col]);
         } else {
             if (!rowTraitCards[row]) {
-                return card.hasAllTraitsOf(colTraitCards[col]);
+                return Card.hasAllTraitsOf(card, colTraitCards[col]);
             } else if (!colTraitCards[col]) {
-                return card.hasAllTraitsOf(rowTraitCards[row]);
+                return Card.hasAllTraitsOf(card, rowTraitCards[row]);
             } else {
-                return card.hasAllTraitsOf(rowTraitCards[row]) && card.hasAllTraitsOf(colTraitCards[col]);
+                return Card.hasAllTraitsOf(card, rowTraitCards[row]) && Card.hasAllTraitsOf(card, colTraitCards[col]);
             }
         }
     }
