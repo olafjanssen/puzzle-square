@@ -16,4 +16,8 @@ var TitlePresenter = (function (eventBus, $) {
 
     });
 
-}(amplify, $));
+    eventBus.subscribe(Messages.OLD_GAME_CONTINUED, function () {
+        $(TITLE_CONTAINER).fadeOut();
+    });
+
+    }(amplify, $));

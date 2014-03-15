@@ -36,7 +36,7 @@ var GridView = (function (eventBus, $) {
         var fx = document.createElement("div");
         fx.classList.add("card-fx");
 
-        var cardElement = card.render();
+        var cardElement = Card.render(card);
         var gridCell = getElement().querySelector("[col='" + col + "'][row='" + row + "']");
         gridCell.innerHTML = "";
         gridCell.appendChild(fx);

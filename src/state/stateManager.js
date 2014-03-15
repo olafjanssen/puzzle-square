@@ -4,13 +4,13 @@
 
 var StateManager = (function (eventBus) {
 
-    var uid;
-
     eventBus.subscribe(Messages.UI_READY, function (data) {
 
         // check hash for uid or create a new one and set the hash
         uid = window.location.hash.length > 0 ? window.location.hash.substr(1) : guid();
         window.location.hash = uid;
+
+        window.state = uid;
 
     });
 

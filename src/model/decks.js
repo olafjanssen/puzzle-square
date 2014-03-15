@@ -1,26 +1,36 @@
 // definition of the card decks
 var deck1 = function () {
-    return new Deck(
+    return {traitCardMap: [
         [
-            [new Card({"shape": "butterfly"}), new Card({"shape": "cars"}), new Card({"shape": "flags"}), new Card({"shape": "doll"})],
-            [new Card({"color": "yellow"}), new Card({"color": "purple"}), new Card({"color": "red"}), new Card({"color": "blue"})]
+            {"shape": "butterfly"},
+            {"shape": "cars"},
+            {"shape": "flags"},
+            {"shape": "doll"}
         ],
-        [   new Card({"color": "yellow", "shape": "butterfly"}),
-            new Card({"color": "yellow", "shape": "cars"}),
-            new Card({"color": "yellow", "shape": "flags"}),
-            new Card({"color": "yellow", "shape": "doll"}),
-            new Card({"color": "purple", "shape": "butterfly"}),
-            new Card({"color": "purple", "shape": "cars"}),
-            new Card({"color": "purple", "shape": "flags"}),
-            new Card({"color": "purple", "shape": "doll"}),
-            new Card({"color": "red", "shape": "butterfly"}),
-            new Card({"color": "red", "shape": "cars"}),
-            new Card({"color": "red", "shape": "flags"}),
-            new Card({"color": "red", "shape": "doll"}),
-            new Card({"color": "blue", "shape": "butterfly"}),
-            new Card({"color": "blue", "shape": "cars"}),
-            new Card({"color": "blue", "shape": "flags"}),
-            new Card({"color": "blue", "shape": "doll"})]
-    );
+        [
+            {"color": "yellow"},
+            {"color": "purple"},
+            {"color": "red"},
+            {"color": "blue"}
+        ]
+    ], playCards: [
+        {"color": "yellow", "shape": "butterfly"},
+        {"color": "yellow", "shape": "cars"},
+        {"color": "yellow", "shape": "flags"},
+        {"color": "yellow", "shape": "doll"},
+        {"color": "purple", "shape": "butterfly"},
+        {"color": "purple", "shape": "cars"},
+        {"color": "purple", "shape": "flags"},
+        {"color": "purple", "shape": "doll"},
+        {"color": "red", "shape": "butterfly"},
+        {"color": "red", "shape": "cars"},
+        {"color": "red", "shape": "flags"},
+        {"color": "red", "shape": "doll"},
+        {"color": "blue", "shape": "butterfly"},
+        {"color": "blue", "shape": "cars"},
+        {"color": "blue", "shape": "flags"},
+        {"color": "blue", "shape": "doll"}
+    ]
+    }
 };
 

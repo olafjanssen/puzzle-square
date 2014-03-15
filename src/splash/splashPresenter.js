@@ -15,4 +15,8 @@ var SplashPresenter = (function (eventBus, $) {
         });
     });
 
+    eventBus.subscribe(Messages.OLD_GAME_CONTINUED, function () {
+        $(SPLASH_IMAGE).hide();
+    });
+
 }(amplify, $));

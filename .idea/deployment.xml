@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="Apache">
+  <component name="PublishConfigData" autoUpload="Always" serverName="localhost">
     <serverData>
-      <paths name="Apache">
+      <paths name="localhost">
         <serverdata>
           <mappings>
-            <mapping deploy="puzzle-square" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="puzzle-square" local="$PROJECT_DIR$" web="/~olaf/puzzle-square" />
           </mappings>
         </serverdata>
       </paths>
