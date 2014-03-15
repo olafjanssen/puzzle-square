@@ -8,6 +8,10 @@ var LocalStore = (function (eventBus, storage) {
     var eventList = [Messages.NEW_TRAITS_CHOSEN, Messages.NEW_GRID_NEEDED,
         Messages.CARD_DROPPED, Messages.CARD_DROP_REFUSED];
 
+    eventBus.subscribe(Messages.UID_INVALIDATED, function(data){
+        storage.store(LEVEL_EVENTS, null);
+    });
+
     eventBus.subscribe(Messages.UI_READY, function (data) {
         setTimeout(function () {
 
@@ -19,7 +23,6 @@ var LocalStore = (function (eventBus, storage) {
                 for (var i = 0; i < store.length; i++) {
                     var e = store[i];
                     try {
-                        console.log(e.message);
                         eventBus.publish(e.message, e.data);
                     } catch (e) {
                         console.log("exception: " + e);

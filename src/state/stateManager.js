@@ -2,7 +2,7 @@
  * Created by olafjanssen on 3/12/14.
  */
 
-var StateManager = (function (eventBus) {
+var StateManager = (function (eventBus, storage) {
 
     eventBus.subscribe(Messages.UI_READY, function (data) {
 
@@ -10,8 +10,11 @@ var StateManager = (function (eventBus) {
         uid = window.location.hash.length > 0 ? window.location.hash.substr(1) : guid();
         window.location.hash = uid;
 
-        window.state = uid;
-
+        // validate the uid with the one in the local storage
+        if (storage.store("uid") != uid){
+            eventBus.publish(Messages.UID_INVALIDATED, {uid: uid});
+            storage.store("uid", uid);
+        }
     });
 
     function guid() {
@@ -24,4 +27,4 @@ var StateManager = (function (eventBus) {
         return uuid;
     };
 
-}(amplify));
+}(amplify, amplify));

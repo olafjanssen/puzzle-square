@@ -8,6 +8,9 @@ var Messages = {
     SPLASH_PAGE_FINISHED: "splash-page-finished",
     OLD_GAME_CONTINUED: "old-game-continued",
 
+    // storage changes
+    UID_INVALIDATED: "uid-invalidated",
+
     // game updates
     NEW_GAME_STARTED: "new-game-started",
     NEW_GRID_NEEDED: "new-grid-needed",
