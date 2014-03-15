@@ -58,7 +58,7 @@ var GridController = (function (eventBus) {
         } else if (row == -1 || row == rows) {
             eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: colTraitCards[col]});
         } else {
-            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: rowTraitCards[row].withMergedCard(colTraitCards[col])});
+            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: Card.mergeCards(rowTraitCards[row], colTraitCards[col])});
         }
     }
 
