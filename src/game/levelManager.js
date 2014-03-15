@@ -4,11 +4,17 @@
 
 var LevelManager = (function (eventBus) {
 
-    var currentLevel = -1;
-
     eventBus.subscribe(Messages.NEXT_LEVEL_REQUESTED, function (data) {
-        ++currentLevel;
-        eventBus.publish(Messages.NEW_GAME_STARTED, levels[currentLevel]);
-    });
+
+        for (var index = 0; index < levels.length; index++) {
+            var level = levels[index];
+            console.log(window.state);
+            console.log(window.state.completedLevels[level.id]);
+            if (!window.state.completedLevels[level.id]) {
+                eventBus.publish(Messages.NEW_GAME_STARTED, level);
+                break;
+            }
+        }
+     });
 
 }(amplify));
