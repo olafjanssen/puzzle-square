@@ -2,10 +2,11 @@
  * Created by olafjanssen on 3/12/14.
  */
 
-var Store = (function (eventBus, storage) {
+var Store = (function (eventBus, storage, $) {
 
     var USER_STORE = "user-store";
 
+    var commitables = [];
     var levelId;
 
     eventBus.subscribe(Messages.UID_INVALIDATED, function (data) {
@@ -17,12 +18,15 @@ var Store = (function (eventBus, storage) {
     });
 
     eventBus.subscribe(Messages.GRID_IS_FILLED, function (data) {
-        var item = {event: StoreEvent.LEVEL_COMPLETED, payload: {levelId: levelId}};
+        var item = {event: StoreEvent.LEVEL_COMPLETED, clientId: guid(), payload: {levelId: levelId}};
         updateStateWithEventItem(item);
+        commitables.push(item);
 
         var store = storage.store(USER_STORE) ? storage.store(USER_STORE) : [];
         store.push(item);
         storage.store(USER_STORE, store);
+
+        commit();
     });
 
     eventBus.subscribe(Messages.UI_READY, function (data) {
@@ -31,9 +35,11 @@ var Store = (function (eventBus, storage) {
         for (var i = 0; i < store.length; i++) {
             updateStateWithEventItem(store[i]);
         }
+
+        setTimeout(commit(),1000);
     });
 
-    function updateStateWithEventItem(item){
+    function updateStateWithEventItem(item) {
         switch (item.event) {
             case StoreEvent.LEVEL_COMPLETED:
                 state.numberOfGames++;
@@ -42,8 +48,43 @@ var Store = (function (eventBus, storage) {
         }
     }
 
+    function commit(){
+        $.ajax({
+            url: 'service/service.php',
+            type: 'post',
+            dataType: 'json',
+            success: function (data) {
+                onCommitSuccessful(data);
+            },
+            data: createCommitData()
+        });
+    }
 
-}(amplify, amplify));
+    function onCommitSuccessful(data){
+        console.log(data);
+    }
+
+    function createCommitData() {
+        var data = {};
+        data.action = "commit-events";
+        data.userId = storage.store("uid");
+
+        var sendEvents = [];
+        var store = storage.store(USER_STORE) ? storage.store(USER_STORE) : [];
+        for (var i = 0; i < store.length; i++) {
+            var item = store[i];
+            if (!item.id) {
+                sendEvents.push(item);
+            }
+        }
+        data.data = sendEvents;
+
+        console.log(data);
+        return data;
+    }
+
+
+}(amplify, amplify, $));
 
 
 var StoreEvent = {

@@ -26,7 +26,6 @@
     <script src="src/splash/splashPresenter.js"></script>
     <script src="src/betwixt/betwixtPresenter.js"></script>
     <script src='src/state.js'></script>
-    <script src='src/appController.js'></script>
     <script src="src/levelmenu.js"></script>
     <script src="src/state/stateManager.js"></script>
     <script src="src/state/store.js"></script>
@@ -48,6 +47,16 @@
             }
             return o;
         }
+
+        function guid() {
+            var d = new Date().getTime();
+            var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = (d + Math.random() * 16) % 16 | 0;
+                d = Math.floor(d / 16);
+                return (c == 'x' ? r : (r & 0x7 | 0x8)).toString(16);
+            });
+            return uuid;
+        };
 
         function addOver(element) {
             if (Modernizr.touch) {
@@ -72,6 +81,7 @@
             document.body.addEventListener('touchstart', stopScrolling, false);
             amplify.publish(Messages.UI_READY);
         });
+
     </script>
 
 </head>
