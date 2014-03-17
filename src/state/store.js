@@ -16,6 +16,7 @@ var Store = (function (eventBus, storage, $) {
     });
 
     eventBus.subscribe(Messages.GRID_IS_FILLED, function (data) {
+
         var item = {event: StoreEvent.LEVEL_COMPLETED, clientId: guid(), payload: {levelId: levelId}};
         updateStateWithEventItem(item);
 
@@ -32,6 +33,8 @@ var Store = (function (eventBus, storage, $) {
         for (var i = 0; i < store.length; i++) {
             updateStateWithEventItem(store[i]);
         }
+
+        setTimeout(commit(), 1000);
     });
 
     function updateStateWithEventItem(item) {
@@ -44,31 +47,85 @@ var Store = (function (eventBus, storage, $) {
     }
 
     function commit() {
+        var commitData = createCommitData();
+        if (commitData) {
+            $.ajax({
+                url: 'service/service.php',
+                type: 'post',
+                dataType: 'json',
+                success: function (data) {
+                    onCommitSuccessful(data);
+                },
+                data: commitData
+            });
+        } else {
+            fetch();
+        }
+    }
+
+    function fetch() {
+        var fetchData = createFetchData();
         $.ajax({
             url: 'service/service.php',
             type: 'post',
             dataType: 'json',
             success: function (data) {
-                onCommitSuccessful(data);
+                onFetchSuccessful(data);
             },
-            data: createCommitData()
+            data: fetchData
         });
     }
 
-    function onCommitSuccessful(response) {
-        if (response.status != "ok"){
-            return;
-        }
-        var data = response.data;
-        var store = storage.store(USER_STORE) ? storage.store(USER_STORE) : [];
-        for (var item = 0; item < data.length; item++) {
-            for (var i = 0; i < store.length; i++) {
-                if (data[item].clientId == store[i].clientId) {
-                    store[i]  = data[item];
+    function onFetchSuccessful(response) {
+        if (response.status == "ok") {
+            var data = response.data;
+            var store = storage.store(USER_STORE) ? storage.store(USER_STORE) : [];
+            for (var item = 0; item < data.length; item++) {
+                for (var i = 0; i < store.length; i++) {
+                    var updated = false;
+                    if (data[item].clientId == store[i].clientId) {
+                        store[i] = data[item];
+                        updated = true;
+                    }
+                }
+                if (!updated) {
+                    store.push(data[item]);
+                    updateStateWithEventItem(data[item]);
                 }
             }
+            storage.store(USER_STORE, store);
         }
-        storage.store(USER_STORE, store);
+    }
+
+    function onCommitSuccessful(response) {
+        if (response.status == "ok") {
+            var data = response.data;
+            var store = storage.store(USER_STORE) ? storage.store(USER_STORE) : [];
+            for (var item = 0; item < data.length; item++) {
+                for (var i = 0; i < store.length; i++) {
+                    if (data[item].clientId == store[i].clientId) {
+                        store[i] = data[item];
+                    }
+                }
+            }
+            storage.store(USER_STORE, store);
+        }
+        fetch();
+    }
+
+    function createFetchData() {
+        var data = {};
+        data.action = "fetch-events";
+        data.userId = storage.store("uid");
+        data.lastId = -1;
+        var store = storage.store(USER_STORE) ? storage.store(USER_STORE) : [];
+        for (var i = 0; i < store.length; i++) {
+            var item = store[i];
+            if (item.id && item.id > data.lastId) {
+                data.lastId = item.id;
+            }
+        }
+        return data;
     }
 
     function createCommitData() {
@@ -85,7 +142,7 @@ var Store = (function (eventBus, storage, $) {
             }
         }
         data.data = sendEvents;
-        return data;
+        return sendEvents.length > 0 ? data : null;
     }
 
 

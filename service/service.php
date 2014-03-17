@@ -1,6 +1,5 @@
 <?php
 /**
- * Created by PhpStorm.
  * User: olafjanssen
  * Date: 3/12/14
  * Time: 10:38 PM
@@ -34,7 +33,6 @@ if ($action == "commit-events") {
     // Create connection
     $con = @mysqli_connect("127.0.0.1","build","build","square") or return_error("cannot connect to DB");
 
-
     $clientIds = [];
     foreach ($data as $value) {
         $clientId = $value['clientId'];
@@ -50,7 +48,7 @@ if ($action == "commit-events") {
             return_error("invalid clientId");
         }
 
-        mysqli_query($con,"INSERT INTO events (userId, clientId, message, payload, timestamp, ip) VALUES ('$userId', '$clientId', '$event', '$payload', $timestamp, '$ip') ON DUPLICATE KEY UPDATE timestamp=$timestamp") or return_error("cannot insert record");
+        mysqli_query($con,"INSERT INTO events (userId, clientId, event, payload, timestamp, ip) VALUES ('$userId', '$clientId', '$event', '$payload', $timestamp, '$ip') ON DUPLICATE KEY UPDATE timestamp=$timestamp") or return_error("cannot insert record");
     }
 
     // produce response
@@ -58,6 +56,28 @@ if ($action == "commit-events") {
     $result = mysqli_query($con,"SELECT * FROM events WHERE clientId IN (" . implode(',', $clientIds) . ")");
 
     while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+            $row['payload'] = json_decode($row['payload']);
+            $response_data[] = $row;
+    }
+
+    $response = ['status' => 'ok', 'data' => $response_data];
+} else if ($action == "fetch-events") {
+    $lastId = $request['lastId'];
+
+    // Validation
+    if (!is_numeric($lastId)){
+        return_error("invalid lastId");
+    }
+
+    // Create connection
+    $con = @mysqli_connect("127.0.0.1","build","build","square") or return_error("cannot connect to DB");
+
+    // produce response
+    $response_data = [];
+    $result = mysqli_query($con,"SELECT * FROM events WHERE userId = '$userId' AND id > $lastId");
+
+    while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+            $row['payload'] = json_decode($row['payload']);
             $response_data[] = $row;
     }
 
