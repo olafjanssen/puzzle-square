@@ -8,8 +8,6 @@ var LevelManager = (function (eventBus) {
 
         for (var index = 0; index < levels.length; index++) {
             var level = levels[index];
-            console.log(window.state);
-            console.log(window.state.completedLevels[level.id]);
             if (!window.state.completedLevels[level.id]) {
                 eventBus.publish(Messages.NEW_GAME_STARTED, level);
                 break;

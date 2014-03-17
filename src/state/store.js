@@ -5,8 +5,6 @@
 var Store = (function (eventBus, storage, $) {
 
     var USER_STORE = "user-store";
-
-    var commitables = [];
     var levelId;
 
     eventBus.subscribe(Messages.UID_INVALIDATED, function (data) {
@@ -20,7 +18,6 @@ var Store = (function (eventBus, storage, $) {
     eventBus.subscribe(Messages.GRID_IS_FILLED, function (data) {
         var item = {event: StoreEvent.LEVEL_COMPLETED, clientId: guid(), payload: {levelId: levelId}};
         updateStateWithEventItem(item);
-        commitables.push(item);
 
         var store = storage.store(USER_STORE) ? storage.store(USER_STORE) : [];
         store.push(item);
@@ -35,8 +32,6 @@ var Store = (function (eventBus, storage, $) {
         for (var i = 0; i < store.length; i++) {
             updateStateWithEventItem(store[i]);
         }
-
-        setTimeout(commit(),1000);
     });
 
     function updateStateWithEventItem(item) {
@@ -48,7 +43,7 @@ var Store = (function (eventBus, storage, $) {
         }
     }
 
-    function commit(){
+    function commit() {
         $.ajax({
             url: 'service/service.php',
             type: 'post',
@@ -60,8 +55,20 @@ var Store = (function (eventBus, storage, $) {
         });
     }
 
-    function onCommitSuccessful(data){
-        console.log(data);
+    function onCommitSuccessful(response) {
+        if (response.status != "ok"){
+            return;
+        }
+        var data = response.data;
+        var store = storage.store(USER_STORE) ? storage.store(USER_STORE) : [];
+        for (var item = 0; item < data.length; item++) {
+            for (var i = 0; i < store.length; i++) {
+                if (data[item].clientId == store[i].clientId) {
+                    store[i]  = data[item];
+                }
+            }
+        }
+        storage.store(USER_STORE, store);
     }
 
     function createCommitData() {
@@ -78,8 +85,6 @@ var Store = (function (eventBus, storage, $) {
             }
         }
         data.data = sendEvents;
-
-        console.log(data);
         return data;
     }
 
