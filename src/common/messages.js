@@ -10,6 +10,7 @@ var Messages = {
 
     // storage changes
     UID_INVALIDATED: "uid-invalidated",
+    USER_STORE_UPDATED: "user-store-updated",
 
     // game updates
     NEW_GAME_STARTED: "new-game-started",
@@ -27,6 +28,8 @@ var Messages = {
     CARD_DROP_REFUSED: "card-drop-refused",
     POSITION_FILLED: "position-filled",
     GRID_IS_FILLED: "grid-is-filled",
+
+    SCORE_UPDATED: "game-score-updated",
 
     NEXT_LEVEL_REQUESTED: "next-level-requested"
 };

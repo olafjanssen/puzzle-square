@@ -6,6 +6,7 @@ var Store = (function (eventBus, storage, $) {
 
     var USER_STORE = "user-store";
     var levelId;
+    var gameScore;
 
     eventBus.subscribe(Messages.UID_INVALIDATED, function (data) {
         storage.store(USER_STORE, null);
@@ -15,16 +16,20 @@ var Store = (function (eventBus, storage, $) {
         levelId = data.id;
     });
 
+    eventBus.subscribe(Messages.SCORE_UPDATED, function (data) {
+        gameScore = data.gameScore;
+    });
+
     eventBus.subscribe(Messages.GRID_IS_FILLED, function (data) {
 
-        var item = {event: StoreEvent.LEVEL_COMPLETED, clientId: guid(), payload: {levelId: levelId}};
+        var item = {event: StoreEvent.LEVEL_COMPLETED, clientId: guid(), payload: {levelId: levelId, score: gameScore}};
         updateStateWithEventItem(item);
 
         var store = storage.store(USER_STORE) ? storage.store(USER_STORE) : [];
         store.push(item);
         storage.store(USER_STORE, store);
 
-        commit();
+        fetch();
     });
 
     eventBus.subscribe(Messages.UI_READY, function (data) {
@@ -34,14 +39,14 @@ var Store = (function (eventBus, storage, $) {
             updateStateWithEventItem(store[i]);
         }
 
-        setTimeout(commit(), 1000);
+        setTimeout(fetch(), 1000);
     });
 
     function updateStateWithEventItem(item) {
         switch (item.event) {
             case StoreEvent.LEVEL_COMPLETED:
                 state.numberOfGames++;
-                state.completedLevels[item.payload.levelId] = {score: 0};
+                state.completedLevels[item.payload.levelId] = {score: item.payload.score};
                 break;
         }
     }
@@ -58,8 +63,6 @@ var Store = (function (eventBus, storage, $) {
                 },
                 data: commitData
             });
-        } else {
-            fetch();
         }
     }
 
@@ -94,7 +97,9 @@ var Store = (function (eventBus, storage, $) {
                 }
             }
             storage.store(USER_STORE, store);
+            eventBus.publish(Messages.USER_STORE_UPDATED, store);
         }
+        commit();
     }
 
     function onCommitSuccessful(response) {
@@ -110,7 +115,6 @@ var Store = (function (eventBus, storage, $) {
             }
             storage.store(USER_STORE, store);
         }
-        fetch();
     }
 
     function createFetchData() {
