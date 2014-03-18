@@ -24,7 +24,8 @@ var GameFactory = (function (eventBus) {
                 break;
             default:
         }
-    }
+        eventBus.publish(Messages.NEW_SCORE_MULTIPLIER, gameSettings.scoreMultiplier);
+     }
 
     function setUpOneBorder(gameSettings) {
         var allCards = gameSettings.deck.playCards.concat(gameSettings.deck.traitCardMap[0]);

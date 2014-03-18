@@ -6,7 +6,7 @@ var LocalStore = (function (eventBus, storage) {
 
     var LEVEL_EVENTS = "level-events";
     var eventList = [Messages.NEW_TRAITS_CHOSEN, Messages.NEW_GRID_NEEDED,
-        Messages.CARD_DROPPED, Messages.CARD_DROP_REFUSED];
+        Messages.CARD_DROPPED, Messages.CARD_DROP_REFUSED, Messages.NEW_SCORE_MULTIPLIER];
 
     eventBus.subscribe(Messages.UID_INVALIDATED, function(data){
         storage.store(LEVEL_EVENTS, null);
@@ -55,7 +55,7 @@ var LocalStore = (function (eventBus, storage) {
                     storage.store(LEVEL_EVENTS, store);
                 })
             });
-        }, 0);
+        }, 1000);
     });
 
 

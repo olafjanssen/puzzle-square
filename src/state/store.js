@@ -5,8 +5,8 @@
 var Store = (function (eventBus, storage, $) {
 
     var USER_STORE = "user-store";
-    var levelId;
-    var gameScore;
+    var levelId = "";
+    var gameScore = 0;
 
     eventBus.subscribe(Messages.UID_INVALIDATED, function (data) {
         storage.store(USER_STORE, null);
@@ -21,15 +21,16 @@ var Store = (function (eventBus, storage, $) {
     });
 
     eventBus.subscribe(Messages.GRID_IS_FILLED, function (data) {
+        setTimeout(function () {
+            var item = {event: StoreEvent.LEVEL_COMPLETED, clientId: guid(), payload: {levelId: levelId, score: gameScore}};
+            updateStateWithEventItem(item);
 
-        var item = {event: StoreEvent.LEVEL_COMPLETED, clientId: guid(), payload: {levelId: levelId, score: gameScore}};
-        updateStateWithEventItem(item);
+            var store = storage.store(USER_STORE) ? storage.store(USER_STORE) : [];
+            store.push(item);
+            storage.store(USER_STORE, store);
 
-        var store = storage.store(USER_STORE) ? storage.store(USER_STORE) : [];
-        store.push(item);
-        storage.store(USER_STORE, store);
-
-        fetch();
+            fetch();
+        }, 0);
     });
 
     eventBus.subscribe(Messages.UI_READY, function (data) {
@@ -38,11 +39,17 @@ var Store = (function (eventBus, storage, $) {
         for (var i = 0; i < store.length; i++) {
             updateStateWithEventItem(store[i]);
         }
+        eventBus.publish(Messages.USER_STORE_UPDATED, store);
 
         setTimeout(fetch(), 1000);
     });
 
     function updateStateWithEventItem(item) {
+        if (!item.payload.levelId) {
+            console.log("error in data | levelId " + item.payload.levelId);
+            return;
+        }
+
         switch (item.event) {
             case StoreEvent.LEVEL_COMPLETED:
                 state.numberOfGames++;

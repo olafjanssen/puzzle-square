@@ -18,6 +18,7 @@ var Messages = {
 
     NEW_STACK_CREATED: "new-stack-created",
     NEW_TRAITS_CHOSEN: "new-traits-chosen",
+    NEW_SCORE_MULTIPLIER: "new-score-multiplier",
 
     NEW_PLAYABLE_CARD: "new-playable-card",
     NEW_CARD_IN_GRID: "new-card-in-grid",
