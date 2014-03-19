@@ -2,9 +2,9 @@
  * Created by olafjanssen on 23/02/14.
  */
 
-var GameFactory = (function (eventBus) {
+var GameFactory = (function (eventBus, commandBus) {
 
-    eventBus.subscribe(Messages.NEW_GAME_STARTED, function (data) {
+    commandBus.subscribe(Commands.START_NEW_GAME, function (data) {
         createNewGame(data.settings);
     });
 
@@ -93,4 +93,4 @@ var GameFactory = (function (eventBus) {
         }
     }
 
-}(amplify));
+}(amplify, amplify));

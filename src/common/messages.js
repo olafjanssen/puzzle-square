@@ -13,7 +13,6 @@ var Messages = {
     USER_STORE_UPDATED: "user-store-updated",
 
     // game updates
-    NEW_GAME_STARTED: "new-game-started",
     NEW_GRID_NEEDED: "new-grid-needed",
 
     NEW_STACK_CREATED: "new-stack-created",
@@ -34,3 +33,10 @@ var Messages = {
 
     NEXT_LEVEL_REQUESTED: "next-level-requested"
 };
+
+
+// Commands are dispatched and should be handled only once. It may result in messages.
+var Commands = {
+    START_NEW_GAME: "start-new-game",
+
+}
