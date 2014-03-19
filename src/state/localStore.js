@@ -6,7 +6,7 @@ var LocalStore = (function (eventBus, storage) {
 
     var LEVEL_EVENTS = "level-events";
 
-    eventBus.subscribe(UIMessages.UID_INVALIDATED, function(data){
+    eventBus.subscribe(UIMessages.UID_INVALIDATED, function (data) {
         storage.store(LEVEL_EVENTS, null);
     });
 
@@ -19,24 +19,30 @@ var LocalStore = (function (eventBus, storage) {
             if (store) {
                 playing = true;
                 for (var i = 0; i < store.length; i++) {
-                    var e = store[i];
+                    var message = store[i];
                     try {
-                        eventBus.publish(e.message, e.data);
+                        eventBus.publish(message.message, message.data);
                     } catch (e) {
-                        console.log("exception: " + e);
+                        console.log("message: " + message.message + " exception: " + e);
                         storage.store(LEVEL_EVENTS, null);
                     }
                 }
             }
 
             // only subscribe to events after the old events have been played
-
-            for(var item in GameMessages){
-                eventBus.subscribe(GameMessages[item], function (data) {
-                    var store = storage.store(LEVEL_EVENTS)? storage.store(LEVEL_EVENTS) : [];
-                    store.push({message: GameMessages[item], data: data});
+            function makeDelegate(message){
+                return function(data){
+                    console.log(message + " " + data);
+                    var store = storage.store(LEVEL_EVENTS) ? storage.store(LEVEL_EVENTS) : [];
+                    store.push({message: message, data: data});
                     storage.store(LEVEL_EVENTS, store);
-                })
+                }
+            }
+
+            for (var item in GameMessages) {
+
+                var message = GameMessages[item];
+                eventBus.subscribe(message, makeDelegate(message));
             }
         }, 1000);
     });

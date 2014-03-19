@@ -19,6 +19,7 @@ var GridController = (function (eventBus, commandBus) {
         } else {
             eventBus.publish(GameMessages.CARD_DROP_REFUSED, {col: col, row: row, card: card});
         }
+        commandBus.publish(Commands.GIVE_CARD_SCORE);
         proceedAfterGridChange();
     });
 

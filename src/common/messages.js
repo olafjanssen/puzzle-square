@@ -10,7 +10,6 @@ var GameMessages = {
 
     NEW_STACK_CREATED: "new-stack-created",
     NEW_TRAITS_CHOSEN: "new-traits-chosen",
-    NEW_SCORE_MULTIPLIER: "new-score-multiplier",
 
     NEW_PLAYABLE_CARD: "new-playable-card",
 
@@ -37,5 +36,6 @@ var UIMessages = {
 var Commands = {
     START_NEW_GAME: "start-new-game",
     FILL_POSITION: "fill-position",
-    ATTEMPT_CARD_DROP: "attempt-card-drop"
+    ATTEMPT_CARD_DROP: "attempt-card-drop",
+    GIVE_CARD_SCORE: "give-card-score"
 }

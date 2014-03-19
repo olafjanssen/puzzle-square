@@ -3,7 +3,7 @@
  */
 
 
-var ScorePresenter = (function (eventBus, $) {
+var ScorePresenter = (function (eventBus, commandBus, $) {
 
     var TOTAL_SCORE_ELEMENT;
     var scoreMultiplier = 0;
@@ -11,37 +11,35 @@ var ScorePresenter = (function (eventBus, $) {
     var totalScore = 0;
     var gameScore = 0;
 
+    // command handler
+
+    commandBus.publish(Commands.GIVE_CARD_SCORE, function(data){
+        var delta = Math.round(scoreNextCard);
+        eventBus.publish(GameMessages.SCORE_UPDATED, {gameScore: gameScore + delta, totalScore: totalScore + delta, delta: delta});
+    });
+
+    // message handler
+
     eventBus.subscribe(UIMessages.UI_READY, function () {
         TOTAL_SCORE_ELEMENT = document.getElementById("total-score-label");
     });
 
-    eventBus.subscribe(GameMessages.NEW_GRID_NEEDED, function (data) {
-        scoreMultiplier = 0;
+    eventBus.subscribe(GameMessages.NEW_GAME_STARTED, function (data) {
+        scoreMultiplier = data.settings.scoreMultiplier;
         scoreNextCard = scoreMultiplier;
         gameScore = 0;
         updateView();
-    });
-
-    eventBus.subscribe(GameMessages.NEW_SCORE_MULTIPLIER, function (data) {
-        scoreMultiplier = data;
-        scoreNextCard = scoreMultiplier;
     });
 
     eventBus.subscribe(GameMessages.CARD_DROP_REFUSED, function (data) {
         scoreNextCard = 0.5 * scoreNextCard;
     });
 
-    eventBus.subscribe(GameMessages.CARD_DROPPED, function (data) {
-        if (scoreNextCard == 0) {
-            return
-        }
-        var delta = Math.round(scoreNextCard);
-        totalScore += delta;
-        gameScore += delta;
+    eventBus.subscribe(GameMessages.SCORE_UPDATED, function (data) {
+        totalScore = data.totalScore;
+        gameScore = data.gameScore;
         scoreNextCard = scoreMultiplier;
         updateView();
-
-        eventBus.publish(GameMessages.SCORE_UPDATED, {gameScore: gameScore, totalScore: totalScore, delta: delta});
     });
 
     eventBus.subscribe(UIMessages.USER_STORE_UPDATED, function (data) {
@@ -56,4 +54,4 @@ var ScorePresenter = (function (eventBus, $) {
         TOTAL_SCORE_ELEMENT.innerHTML = totalScore;
     }
 
-}(amplify, $));
+}(amplify, amplify, $));

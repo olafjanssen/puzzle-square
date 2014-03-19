@@ -25,7 +25,6 @@ var GameFactory = (function (eventBus, commandBus) {
                 break;
             default:
         }
-        eventBus.publish(GameMessages.NEW_SCORE_MULTIPLIER, gameSettings.scoreMultiplier);
      }
 
     function setUpOneBorder(gameSettings) {
