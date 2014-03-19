@@ -11,7 +11,7 @@ var ScorePresenter = (function (eventBus, $) {
     var totalScore = 0;
     var gameScore = 0;
 
-    eventBus.subscribe(Messages.UI_READY, function () {
+    eventBus.subscribe(UIMessages.UI_READY, function () {
         TOTAL_SCORE_ELEMENT = document.getElementById("total-score-label");
     });
 
@@ -44,7 +44,7 @@ var ScorePresenter = (function (eventBus, $) {
         eventBus.publish(Messages.SCORE_UPDATED, {gameScore: gameScore, totalScore: totalScore, delta: delta});
     });
 
-    eventBus.subscribe(Messages.USER_STORE_UPDATED, function (data) {
+    eventBus.subscribe(UIMessages.USER_STORE_UPDATED, function (data) {
         totalScore = 0;
         for (var i = 0; i < data.length; i++) {
             totalScore += parseInt(data[i].payload.score);

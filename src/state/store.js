@@ -8,7 +8,7 @@ var Store = (function (eventBus, storage, $) {
     var levelId = "";
     var gameScore = 0;
 
-    eventBus.subscribe(Messages.UID_INVALIDATED, function (data) {
+    eventBus.subscribe(UIMessages.UID_INVALIDATED, function (data) {
         storage.store(USER_STORE, null);
     });
 
@@ -31,13 +31,13 @@ var Store = (function (eventBus, storage, $) {
         }, 0);
     });
 
-    eventBus.subscribe(Messages.UI_READY, function (data) {
+    eventBus.subscribe(UIMessages.UI_READY, function (data) {
         window.state = new State();
         var store = storage.store(USER_STORE) ? storage.store(USER_STORE) : [];
         for (var i = 0; i < store.length; i++) {
             updateStateWithEventItem(store[i]);
         }
-        eventBus.publish(Messages.USER_STORE_UPDATED, store);
+        eventBus.publish(UIMessages.USER_STORE_UPDATED, store);
 
         setTimeout(fetch(), 1000);
     });
@@ -102,7 +102,7 @@ var Store = (function (eventBus, storage, $) {
                 }
             }
             storage.store(USER_STORE, store);
-            eventBus.publish(Messages.USER_STORE_UPDATED, store);
+            eventBus.publish(UIMessages.USER_STORE_UPDATED, store);
         }
         commit();
     }

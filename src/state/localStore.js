@@ -8,11 +8,11 @@ var LocalStore = (function (eventBus, storage) {
     var eventList = [Messages.NEW_TRAITS_CHOSEN, Messages.NEW_GRID_NEEDED,
         Messages.CARD_DROPPED, Messages.CARD_DROP_REFUSED, Messages.NEW_SCORE_MULTIPLIER];
 
-    eventBus.subscribe(Messages.UID_INVALIDATED, function(data){
+    eventBus.subscribe(UIMessages.UID_INVALIDATED, function(data){
         storage.store(LEVEL_EVENTS, null);
     });
 
-    eventBus.subscribe(Messages.UI_READY, function (data) {
+    eventBus.subscribe(UIMessages.UI_READY, function (data) {
         setTimeout(function () {
 
             // first play old events from the store if they are available

@@ -4,7 +4,7 @@
 
 var LevelManager = (function (eventBus, commandBus) {
 
-    eventBus.subscribe(Messages.NEXT_LEVEL_REQUESTED, function (data) {
+    eventBus.subscribe(UIMessages.NEXT_LEVEL_REQUESTED, function (data) {
 
         for (var index = 0; index < levels.length; index++) {
             var level = levels[index];

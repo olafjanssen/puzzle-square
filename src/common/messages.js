@@ -5,15 +5,6 @@
 // Messages are fired in response to commands. In response to a message other messages should NOT be fired.
 // Multiple messages should be fired resulting from a handled command.
 var Messages = {
-    // ui changes
-    UI_READY: "ui-ready",
-    SPLASH_PAGE_FINISHED: "splash-page-finished",
-    OLD_GAME_CONTINUED: "old-game-continued",
-
-    // storage changes
-    UID_INVALIDATED: "uid-invalidated",
-    USER_STORE_UPDATED: "user-store-updated",
-
     // game updates
     NEW_GRID_NEEDED: "new-grid-needed",
 
@@ -27,11 +18,20 @@ var Messages = {
     CARD_DROP_REFUSED: "card-drop-refused",
     GRID_IS_FILLED: "grid-is-filled",
 
-    SCORE_UPDATED: "game-score-updated",
-
-    NEXT_LEVEL_REQUESTED: "next-level-requested"
+    SCORE_UPDATED: "game-score-updated"
 };
 
+var UIMessages = {
+    // ui changes
+    UI_READY: "ui-ready",
+    SPLASH_PAGE_FINISHED: "splash-page-finished",
+    OLD_GAME_CONTINUED: "old-game-continued",
+    NEXT_LEVEL_REQUESTED: "next-level-requested",
+
+    // storage changes
+    UID_INVALIDATED: "uid-invalidated",
+    USER_STORE_UPDATED: "user-store-updated"
+}
 
 // Commands are dispatched and should be handled only once. It may result in messages.
 var Commands = {

@@ -21,14 +21,14 @@ var BetwixtPresenter = (function (eventBus, $) {
         onGridFilled();
     });
 
-    eventBus.subscribe(Messages.UI_READY, function () {
+    eventBus.subscribe(UIMessages.UI_READY, function () {
         updateLayout();
         window.addEventListener("resize", function (event) {
             updateLayout();
         });
 
         $("#"+BUTTON_ELEMENT_ID).on('touchend click', function () {
-            eventBus.publish(Messages.NEXT_LEVEL_REQUESTED);
+            eventBus.publish(UIMessages.NEXT_LEVEL_REQUESTED);
         });
     });
 

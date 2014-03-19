@@ -8,14 +8,14 @@ var SplashPresenter = (function (eventBus, $) {
     var SPLASH_IMAGE = "#splash-image";
     var SPLASH_CONTAINER = "#splash";
 
-    eventBus.subscribe(Messages.UI_READY, function () {
+    eventBus.subscribe(UIMessages.UI_READY, function () {
         $(SPLASH_IMAGE).hide().fadeIn(500).delay(2000).fadeOut(500);
         $(SPLASH_CONTAINER).delay(SPLASH_DELAY).fadeOut(500, function () {
-            eventBus.publish(Messages.SPLASH_PAGE_FINISHED);
+            eventBus.publish(UIMessages.SPLASH_PAGE_FINISHED);
         });
     });
 
-    eventBus.subscribe(Messages.OLD_GAME_CONTINUED, function () {
+    eventBus.subscribe(UIMessages.OLD_GAME_CONTINUED, function () {
         $(SPLASH_IMAGE).hide();
     });
 

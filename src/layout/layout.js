@@ -14,7 +14,7 @@ var LayoutManager = (function (eventBus) {
         updateLayout();
     });
 
-    eventBus.subscribe(Messages.UI_READY, function () {
+    eventBus.subscribe(UIMessages.UI_READY, function () {
         window.addEventListener("resize", function (event) {
             if (hasGrid) {
                 updateLayout();
