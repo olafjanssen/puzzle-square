@@ -12,7 +12,9 @@ var Store = (function (eventBus, storage, $) {
         storage.store(USER_STORE, null);
     });
 
-    // todo let this presenter know the levelId
+    eventBus.subscribe(GameMessages.NEW_GAME_STARTED, function (data) {
+        levelId = data.id;
+    });
 
     eventBus.subscribe(GameMessages.SCORE_UPDATED, function (data) {
         gameScore = data.gameScore;

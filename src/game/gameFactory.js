@@ -5,6 +5,7 @@
 var GameFactory = (function (eventBus, commandBus) {
 
     commandBus.subscribe(Commands.START_NEW_GAME, function (data) {
+        eventBus.publish(GameMessages.NEW_GAME_STARTED, data);
         createNewGame(data.settings);
     });
 

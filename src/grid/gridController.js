@@ -46,7 +46,7 @@ var GridController = (function (eventBus, commandBus) {
     // message handling
 
     eventBus.subscribe(GameMessages.NEW_STACK_CREATED, function (data) {
-        stack = deck.concat();
+        stack = data.concat();
     });
 
     eventBus.subscribe(GameMessages.NEW_GRID_NEEDED, function (data) {
@@ -55,19 +55,20 @@ var GridController = (function (eventBus, commandBus) {
         traitDirections = data.traitDirections;
         droppedCoordinates = [];
         gridCells = (cols * rows) + rows * (traitDirections[1] + traitDirections[3]) + cols * (traitDirections[0] + traitDirections[2]);
-    });
-
-    eventBus.subscribe(GameMessages.NEW_TRAITS_CHOSEN, function (data) {
-        colTraitCards = data.colTraits;
-        rowTraitCards = data.rowTraits;
 
         // clean up the stack of unused cards
-        var tempStack = deck.concat();
+        var tempStack = stack.concat();
         for(var i=0;i<tempStack.length;i++){
             if (!validateCardInGrid(tempStack[i])){
                 removeCardFromStack(tempStack[i]);
             }
         }
+        droppedCoordinates = [];
+    });
+
+    eventBus.subscribe(GameMessages.NEW_TRAITS_CHOSEN, function (data) {
+        colTraitCards = data.colTraits;
+        rowTraitCards = data.rowTraits;
     });
 
     eventBus.subscribe(GameMessages.CARD_DROPPED, function (data) {
@@ -80,6 +81,7 @@ var GridController = (function (eventBus, commandBus) {
         for (var col = -traitDirections[3]; col < this.cols + traitDirections[1]; col++) {
             for (var row = -traitDirections[0]; row < this.rows + traitDirections[2]; row++) {
                 if (droppedCoordinates.indexOf(col + ", " + row) == -1 && validateCard(col, row, card)) {
+                    droppedCoordinates.push(col + ", " + row);
                     return true;
                 }
             }

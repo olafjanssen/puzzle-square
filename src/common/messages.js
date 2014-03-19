@@ -5,7 +5,7 @@
 // GameMessages are fired in response to commands. In response to a message other messages should NOT be fired.
 // Multiple messages should be fired resulting from a handled command.
 var GameMessages = {
-    // game updates
+    NEW_GAME_STARTED: "new-game-started",
     NEW_GRID_NEEDED: "new-grid-needed",
 
     NEW_STACK_CREATED: "new-stack-created",
