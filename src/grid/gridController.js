@@ -8,6 +8,8 @@ var GridController = (function (eventBus, commandBus) {
     var droppedCoordinates;
     var gridCells;
 
+    var stack = [];
+
     // command handling
 
     commandBus.subscribe(Commands.ATTEMPT_CARD_DROP, function (data) {
@@ -17,10 +19,7 @@ var GridController = (function (eventBus, commandBus) {
         } else {
             eventBus.publish(Messages.CARD_DROP_REFUSED, {col: col, row: row, card: card});
         }
-
-        if (isGridFull()) {
-            eventBus.publish(Messages.GRID_IS_FILLED);
-        }
+        proceedAfterGridChange();
     });
 
     commandBus.subscribe(Commands.FILL_POSITION, function (data) {
@@ -32,9 +31,23 @@ var GridController = (function (eventBus, commandBus) {
         } else {
             eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: Card.mergeCards(rowTraitCards[row], colTraitCards[col])});
         }
+        proceedAfterGridChange();
     });
 
+    // only call this method in a command handler
+    function proceedAfterGridChange(){
+        if (isGridFull()) {
+            eventBus.publish(Messages.GRID_IS_FILLED);
+        } else {
+            eventBus.publish(Messages.NEW_PLAYABLE_CARD, stack[0]);
+        }
+    }
+
     // message handling
+
+    eventBus.subscribe(Messages.NEW_STACK_CREATED, function (data) {
+        stack = deck.concat();
+    });
 
     eventBus.subscribe(Messages.NEW_GRID_NEEDED, function (data) {
         cols = data.cols;
@@ -47,26 +60,31 @@ var GridController = (function (eventBus, commandBus) {
     eventBus.subscribe(Messages.NEW_TRAITS_CHOSEN, function (data) {
         colTraitCards = data.colTraits;
         rowTraitCards = data.rowTraits;
+
+        // clean up the stack of unused cards
+        var tempStack = deck.concat();
+        for(var i=0;i<tempStack.length;i++){
+            if (!validateCardInGrid(tempStack[i])){
+                removeCardFromStack(tempStack[i]);
+            }
+        }
     });
 
     eventBus.subscribe(Messages.CARD_DROPPED, function (data) {
         droppedCoordinates.push(data.col + ", " + data.row);
+        removeCardFromStack(data.card);
     });
 
-    eventBus.subscribe(Messages.NEW_PLAYABLE_CARD, function (data) {
-        validateCardInGrid(data);
-    });
 
     function validateCardInGrid(card) {
         for (var col = -traitDirections[3]; col < this.cols + traitDirections[1]; col++) {
             for (var row = -traitDirections[0]; row < this.rows + traitDirections[2]; row++) {
                 if (droppedCoordinates.indexOf(col + ", " + row) == -1 && validateCard(col, row, card)) {
-                    eventBus.publish(Messages.NEW_CARD_IN_GRID, card);
-                    return;
+                    return true;
                 }
             }
         }
-        eventBus.publish(Messages.NEW_CARD_NOT_IN_GRID, card);
+        return false;
     }
 
     function validateCard(col, row, card) {
@@ -88,4 +106,15 @@ var GridController = (function (eventBus, commandBus) {
     function isGridFull() {
         return droppedCoordinates.length == gridCells;
     }
+
+    function removeCardFromStack(card) {
+        var index;
+        for (index = 0; index < stack.length; index++) {
+            if (Card.equals(stack[index], card)) {
+                stack.splice(index, 1);
+                break;
+            }
+        }
+    }
+
 }(amplify, amplify));

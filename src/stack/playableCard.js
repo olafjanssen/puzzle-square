@@ -7,16 +7,12 @@ var PlayableCard = (function (eventBus, commandBus) {
     var playableCard;
     var cardJiggleTimer;
 
-    eventBus.subscribe(Messages.NEW_CARD_IN_GRID, function (data) {
+    eventBus.subscribe(Messages.NEW_PLAYABLE_CARD, function (data) {
         onNewPlayableCard(data);
     });
 
     eventBus.subscribe(Messages.CARD_DROP_REFUSED, function (data) {
         onDropRefused();
-    });
-
-    eventBus.subscribe(Messages.NEW_CARD_NOT_IN_GRID, function (data) {
-        getElement().innerHTML = "";
     });
 
     function getElement() {

@@ -22,8 +22,6 @@ var Messages = {
     NEW_SCORE_MULTIPLIER: "new-score-multiplier",
 
     NEW_PLAYABLE_CARD: "new-playable-card",
-    NEW_CARD_IN_GRID: "new-card-in-grid",
-    NEW_CARD_NOT_IN_GRID: "new-card-not-in-grid",
 
     CARD_DROPPED: "card-dropped",
     CARD_DROP_REFUSED: "card-drop-refused",
