@@ -2,7 +2,7 @@
  * Created by olafjanssen on 23/02/14.
  */
 
-var PlayableCard = (function (eventBus) {
+var PlayableCard = (function (eventBus, commandBus) {
 
     var playableCard;
     var cardJiggleTimer;
@@ -70,7 +70,7 @@ var PlayableCard = (function (eventBus) {
                 getElement().style.display = "";
 
                 if (elem !== null && elem.hasAttribute("ondrop")) {
-                    eventBus.publish(Messages.CARD_DROP_ATTEMPTED, {col: elem.getAttribute("col"), row: elem.getAttribute("row"), card: card});
+                    commandBus.publish(Commands.ATTEMPT_CARD_DROP, {col: elem.getAttribute("col"), row: elem.getAttribute("row"), card: card});
                 } else {
                     onDropRefused();
                 }
@@ -95,7 +95,7 @@ var PlayableCard = (function (eventBus) {
                 var elem = document.elementFromPoint(event.changedTouches[0].pageX, event.changedTouches[0].pageY);
                 getElement().style.display = "";
                 if (elem !== null && elem.hasAttribute("ondrop")) {
-                    eventBus.publish(Messages.CARD_DROP_ATTEMPTED, {col: elem.getAttribute("col"), row: elem.getAttribute("row"), card: card});
+                    commandBus.publish(Commands.ATTEMPT_CARD_DROP, {col: elem.getAttribute("col"), row: elem.getAttribute("row"), card: card});
                 } else {
                     onDropRefused();
                 }
@@ -103,4 +103,4 @@ var PlayableCard = (function (eventBus) {
         }, false);
     }
 
-}(amplify));
+}(amplify, amplify));

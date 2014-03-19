@@ -1,12 +1,19 @@
 // Grid or playing field
 
-var GridController = (function (eventBus) {
+var GridController = (function (eventBus, commandBus) {
 
     var traitDirections;
     var colTraitCards, rowTraitCards;
     var cols, rows;
     var droppedCoordinates;
     var gridCells;
+
+    commandBus.subscribe(Commands.ATTEMPT_CARD_DROP, function (data) {
+        attemptDrop(data.col, data.row, data.card);
+        if (isGridFull()) {
+            eventBus.publish(Messages.GRID_IS_FILLED);
+        }
+    });
 
     eventBus.subscribe(Messages.NEW_GRID_NEEDED, function (data) {
         cols = data.cols;
@@ -25,15 +32,8 @@ var GridController = (function (eventBus) {
         fillPosition(data.col, data.row);
     });
 
-    eventBus.subscribe(Messages.CARD_DROP_ATTEMPTED, function (data) {
-        attemptDrop(data.col, data.row, data.card);
-    });
-
     eventBus.subscribe(Messages.CARD_DROPPED, function (data) {
         droppedCoordinates.push(data.col + ", " + data.row);
-        if (isGridFull()) {
-            eventBus.publish(Messages.GRID_IS_FILLED);
-        }
     });
 
     eventBus.subscribe(Messages.NEW_PLAYABLE_CARD, function (data) {
@@ -89,4 +89,4 @@ var GridController = (function (eventBus) {
     function isGridFull() {
         return droppedCoordinates.length == gridCells;
     }
-}(amplify));
+}(amplify, amplify));
