@@ -10,12 +10,11 @@ var BetwixtPresenter = (function (eventBus, $) {
 
     var currentImageClassName;
 
-    // todo let presenter know about the settings
-//    eventBus.subscribe(GameMessages.NEW_GAME_STARTED, function (data) {
-//        document.getElementById(ELEMENT_ID).classList.remove("show");
-//        document.getElementById(ELEMENT_ID).classList.remove("fx");
-//        currentImageClassName = data.settings.imageClassName;
-//    })
+    eventBus.subscribe(GameMessages.NEW_GAME_STARTED, function (data) {
+        document.getElementById(ELEMENT_ID).classList.remove("show");
+        document.getElementById(ELEMENT_ID).classList.remove("fx");
+        currentImageClassName = data.settings.imageClassName;
+    })
 
     eventBus.subscribe(GameMessages.GRID_IS_FILLED, function (data) {
         onGridFilled();
