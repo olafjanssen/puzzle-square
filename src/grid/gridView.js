@@ -8,15 +8,15 @@ var GridView = (function (eventBus, $) {
 
     var cols, rows;
 
-    eventBus.subscribe(Messages.NEW_GRID_NEEDED, function (data) {
+    eventBus.subscribe(GameMessages.NEW_GRID_NEEDED, function (data) {
         render(data.cols, data.rows, data.traitDirections);
     });
 
-    eventBus.subscribe(Messages.CARD_DROPPED, function (data) {
+    eventBus.subscribe(GameMessages.CARD_DROPPED, function (data) {
         setCard(data.col, data.row, data.card)
     });
 
-    eventBus.subscribe(Messages.GRID_IS_FILLED, function (data) {
+    eventBus.subscribe(GameMessages.GRID_IS_FILLED, function (data) {
         onGridFilled();
     });
 

@@ -6,7 +6,7 @@ var LayoutManager = (function (eventBus) {
 
     var hasGrid = false;
 
-    eventBus.subscribe(Messages.NEW_GRID_NEEDED, function (data) {
+    eventBus.subscribe(GameMessages.NEW_GRID_NEEDED, function (data) {
         hasGrid = true;
         this.cols = data.cols;
         this.rows = data.rows;

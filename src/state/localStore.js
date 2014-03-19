@@ -5,8 +5,8 @@
 var LocalStore = (function (eventBus, storage) {
 
     var LEVEL_EVENTS = "level-events";
-    var eventList = [Messages.NEW_TRAITS_CHOSEN, Messages.NEW_GRID_NEEDED,
-        Messages.CARD_DROPPED, Messages.CARD_DROP_REFUSED, Messages.NEW_SCORE_MULTIPLIER];
+    var eventList = [GameMessages.NEW_TRAITS_CHOSEN, GameMessages.NEW_GRID_NEEDED,
+        GameMessages.CARD_DROPPED, GameMessages.CARD_DROP_REFUSED, GameMessages.NEW_SCORE_MULTIPLIER];
 
     eventBus.subscribe(UIMessages.UID_INVALIDATED, function(data){
         storage.store(LEVEL_EVENTS, null);
@@ -33,14 +33,14 @@ var LocalStore = (function (eventBus, storage) {
 
             // only subscribe to events after the old events have been played
 
-            eventBus.subscribe(Messages.GRID_IS_FILLED, function (data) {
+            eventBus.subscribe(GameMessages.GRID_IS_FILLED, function (data) {
                 storage.store(LEVEL_EVENTS, null);
             });
 
-            eventBus.subscribe(Messages.NEW_STACK_CREATED, function (data) {
+            eventBus.subscribe(GameMessages.NEW_STACK_CREATED, function (data) {
                 var store = [
-                    {message: Messages.OLD_GAME_CONTINUED, data: null},
-                    {message: Messages.NEW_STACK_CREATED, data: data}
+                    {message: GameMessages.OLD_GAME_CONTINUED, data: null},
+                    {message: GameMessages.NEW_STACK_CREATED, data: data}
                 ];
                 storage.store(LEVEL_EVENTS, store);
             });

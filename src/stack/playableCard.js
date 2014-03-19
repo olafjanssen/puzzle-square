@@ -7,11 +7,11 @@ var PlayableCard = (function (eventBus, commandBus) {
     var playableCard;
     var cardJiggleTimer;
 
-    eventBus.subscribe(Messages.NEW_PLAYABLE_CARD, function (data) {
+    eventBus.subscribe(GameMessages.NEW_PLAYABLE_CARD, function (data) {
         onNewPlayableCard(data);
     });
 
-    eventBus.subscribe(Messages.CARD_DROP_REFUSED, function (data) {
+    eventBus.subscribe(GameMessages.CARD_DROP_REFUSED, function (data) {
         onDropRefused();
     });
 

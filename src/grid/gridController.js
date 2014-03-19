@@ -15,9 +15,9 @@ var GridController = (function (eventBus, commandBus) {
     commandBus.subscribe(Commands.ATTEMPT_CARD_DROP, function (data) {
         var col = data.col, row = data.row, card = data.card;
         if (validateCard(col, row, card)) {
-            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: card});
+            eventBus.publish(GameMessages.CARD_DROPPED, {col: col, row: row, card: card});
         } else {
-            eventBus.publish(Messages.CARD_DROP_REFUSED, {col: col, row: row, card: card});
+            eventBus.publish(GameMessages.CARD_DROP_REFUSED, {col: col, row: row, card: card});
         }
         proceedAfterGridChange();
     });
@@ -25,11 +25,11 @@ var GridController = (function (eventBus, commandBus) {
     commandBus.subscribe(Commands.FILL_POSITION, function (data) {
         var col = data.col, row = data.row;
         if (col == -1 || col == cols) {
-            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: rowTraitCards[row]});
+            eventBus.publish(GameMessages.CARD_DROPPED, {col: col, row: row, card: rowTraitCards[row]});
         } else if (row == -1 || row == rows) {
-            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: colTraitCards[col]});
+            eventBus.publish(GameMessages.CARD_DROPPED, {col: col, row: row, card: colTraitCards[col]});
         } else {
-            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: Card.mergeCards(rowTraitCards[row], colTraitCards[col])});
+            eventBus.publish(GameMessages.CARD_DROPPED, {col: col, row: row, card: Card.mergeCards(rowTraitCards[row], colTraitCards[col])});
         }
         proceedAfterGridChange();
     });
@@ -37,19 +37,19 @@ var GridController = (function (eventBus, commandBus) {
     // only call this method in a command handler
     function proceedAfterGridChange(){
         if (isGridFull()) {
-            eventBus.publish(Messages.GRID_IS_FILLED);
+            eventBus.publish(GameMessages.GRID_IS_FILLED);
         } else {
-            eventBus.publish(Messages.NEW_PLAYABLE_CARD, stack[0]);
+            eventBus.publish(GameMessages.NEW_PLAYABLE_CARD, stack[0]);
         }
     }
 
     // message handling
 
-    eventBus.subscribe(Messages.NEW_STACK_CREATED, function (data) {
+    eventBus.subscribe(GameMessages.NEW_STACK_CREATED, function (data) {
         stack = deck.concat();
     });
 
-    eventBus.subscribe(Messages.NEW_GRID_NEEDED, function (data) {
+    eventBus.subscribe(GameMessages.NEW_GRID_NEEDED, function (data) {
         cols = data.cols;
         rows = data.rows;
         traitDirections = data.traitDirections;
@@ -57,7 +57,7 @@ var GridController = (function (eventBus, commandBus) {
         gridCells = (cols * rows) + rows * (traitDirections[1] + traitDirections[3]) + cols * (traitDirections[0] + traitDirections[2]);
     });
 
-    eventBus.subscribe(Messages.NEW_TRAITS_CHOSEN, function (data) {
+    eventBus.subscribe(GameMessages.NEW_TRAITS_CHOSEN, function (data) {
         colTraitCards = data.colTraits;
         rowTraitCards = data.rowTraits;
 
@@ -70,7 +70,7 @@ var GridController = (function (eventBus, commandBus) {
         }
     });
 
-    eventBus.subscribe(Messages.CARD_DROPPED, function (data) {
+    eventBus.subscribe(GameMessages.CARD_DROPPED, function (data) {
         droppedCoordinates.push(data.col + ", " + data.row);
         removeCardFromStack(data.card);
     });

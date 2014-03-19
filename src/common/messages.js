@@ -2,9 +2,9 @@
  * Created by olafjanssen on 22/02/14.
  */
 
-// Messages are fired in response to commands. In response to a message other messages should NOT be fired.
+// GameMessages are fired in response to commands. In response to a message other messages should NOT be fired.
 // Multiple messages should be fired resulting from a handled command.
-var Messages = {
+var GameMessages = {
     // game updates
     NEW_GRID_NEEDED: "new-grid-needed",
 

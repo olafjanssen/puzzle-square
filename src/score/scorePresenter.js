@@ -15,23 +15,23 @@ var ScorePresenter = (function (eventBus, $) {
         TOTAL_SCORE_ELEMENT = document.getElementById("total-score-label");
     });
 
-    eventBus.subscribe(Messages.NEW_GRID_NEEDED, function (data) {
+    eventBus.subscribe(GameMessages.NEW_GRID_NEEDED, function (data) {
         scoreMultiplier = 0;
         scoreNextCard = scoreMultiplier;
         gameScore = 0;
         updateView();
     });
 
-    eventBus.subscribe(Messages.NEW_SCORE_MULTIPLIER, function (data) {
+    eventBus.subscribe(GameMessages.NEW_SCORE_MULTIPLIER, function (data) {
         scoreMultiplier = data;
         scoreNextCard = scoreMultiplier;
     });
 
-    eventBus.subscribe(Messages.CARD_DROP_REFUSED, function (data) {
+    eventBus.subscribe(GameMessages.CARD_DROP_REFUSED, function (data) {
         scoreNextCard = 0.5 * scoreNextCard;
     });
 
-    eventBus.subscribe(Messages.CARD_DROPPED, function (data) {
+    eventBus.subscribe(GameMessages.CARD_DROPPED, function (data) {
         if (scoreNextCard == 0) {
             return
         }
@@ -41,7 +41,7 @@ var ScorePresenter = (function (eventBus, $) {
         scoreNextCard = scoreMultiplier;
         updateView();
 
-        eventBus.publish(Messages.SCORE_UPDATED, {gameScore: gameScore, totalScore: totalScore, delta: delta});
+        eventBus.publish(GameMessages.SCORE_UPDATED, {gameScore: gameScore, totalScore: totalScore, delta: delta});
     });
 
     eventBus.subscribe(UIMessages.USER_STORE_UPDATED, function (data) {

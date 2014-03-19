@@ -14,11 +14,11 @@ var Store = (function (eventBus, storage, $) {
 
     // todo let this presenter know the levelId
 
-    eventBus.subscribe(Messages.SCORE_UPDATED, function (data) {
+    eventBus.subscribe(GameMessages.SCORE_UPDATED, function (data) {
         gameScore = data.gameScore;
     });
 
-    eventBus.subscribe(Messages.GRID_IS_FILLED, function (data) {
+    eventBus.subscribe(GameMessages.GRID_IS_FILLED, function (data) {
         setTimeout(function () {
             var item = {event: StoreEvent.LEVEL_COMPLETED, clientId: guid(), payload: {levelId: levelId, score: gameScore}};
             updateStateWithEventItem(item);
