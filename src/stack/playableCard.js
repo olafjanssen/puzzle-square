@@ -15,6 +15,10 @@ var PlayableCard = (function (eventBus, commandBus) {
         onDropRefused();
     });
 
+    eventBus.subscribe(GameMessages.CARD_DROPPED, function (data) {
+        getElement().innerHTML = "";
+    });
+
     function getElement() {
         return document.getElementById("stack");
     }

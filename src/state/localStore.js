@@ -40,7 +40,6 @@ var LocalStore = (function (eventBus, storage) {
             }
 
             for (var item in GameMessages) {
-
                 var message = GameMessages[item];
                 eventBus.subscribe(message, makeDelegate(message));
             }
