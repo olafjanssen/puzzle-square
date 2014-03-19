@@ -8,12 +8,33 @@ var GridController = (function (eventBus, commandBus) {
     var droppedCoordinates;
     var gridCells;
 
+    // command handling
+
     commandBus.subscribe(Commands.ATTEMPT_CARD_DROP, function (data) {
-        attemptDrop(data.col, data.row, data.card);
+        var col = data.col, row = data.row, card = data.card;
+        if (validateCard(col, row, card)) {
+            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: card});
+        } else {
+            eventBus.publish(Messages.CARD_DROP_REFUSED, {col: col, row: row, card: card});
+        }
+
         if (isGridFull()) {
             eventBus.publish(Messages.GRID_IS_FILLED);
         }
     });
+
+    commandBus.subscribe(Commands.FILL_POSITION, function (data) {
+        var col = data.col, row = data.row;
+        if (col == -1 || col == cols) {
+            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: rowTraitCards[row]});
+        } else if (row == -1 || row == rows) {
+            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: colTraitCards[col]});
+        } else {
+            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: Card.mergeCards(rowTraitCards[row], colTraitCards[col])});
+        }
+    });
+
+    // message handling
 
     eventBus.subscribe(Messages.NEW_GRID_NEEDED, function (data) {
         cols = data.cols;
@@ -26,10 +47,6 @@ var GridController = (function (eventBus, commandBus) {
     eventBus.subscribe(Messages.NEW_TRAITS_CHOSEN, function (data) {
         colTraitCards = data.colTraits;
         rowTraitCards = data.rowTraits;
-    });
-
-    eventBus.subscribe(Messages.POSITION_FILLED, function (data) {
-        fillPosition(data.col, data.row);
     });
 
     eventBus.subscribe(Messages.CARD_DROPPED, function (data) {
@@ -50,24 +67,6 @@ var GridController = (function (eventBus, commandBus) {
             }
         }
         eventBus.publish(Messages.NEW_CARD_NOT_IN_GRID, card);
-    }
-
-    function fillPosition(col, row) {
-        if (col == -1 || col == cols) {
-            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: rowTraitCards[row]});
-        } else if (row == -1 || row == rows) {
-            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: colTraitCards[col]});
-        } else {
-            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: Card.mergeCards(rowTraitCards[row], colTraitCards[col])});
-        }
-    }
-
-    function attemptDrop(col, row, card) {
-        if (validateCard(col, row, card)) {
-            eventBus.publish(Messages.CARD_DROPPED, {col: col, row: row, card: card});
-        } else {
-            eventBus.publish(Messages.CARD_DROP_REFUSED, {col: col, row: row, card: card});
-        }
     }
 
     function validateCard(col, row, card) {

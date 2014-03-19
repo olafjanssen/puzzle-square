@@ -27,7 +27,6 @@ var Messages = {
 
     CARD_DROPPED: "card-dropped",
     CARD_DROP_REFUSED: "card-drop-refused",
-    POSITION_FILLED: "position-filled",
     GRID_IS_FILLED: "grid-is-filled",
 
     SCORE_UPDATED: "game-score-updated",
@@ -39,5 +38,6 @@ var Messages = {
 // Commands are dispatched and should be handled only once. It may result in messages.
 var Commands = {
     START_NEW_GAME: "start-new-game",
+    FILL_POSITION: "fill-position",
     ATTEMPT_CARD_DROP: "attempt-card-drop"
 }

@@ -37,7 +37,7 @@ var GameFactory = (function (eventBus, commandBus) {
         eventBus.publish(Messages.NEW_GRID_NEEDED, {cols: size[0], rows: size[1], traitDirections: [1, 0, 0, 0]});
 
         for (var col = 0; col < size[0]; col++) {
-            eventBus.publish(Messages.POSITION_FILLED, {col: col, row: -1});
+            commandBus.publish(Commands.FILL_POSITION, {col: col, row: -1});
         }
     }
 
@@ -51,10 +51,10 @@ var GameFactory = (function (eventBus, commandBus) {
         eventBus.publish(Messages.NEW_GRID_NEEDED, {cols: size[0], rows: size[1], traitDirections: [1, 0, 0, 1]});
 
         for (var col = 0; col < size[0]; col++) {
-            eventBus.publish(Messages.POSITION_FILLED, {col: col, row: -1});
+            commandBus.publish(Commands.FILL_POSITION, {col: col, row: -1});
         }
         for (var row = 0; row < size[1]; row++) {
-            eventBus.publish(Messages.POSITION_FILLED, {col: -1, row: row});
+            commandBus.publish(Commands.FILL_POSITION, {col: -1, row: row});
         }
     }
 
@@ -73,7 +73,7 @@ var GameFactory = (function (eventBus, commandBus) {
         }
         rowList = shuffle(rowList.concat());
         for (var col = 0; col < size[0]; col++) {
-            eventBus.publish(Messages.POSITION_FILLED, {col: col, row: rowList[col]});
+            commandBus.publish(Commands.FILL_POSITION, {col: col, row: rowList[col]});
         }
     }
 
@@ -88,7 +88,7 @@ var GameFactory = (function (eventBus, commandBus) {
 
         for (var col = 0; col < size[0]; col++) {
             for (var row = 0; row < size[1]; row++) {
-                eventBus.publish(Messages.POSITION_FILLED, {col: col, row: row});
+                commandBus.publish(Commands.FILL_POSITION, {col: col, row: row});
             }
         }
     }
