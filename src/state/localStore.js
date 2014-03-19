@@ -32,10 +32,14 @@ var LocalStore = (function (eventBus, storage) {
             // only subscribe to events after the old events have been played
             function makeDelegate(message){
                 return function(data){
-                    console.log(message + " " + data);
+
                     var store = storage.store(LEVEL_EVENTS) ? storage.store(LEVEL_EVENTS) : [];
                     store.push({message: message, data: data});
                     storage.store(LEVEL_EVENTS, store);
+
+                    if (message == GameMessages.GRID_IS_FILLED){
+                        storage.store(LEVEL_EVENTS, null);
+                    }
                 }
             }
 
