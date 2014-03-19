@@ -13,7 +13,7 @@ var ScorePresenter = (function (eventBus, commandBus, $) {
 
     // command handler
 
-    commandBus.publish(Commands.GIVE_CARD_SCORE, function(data){
+    commandBus.subscribe(Commands.GIVE_CARD_SCORE, function(data){
         var delta = Math.round(scoreNextCard);
         eventBus.publish(GameMessages.SCORE_UPDATED, {gameScore: gameScore + delta, totalScore: totalScore + delta, delta: delta});
     });
