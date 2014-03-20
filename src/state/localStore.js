@@ -21,12 +21,14 @@ var LocalStore = (function (eventBus, storage) {
                 for (var i = 0; i < store.length; i++) {
                     var message = store[i];
                     try {
+                        console.log("publish: " + message.message);
                         eventBus.publish(message.message, message.data);
                     } catch (e) {
                         console.log("message: " + message.message + " exception: " + e);
                         storage.store(LEVEL_EVENTS, null);
                     }
                 }
+                eventBus.publish(UIMessages.OLD_GAME_CONTINUED);
             }
 
             // only subscribe to events after the old events have been played
