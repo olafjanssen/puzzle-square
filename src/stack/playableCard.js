@@ -69,7 +69,12 @@ var PlayableCard = (function (eventBus, commandBus) {
                 var elem = document.elementFromPoint(event.clientX, event.clientY);
                 getElement().style.display = "";
 
-                if (elem !== null && elem.hasAttribute("ondrop")) {
+                var dropElement = elem;
+                while (elem && !elem.hasAttribute("ondrop")){
+                    elem = elem.parentNode;
+                }
+
+                if (elem !== null) {
                     commandBus.publish(Commands.ATTEMPT_CARD_DROP, {col: elem.getAttribute("col"), row: elem.getAttribute("row"), card: card});
                 } else {
                     onDropRefused();

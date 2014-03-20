@@ -16,11 +16,11 @@ var GridController = (function (eventBus, commandBus) {
         var col = data.col, row = data.row, card = data.card;
         if (validateCard(col, row, card)) {
             eventBus.publish(GameMessages.CARD_DROPPED, {col: col, row: row, card: card});
+            commandBus.publish(Commands.GIVE_CARD_SCORE);
+            proceedAfterGridChange();
         } else {
             eventBus.publish(GameMessages.CARD_DROP_REFUSED, {col: col, row: row, card: card});
         }
-        commandBus.publish(Commands.GIVE_CARD_SCORE);
-        proceedAfterGridChange();
     });
 
     commandBus.subscribe(Commands.FILL_POSITION, function (data) {

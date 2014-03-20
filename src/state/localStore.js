@@ -21,7 +21,6 @@ var LocalStore = (function (eventBus, storage) {
                 for (var i = 0; i < store.length; i++) {
                     var message = store[i];
                     try {
-                        console.log("publish: " + message.message);
                         eventBus.publish(message.message, message.data);
                     } catch (e) {
                         console.log("message: " + message.message + " exception: " + e);
