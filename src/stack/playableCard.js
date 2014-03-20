@@ -37,6 +37,7 @@ var PlayableCard = (function (eventBus, commandBus) {
         getElement().innerHTML = "";
 
         playableCard = Card.render(card);
+        playableCard.id = "playable-card";
 
         getElement().appendChild(playableCard);
 
@@ -71,7 +72,7 @@ var PlayableCard = (function (eventBus, commandBus) {
 
                 var dropElement = elem;
                 while (elem && !elem.hasAttribute("ondrop")){
-                    elem = elem.parentNode;
+                    elem = elem.parentElement;
                 }
 
                 if (elem !== null) {

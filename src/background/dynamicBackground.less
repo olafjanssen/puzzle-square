@@ -1,0 +1,31 @@
+#dynamic-background {
+
+  .level {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+
+    &:nth-child(1) {
+      -webkit-animation: dynamic-background-animation 180s linear infinite;
+    }
+    &:nth-child(2) {
+      -webkit-animation: dynamic-background-animation 360s linear infinite reverse;
+    }
+    &:nth-child(3) {
+      -webkit-animation: dynamic-background-animation 720s linear infinite;
+    }
+  }
+
+  .disc {
+    background: rgba(200, 0, 0, 0.05);
+    position: absolute;
+    border-radius: 100%;
+  }
+}
+
+@-webkit-keyframes dynamic-background-animation {
+  0% { -webkit-transform: rotate(0); }
+  100% { -webkit-transform: rotate(360deg); }
+}
