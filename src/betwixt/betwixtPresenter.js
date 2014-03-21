@@ -16,9 +16,9 @@ var BetwixtPresenter = (function (eventBus, $) {
         currentImageClassName = data.settings.imageClassName;
     })
 
-    eventBus.subscribe(GameMessages.GRID_IS_FILLED, function (data) {
-        onGridFilled();
-    });
+//    eventBus.subscribe(GameMessages.GRID_IS_FILLED, function (data) {
+//        onGridFilled();
+//    });
 
     eventBus.subscribe(UIMessages.UI_READY, function () {
         updateLayout();

@@ -1,0 +1,99 @@
+#level-menu {
+  display: none;
+
+  &.show {
+    display: block;
+
+    #level-menu-container {
+      display: block;
+      opacity: 0;
+    }
+  }
+
+  .background-side1, .background-side2 {
+    position: absolute;
+    .transform-transition(0.2s);
+    background-color: rgba(200, 200, 255, 0.4);
+    position: absolute;
+    height: 100%;
+    width: 75%;
+    top: 0;
+  }
+
+  .background-side1 {
+    .transform(translate3d(-100%, 0, 0));
+  }
+
+  .background-side2 {
+    .transform(translate3d(100%, 0, 0));
+    left: 25%;
+  }
+
+  &.fx {
+    .background-side1, .background-side2 {
+      .transform(none);
+    }
+
+    #level-menu-container {
+      opacity: 1;
+    }
+  }
+
+  #level-menu-container {
+    .transition(opacity 0.5s 0.2s ease);
+    display: none;
+    opacity: 0;
+
+    overflow-y: scroll;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+
+    button {
+      border: 1em solid #333;
+      background-size: cover;
+      position: relative;
+      margin: 3em -10em;
+      cursor: pointer;
+      display: block;
+      height: 20em;
+      width: 20em;
+      padding: 0;
+      outline: 0;
+      left: 50%;
+
+      .index-label {
+        text-shadow: 0.05em 0.05em white;
+        font-family: number-font;
+        line-height: 0.75em;
+        position: absolute;
+        font-size: 8em;
+        left: 0.1em;
+        color: #333;
+        top: 0;
+      }
+
+      .score-label {
+        text-shadow: 0.05em 0.05em lightgreen;
+        font-family: number-font;
+        position: absolute;
+        color: darkgreen;
+        font-size: 3em;
+        bottom: 0.25em;
+        right: 0.25em;
+      }
+
+      &.not-completed {
+        background: orange;
+      }
+
+      &.not-completed + .not-completed {
+        pointer-events: none;
+        opacity: 0.5;
+      }
+    }
+  }
+
+}
