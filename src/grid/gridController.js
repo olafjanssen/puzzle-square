@@ -91,6 +91,9 @@ var GridController = (function (eventBus, commandBus) {
     }
 
     function validateCard(col, row, card) {
+        if (droppedCoordinates.indexOf(col + ", " + row) != -1){
+            return false;
+        }
         if (row > -1 && (col == -1 || col == cols)) {
             return Card.equals(card, rowTraitCards[row]);
         } else if (col > -1 && (row == -1 || row == rows)) {
