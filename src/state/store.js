@@ -2,13 +2,13 @@
  * Created by olafjanssen on 3/12/14.
  */
 
-var Store = (function (eventBus, storage, $) {
+(function (eventBus, storage, $) {
 
-    var USER_STORE = "user-store";
-    var levelId = "";
-    var gameScore = 0;
+    var USER_STORE = "user-store",
+        levelId = "",
+        gameScore = 0;
 
-    eventBus.subscribe(UIMessages.UID_INVALIDATED, function (data) {
+    eventBus.subscribe(UIMessages.UID_INVALIDATED, function () {
         storage.store(USER_STORE, null);
     });
 
@@ -20,12 +20,13 @@ var Store = (function (eventBus, storage, $) {
         gameScore = data.gameScore;
     });
 
-    eventBus.subscribe(GameMessages.GRID_IS_FILLED, function (data) {
+    eventBus.subscribe(GameMessages.GRID_IS_FILLED, function () {
         setTimeout(function () {
-            var item = {event: StoreEvent.LEVEL_COMPLETED, clientId: guid(), payload: {levelId: levelId, score: gameScore}};
+            var item = {event: StoreEvent.LEVEL_COMPLETED, clientId: guid(), payload: {levelId: levelId, score: gameScore}},
+                store;
             updateStateWithEventItem(item);
 
-            var store = storage.store(USER_STORE) ? storage.store(USER_STORE) : [];
+            store = storage.store(USER_STORE) || [];
             store.push(item);
             storage.store(USER_STORE, store);
 
@@ -33,10 +34,12 @@ var Store = (function (eventBus, storage, $) {
         }, 0);
     });
 
-    eventBus.subscribe(UIMessages.UI_READY, function (data) {
+    eventBus.subscribe(UIMessages.UI_READY, function () {
+        var store = storage.store(USER_STORE) || [],
+            i;
+
         window.state = new State();
-        var store = storage.store(USER_STORE) ? storage.store(USER_STORE) : [];
-        for (var i = 0; i < store.length; i++) {
+        for (i = 0; i < store.length; i += 1) {
             updateStateWithEventItem(store[i]);
         }
         eventBus.publish(UIMessages.USER_STORE_UPDATED, store);
@@ -51,10 +54,10 @@ var Store = (function (eventBus, storage, $) {
         }
 
         switch (item.event) {
-            case StoreEvent.LEVEL_COMPLETED:
-                state.numberOfGames++;
-                state.completedLevels[item.payload.levelId] = {score: item.payload.score};
-                break;
+        case StoreEvent.LEVEL_COMPLETED:
+            state.numberOfGames += 1;
+            state.completedLevels[item.payload.levelId] = {score: item.payload.score};
+            break;
         }
     }
 
@@ -87,13 +90,17 @@ var Store = (function (eventBus, storage, $) {
     }
 
     function onFetchSuccessful(response) {
-        if (response.status == "ok") {
-            var data = response.data;
-            var store = storage.store(USER_STORE) ? storage.store(USER_STORE) : [];
-            for (var item = 0; item < data.length; item++) {
-                for (var i = 0; i < store.length; i++) {
-                    var updated = false;
-                    if (data[item].clientId == store[i].clientId) {
+        if (response.status === "ok") {
+            var data = response.data,
+                store = storage.store(USER_STORE) || [],
+                item,
+                i,
+                updated = false;
+
+            for (item = 0; item < data.length; item += 1) {
+                for (i = 0; i < store.length; i += 1) {
+                    updated = false;
+                    if (data[item].clientId === store[i].clientId) {
                         store[i] = data[item];
                         updated = true;
                     }
@@ -110,12 +117,14 @@ var Store = (function (eventBus, storage, $) {
     }
 
     function onCommitSuccessful(response) {
-        if (response.status == "ok") {
-            var data = response.data;
-            var store = storage.store(USER_STORE) ? storage.store(USER_STORE) : [];
-            for (var item = 0; item < data.length; item++) {
-                for (var i = 0; i < store.length; i++) {
-                    if (data[item].clientId == store[i].clientId) {
+        if (response.status === "ok") {
+            var data = response.data,
+                store = storage.store(USER_STORE) || [],
+                item,
+                i;
+            for (item = 0; item < data.length; item += 1) {
+                for (i = 0; i < store.length; i += 1) {
+                    if (data[item].clientId === store[i].clientId) {
                         store[i] = data[item];
                     }
                 }
@@ -125,13 +134,17 @@ var Store = (function (eventBus, storage, $) {
     }
 
     function createFetchData() {
-        var data = {};
-        data.action = "fetch-events";
-        data.userId = storage.store("uid");
-        data.lastId = -1;
-        var store = storage.store(USER_STORE) ? storage.store(USER_STORE) : [];
-        for (var i = 0; i < store.length; i++) {
-            var item = store[i];
+        var data = {
+                action: "fetch-events",
+                userId: storage.store("uid"),
+                lastId: -1
+            },
+            store = storage.store(USER_STORE) || [],
+            item,
+            i;
+
+        for (i = 0; i < store.length; i += 1) {
+            item = store[i];
             if (item.id && item.id > data.lastId) {
                 data.lastId = item.id;
             }
@@ -140,14 +153,17 @@ var Store = (function (eventBus, storage, $) {
     }
 
     function createCommitData() {
-        var data = {};
-        data.action = "commit-events";
-        data.userId = storage.store("uid");
+        var data = {
+                action: "commit-events",
+                userId: storage.store("uid")
+            },
+            sendEvents = [],
+            store = storage.store(USER_STORE) || [],
+            item,
+            i;
 
-        var sendEvents = [];
-        var store = storage.store(USER_STORE) ? storage.store(USER_STORE) : [];
-        for (var i = 0; i < store.length; i++) {
-            var item = store[i];
+        for (i = 0; i < store.length; i += 1) {
+            item = store[i];
             if (!item.id) {
                 sendEvents.push(item);
             }
@@ -162,4 +178,4 @@ var Store = (function (eventBus, storage, $) {
 
 var StoreEvent = {
     LEVEL_COMPLETED: "level-completed"
-}
+};

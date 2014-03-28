@@ -2,18 +2,17 @@
  * Created by olaf on 18/03/14.
  */
 
+(function (eventBus, commandBus) {
 
-var ScorePresenter = (function (eventBus, commandBus, $) {
-
-    var TOTAL_SCORE_ELEMENT;
-    var scoreMultiplier = 0;
-    var scoreNextCard = 0;
-    var totalScore = 0;
-    var gameScore = 0;
+    var TOTAL_SCORE_ELEMENT,
+        scoreMultiplier = 0,
+        scoreNextCard = 0,
+        totalScore = 0,
+        gameScore = 0;
 
     // command handler
 
-    commandBus.subscribe(Commands.GIVE_CARD_SCORE, function(data){
+    commandBus.subscribe(Commands.GIVE_CARD_SCORE, function () {
         var delta = Math.round(scoreNextCard);
         eventBus.publish(GameMessages.SCORE_UPDATED, {gameScore: gameScore + delta, totalScore: totalScore + delta, delta: delta});
     });
@@ -31,7 +30,7 @@ var ScorePresenter = (function (eventBus, commandBus, $) {
         updateView();
     });
 
-    eventBus.subscribe(GameMessages.CARD_DROP_REFUSED, function (data) {
+    eventBus.subscribe(GameMessages.CARD_DROP_REFUSED, function () {
         scoreNextCard = 0.5 * scoreNextCard;
     });
 
@@ -43,9 +42,10 @@ var ScorePresenter = (function (eventBus, commandBus, $) {
     });
 
     eventBus.subscribe(UIMessages.USER_STORE_UPDATED, function (data) {
+        var i;
         totalScore = 0;
-        for (var i = 0; i < data.length; i++) {
-            totalScore += parseInt(data[i].payload.score);
+        for (i = 0; i < data.length; i += 1) {
+            totalScore += parseInt(data[i].payload.score, 10);
         }
         updateView();
     });
@@ -54,4 +54,4 @@ var ScorePresenter = (function (eventBus, commandBus, $) {
         TOTAL_SCORE_ELEMENT.innerHTML = totalScore;
     }
 
-}(amplify, amplify, $));
+}(amplify, amplify));

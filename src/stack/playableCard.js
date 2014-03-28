@@ -2,20 +2,19 @@
  * Created by olafjanssen on 23/02/14.
  */
 
-var PlayableCard = (function (eventBus, commandBus) {
+(function (eventBus, commandBus) {
 
     var playableCard;
-    var cardJiggleTimer;
 
     eventBus.subscribe(GameMessages.NEW_PLAYABLE_CARD, function (data) {
         onNewPlayableCard(data);
     });
 
-    eventBus.subscribe(GameMessages.CARD_DROP_REFUSED, function (data) {
+    eventBus.subscribe(GameMessages.CARD_DROP_REFUSED, function () {
         onDropRefused();
     });
 
-    eventBus.subscribe(GameMessages.CARD_DROPPED, function (data) {
+    eventBus.subscribe(GameMessages.CARD_DROPPED, function () {
         getElement().innerHTML = "";
     });
 
@@ -29,7 +28,7 @@ var PlayableCard = (function (eventBus, commandBus) {
             playableCard.classList.remove("during-drag");
             playableCard.style.top = "";
             playableCard.style.left = "";
-        }, 50)
+        }, 50);
     }
 
     function onNewPlayableCard(card) {
@@ -43,20 +42,28 @@ var PlayableCard = (function (eventBus, commandBus) {
 
         // touch handling
         playableCard.addEventListener('mousedown', function (event) {
-            var offsetX = playableCard.offsetLeft - event.clientX;
-            var offsetY = playableCard.offsetTop - event.clientY;
+            var offsetX = playableCard.offsetLeft - event.clientX,
+                offsetY = playableCard.offsetTop - event.clientY,
+                cardJiggleTimer,
+                mouseMoveListener,
+                mouseUpListener;
+
+
             playableCard.classList.remove("animate-dnd");
             playableCard.classList.add("during-drag");
 
-            var cardJiggleTimer = setTimeout(function () {
+            cardJiggleTimer = setTimeout(function () {
                 playableCard.classList.add("animate-card");
             }, 500);
 
-            var mouseMoveListener = function (event) {
+            mouseMoveListener = function (event) {
                 playableCard.style.left = (offsetX + event.clientX) + "px";
                 playableCard.style.top = (offsetY + event.clientY) + "px";
             };
-            var mouseUpListener = function (event) {
+
+            mouseUpListener = function (event) {
+                var dropElement;
+
                 // remove listeners
                 playableCard.removeEventListener("mouseup", mouseUpListener);
                 document.removeEventListener("mousemove", mouseMoveListener);
@@ -67,16 +74,15 @@ var PlayableCard = (function (eventBus, commandBus) {
 
                 // find drop target
                 getElement().style.display = "none";
-                var elem = document.elementFromPoint(event.clientX, event.clientY);
+                dropElement = document.elementFromPoint(event.clientX, event.clientY);
                 getElement().style.display = "";
 
-                var dropElement = elem;
-                while (elem && !elem.hasAttribute("ondrop")){
-                    elem = elem.parentElement;
+                while (dropElement && !dropElement.hasAttribute("ondrop")) {
+                    dropElement = dropElement.parentElement;
                 }
 
                 if (elem !== null) {
-                    commandBus.publish(Commands.ATTEMPT_CARD_DROP, {col: elem.getAttribute("col"), row: elem.getAttribute("row"), card: card});
+                    commandBus.publish(Commands.ATTEMPT_CARD_DROP, {col: dropElement.getAttribute("col"), row: dropElement.getAttribute("row"), card: card});
                 } else {
                     onDropRefused();
                 }
@@ -86,8 +92,9 @@ var PlayableCard = (function (eventBus, commandBus) {
         }, false);
 
         playableCard.addEventListener('touchstart', function (event) {
-            var offsetX = playableCard.offsetLeft - event.changedTouches[0].pageX;
-            var offsetY = playableCard.offsetTop - event.changedTouches[0].pageY;
+            var offsetX = playableCard.offsetLeft - event.changedTouches[0].pageX,
+                offsetY = playableCard.offsetTop - event.changedTouches[0].pageY;
+
             playableCard.classList.remove("animate-dnd");
             playableCard.classList.add("during-drag");
             playableCard.addEventListener('touchmove', function (event) {

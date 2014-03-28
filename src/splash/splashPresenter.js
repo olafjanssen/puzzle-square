@@ -2,11 +2,11 @@
  * Created by olafjanssen on 22/02/14.
  */
 
-var SplashPresenter = (function (eventBus, $) {
+(function (eventBus, $) {
 
-    var SPLASH_DELAY = 3000;
-    var SPLASH_IMAGE = "#splash-image";
-    var SPLASH_CONTAINER = "#splash";
+    var SPLASH_DELAY = 3000,
+        SPLASH_IMAGE = "#splash-image",
+        SPLASH_CONTAINER = "#splash";
 
     eventBus.subscribe(UIMessages.UI_READY, function () {
         $(SPLASH_IMAGE).hide().fadeIn(500).delay(2000).fadeOut(500);
