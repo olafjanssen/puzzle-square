@@ -4,19 +4,17 @@
 
 // connection of grid with the DOM
 
-var GridView = (function (eventBus, $) {
-
-    var cols, rows;
+(function (eventBus, $) {
 
     eventBus.subscribe(GameMessages.NEW_GRID_NEEDED, function (data) {
         render(data.cols, data.rows, data.traitDirections);
     });
 
     eventBus.subscribe(GameMessages.CARD_DROPPED, function (data) {
-        setCard(data.col, data.row, data.card)
+        setCard(data.col, data.row, data.card);
     });
 
-    eventBus.subscribe(GameMessages.GRID_IS_FILLED, function (data) {
+    eventBus.subscribe(GameMessages.GRID_IS_FILLED, function () {
         onGridFilled();
     });
 
@@ -25,28 +23,27 @@ var GridView = (function (eventBus, $) {
         getElement().classList.add("grid-filled");
         setTimeout(function () {
             $(".grid-cell").each(function () {
-                var offset = parseInt($(this).attr("row")) * parseInt($(this).height());
-                var rotation = Math.random()* 360 - 180;
-                $(this).css({transform: 'translate3d(0px,' + (2 * innerHeight + 1 * offset) + 'px, 0) rotate('+rotation+'deg)'});
+                var offset = parseInt($(this).attr("row"), 10) * parseInt($(this).height(), 10),
+                    rotation = Math.random() * 360 - 180;
+                $(this).css({transform: 'translate3d(0px,' + (2 * innerHeight + offset) + 'px, 0) rotate(' + rotation + 'deg)'});
             });
         }, 2000);
     }
 
     function setCard(col, row, card) {
-        var fx = document.createElement("div");
-        fx.classList.add("card-fx");
+        var fx = document.createElement("div"),
+            cardElement = Card.render(card),
+            gridCell = getElement().querySelector("[col='" + col + "'][row='" + row + "']");
 
-        var cardElement = Card.render(card);
-        var gridCell = getElement().querySelector("[col='" + col + "'][row='" + row + "']");
+        fx.classList.add("card-fx");
         gridCell.innerHTML = "";
         gridCell.appendChild(fx);
         gridCell.appendChild(cardElement);
 
         setTimeout(function () {
-            fx.classList.add("dropped")
-            cardElement.classList.add("dropped")
+            fx.classList.add("dropped");
+            cardElement.classList.add("dropped");
         }, 0);
-
 
         setTimeout(function () {
             fx.parentNode.removeChild(fx);
@@ -54,27 +51,28 @@ var GridView = (function (eventBus, $) {
     }
 
     function render(cols, rows, traitDirections) {
+        var row, col, cell,
+            grid = document.createDocumentFragment(),
+            cellWidth = (100 / (cols + traitDirections[1] + traitDirections[3])) + "%",
+            cellHeight = (100 / (rows + traitDirections[0] + traitDirections[2])) + "%";
+
         this.cols = cols;
         this.rows = rows;
 
-        var grid = document.createDocumentFragment();
-        var cellWidth = (100 / (cols + traitDirections[1] + traitDirections[3])) + "%";
-        var cellHeight = (100 / (rows + traitDirections[0] + traitDirections[2])) + "%";
-
-        for (var row = -traitDirections[0]; row < rows + traitDirections[2]; row++) {
-            for (var col = -traitDirections[3]; col < cols + traitDirections[1]; col++) {
-                var cell = createNewGridCellElement(cellWidth, cellHeight, col, row);
+        for (row = -traitDirections[0]; row < rows + traitDirections[2]; row += 1) {
+            for (col = -traitDirections[3]; col < cols + traitDirections[1]; col += 1) {
+                cell = createNewGridCellElement(cellWidth, cellHeight, col, row);
                 cell.setAttribute("ondrop", "");
-                if (traitDirections[0] && row == -1) {
+                if (traitDirections[0] && row === -1) {
                     cell.classList.add("trait-top");
                 }
-                if (traitDirections[1] && col == cols) {
+                if (traitDirections[1] && col === cols) {
                     cell.classList.add("trait-right");
                 }
-                if (traitDirections[2] && row == rows) {
+                if (traitDirections[2] && row === rows) {
                     cell.classList.add("trait-bottom");
                 }
-                if (traitDirections[3] && row == -1) {
+                if (traitDirections[3] && row === -1) {
                     cell.classList.add("trait-left");
                 }
                 grid.appendChild(cell);
@@ -85,15 +83,15 @@ var GridView = (function (eventBus, $) {
 
         // set off screen
         $(".grid-cell").each(function () {
-            var rot = Math.random() * 7200 - 3600;
-            var phi = Math.random() * 2 * Math.PI;
-            var rho = Math.floor(Math.random() * 2 + 2);
+            var rot = Math.random() * 7200 - 3600,
+                phi = Math.random() * 2 * Math.PI,
+                rho = Math.floor(Math.random() * 2 + 2);
             $(this).css({transform: 'translate3d(' + Math.cos(phi) * rho * innerWidth + 'px,' + Math.sin(phi) * rho * innerHeight + 'px,0) rotate(' + rot + 'deg)'});
         });
         // animate back again
         setTimeout(function () {
             $(".grid-cell").each(function () {
-                $(this).css({transform: 'translate3d(' + 0 + 'px,' + 0 + 'px,0)'});
+                $(this).css({transform: 'translate3d(0,0,0)'});
             });
         }, 0);
     }
