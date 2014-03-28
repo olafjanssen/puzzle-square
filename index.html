@@ -37,9 +37,15 @@
     <link rel="stylesheet" type="text/css" href="src/puzzlesquare.css">
 
     <script>
+        "use strict";
+
         // disable scrolling
         function stopScrolling(touchEvent) {
-            if (!document.body.classList.contains("selecting")) {
+            var target = touchEvent.target;
+            while (target && !target.hasAttribute("scrollable")) {
+                target = target.parentElement;
+            }
+            if (target == null) {
                 touchEvent.preventDefault();
             }
         }
@@ -59,7 +65,8 @@
                 return (c == 'x' ? r : (r & 0x7 | 0x8)).toString(16);
             });
             return uuid;
-        };
+        }
+        ;
 
         function addOver(element) {
             if (Modernizr.touch) {
@@ -91,9 +98,6 @@
 <body>
 <div id="floor">
     <div id="dynamic-background"></div>
-    <div id="score">
-        <div id="total-score-label"></div>
-    </div>
     <div id="play-area">
         <div id="grid"></div>
         <div id="stack"></div>
@@ -107,7 +111,10 @@
 <div id="level-menu">
     <div class="background-side1"></div>
     <div class="background-side2"></div>
-    <div id="level-menu-container"></div>
+    <div id="level-menu-container" scrollable></div>
+</div>
+<div id="score">
+    <button id="total-score-label"></button>
 </div>
 <div id="title">
     <div id='title-image'></div>

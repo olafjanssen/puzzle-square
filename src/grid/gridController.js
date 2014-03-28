@@ -1,14 +1,15 @@
 // Grid or playing field
 
-var GridController = (function (eventBus, commandBus) {
+(function (eventBus, commandBus) {
 
-    var traitDirections;
-    var colTraitCards, rowTraitCards;
-    var cols, rows;
-    var droppedCoordinates;
-    var gridCells;
-
-    var stack = [];
+    var traitDirections,
+        colTraitCards,
+        rowTraitCards,
+        cols,
+        rows,
+        droppedCoordinates,
+        gridCells,
+        stack = [];
 
     // command handling
 
@@ -25,9 +26,9 @@ var GridController = (function (eventBus, commandBus) {
 
     commandBus.subscribe(Commands.FILL_POSITION, function (data) {
         var col = data.col, row = data.row;
-        if (col == -1 || col == cols) {
+        if (col === -1 || col === cols) {
             eventBus.publish(GameMessages.CARD_DROPPED, {col: col, row: row, card: rowTraitCards[row]});
-        } else if (row == -1 || row == rows) {
+        } else if (row === -1 || row === rows) {
             eventBus.publish(GameMessages.CARD_DROPPED, {col: col, row: row, card: colTraitCards[col]});
         } else {
             eventBus.publish(GameMessages.CARD_DROPPED, {col: col, row: row, card: Card.mergeCards(rowTraitCards[row], colTraitCards[col])});
@@ -36,7 +37,7 @@ var GridController = (function (eventBus, commandBus) {
     });
 
     // only call this method in a command handler
-    function proceedAfterGridChange(){
+    function proceedAfterGridChange() {
         if (isGridFull()) {
             eventBus.publish(GameMessages.GRID_IS_FILLED);
         } else {
@@ -51,16 +52,17 @@ var GridController = (function (eventBus, commandBus) {
     });
 
     eventBus.subscribe(GameMessages.NEW_GRID_NEEDED, function (data) {
+        var tempStack, i;
+
         cols = data.cols;
         rows = data.rows;
         traitDirections = data.traitDirections;
-        droppedCoordinates = [];
         gridCells = (cols * rows) + rows * (traitDirections[1] + traitDirections[3]) + cols * (traitDirections[0] + traitDirections[2]);
 
         // clean up the stack of unused cards
-        var tempStack = stack.concat();
-        for(var i=0;i<tempStack.length;i++){
-            if (!validateCardInGrid(tempStack[i])){
+        tempStack = stack.concat();
+        for (i = 0; i < tempStack.length; i += 1) {
+            if (!validateCardInGrid(tempStack[i])) {
                 removeCardFromStack(tempStack[i]);
             }
         }
@@ -79,9 +81,10 @@ var GridController = (function (eventBus, commandBus) {
 
 
     function validateCardInGrid(card) {
-        for (var col = -traitDirections[3]; col < this.cols + traitDirections[1]; col++) {
-            for (var row = -traitDirections[0]; row < this.rows + traitDirections[2]; row++) {
-                if (droppedCoordinates.indexOf(col + ", " + row) == -1 && validateCard(col, row, card)) {
+        var col, row;
+        for (col = -traitDirections[3]; col < this.cols + traitDirections[1]; col += 1) {
+            for (row = -traitDirections[0]; row < this.rows + traitDirections[2]; row += 1) {
+                if (droppedCoordinates.indexOf(col + ", " + row) === -1 && validateCard(col, row, card)) {
                     droppedCoordinates.push(col + ", " + row);
                     return true;
                 }
@@ -91,31 +94,31 @@ var GridController = (function (eventBus, commandBus) {
     }
 
     function validateCard(col, row, card) {
-        if (droppedCoordinates.indexOf(col + ", " + row) != -1){
+        if (droppedCoordinates.indexOf(col + ", " + row) !== -1) {
             return false;
         }
-        if (row > -1 && (col == -1 || col == cols)) {
+        if (row > -1 && (col === -1 || col === cols)) {
             return Card.equals(card, rowTraitCards[row]);
-        } else if (col > -1 && (row == -1 || row == rows)) {
-            return Card.equals(card, colTraitCards[col]);
-        } else {
-            if (!rowTraitCards[row]) {
-                return Card.hasAllTraitsOf(card, colTraitCards[col]);
-            } else if (!colTraitCards[col]) {
-                return Card.hasAllTraitsOf(card, rowTraitCards[row]);
-            } else {
-                return Card.hasAllTraitsOf(card, rowTraitCards[row]) && Card.hasAllTraitsOf(card, colTraitCards[col]);
-            }
         }
+        if (col > -1 && (row === -1 || row === rows)) {
+            return Card.equals(card, colTraitCards[col]);
+        }
+        if (!rowTraitCards[row]) {
+            return Card.hasAllTraitsOf(card, colTraitCards[col]);
+        }
+        if (!colTraitCards[col]) {
+            return Card.hasAllTraitsOf(card, rowTraitCards[row]);
+        }
+        return Card.hasAllTraitsOf(card, rowTraitCards[row]) && Card.hasAllTraitsOf(card, colTraitCards[col]);
     }
 
     function isGridFull() {
-        return droppedCoordinates.length == gridCells;
+        return droppedCoordinates.length === gridCells;
     }
 
     function removeCardFromStack(card) {
         var index;
-        for (index = 0; index < stack.length; index++) {
+        for (index = 0; index < stack.length; index += 1) {
             if (Card.equals(stack[index], card)) {
                 stack.splice(index, 1);
                 break;

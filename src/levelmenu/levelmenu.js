@@ -3,6 +3,9 @@
 var LevelMenu = (function (eventBus, commandBus, $) {
 
     var lastId;
+    var isShown = false;
+    var subscription;
+    var scrollSubscription;
 
     var rotations = new Array();
     {
@@ -11,14 +14,29 @@ var LevelMenu = (function (eventBus, commandBus, $) {
         }
     }
 
+    eventBus.subscribe(UIMessages.UI_READY, function () {
+        $("#total-score-label").on("click touchend", function () {
+            if (isShown) {
+                hide();
+            } else {
+                show();
+            }
+        });
+
+        $("#level-menu-container").on("scroll", function() {
+             document.getElementById("level-menu-container").classList.add("scrolling");
+            clearTimeout(scrollSubscription);
+            scrollSubscription = setTimeout(function(){
+                document.getElementById("level-menu-container").classList.remove("scrolling");
+            },500);
+        })
+
+    });
+
     eventBus.subscribe(GameMessages.NEW_GAME_STARTED, function (data) {
         lastId = data.id;
 
-        document.getElementById("level-menu").classList.remove("fx");
-        setTimeout(function () {
-            document.getElementById("level-menu").classList.remove("show");
-        }, 1000);
-
+        hide();
     });
 
     eventBus.subscribe(UIMessages.USER_STORE_UPDATED, function () {
@@ -31,15 +49,36 @@ var LevelMenu = (function (eventBus, commandBus, $) {
     });
 
     eventBus.subscribe(GameMessages.GRID_IS_FILLED, function () {
-        document.getElementById("level-menu").classList.add("show");
         document.getElementById("level-menu-container").scrollTop =
             document.getElementById("level-button-" + lastId).offsetTop +
                 document.getElementById("level-button-" + lastId).offsetHeight / 2 - innerHeight / 2;
 
         setTimeout(function () {
-            document.getElementById("level-menu").classList.add("fx");
-        }, 3000);
+            show()
+        }, 4000);
     });
+
+    function show() {
+        isShown = true;
+        document.getElementById("level-menu").classList.add("show");
+        if (!subscription) {
+            clearTimeout(subscription);
+        }
+        subscription = setTimeout(function () {
+            document.getElementById("level-menu").classList.add("fx");
+        }, 100);
+    }
+
+    function hide() {
+        isShown = false;
+        document.getElementById("level-menu").classList.remove("fx");
+        if (!subscription) {
+            clearTimeout(subscription);
+        }
+        subscription = setTimeout(function () {
+            document.getElementById("level-menu").classList.remove("show");
+        }, 1000);
+    }
 
     function renderLevelButton(level, index) {
         var button = document.createElement("button");
@@ -56,16 +95,22 @@ var LevelMenu = (function (eventBus, commandBus, $) {
         }
 
         button.addEventListener("touchend", function () {
+            if (document.getElementById("level-menu-container").classList.contains("scrolling")){
+                return;
+            }
             eventBus.publish(Commands.START_NEW_GAME, level);
         });
 
         button.addEventListener("click", function () {
+            if (document.getElementById("level-menu-container").classList.contains("scrolling")){
+                return;
+            }
             eventBus.publish(Commands.START_NEW_GAME, level);
         });
 
         // button content
         var indexLabel = document.createElement("div");
-        indexLabel.innerHTML = (index+1);
+        indexLabel.innerHTML = (index + 1);
         indexLabel.classList.add("index-label");
         button.appendChild(indexLabel);
 

@@ -11,9 +11,8 @@
   }
 
   .background-side1, .background-side2 {
-    position: absolute;
-    .transform-transition(0.2s);
     background-color: rgba(200, 200, 255, 0.4);
+    .transform-transition(0.2s 0.5s);
     position: absolute;
     height: 100%;
     width: 75%;
@@ -31,16 +30,19 @@
 
   &.fx {
     .background-side1, .background-side2 {
+      .transform-transition(0.2s);
       .transform(none);
     }
 
     #level-menu-container {
+      .transition(opacity 0.5s 0.5s ease);
       opacity: 1;
     }
   }
 
   #level-menu-container {
-    .transition(opacity 0.5s 0.2s ease);
+    -webkit-overflow-scrolling: touch;
+    .transition(opacity 0.5s ease);
     display: none;
     opacity: 0;
 
