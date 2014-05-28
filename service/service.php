@@ -31,7 +31,7 @@ if ($action == "commit-events") {
     $data = $request['data'];
 
     // Create connection
-    $con = @mysqli_connect("127.0.0.1","build","build","square") or return_error("cannot connect to DB");
+    $con = @mysqli_connect("127.0.0.1","root","","square") or return_error("cannot connect to DB");
 
     $clientIds = [];
     foreach ($data as $value) {
@@ -70,7 +70,7 @@ if ($action == "commit-events") {
     }
 
     // Create connection
-    $con = @mysqli_connect("127.0.0.1","build","build","square") or return_error("cannot connect to DB");
+    $con = @mysqli_connect("127.0.0.1","root","","square") or return_error("cannot connect to DB");
 
     // produce response
     $response_data = [];

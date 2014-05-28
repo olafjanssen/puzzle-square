@@ -80,8 +80,7 @@
                 while (dropElement && !dropElement.hasAttribute("ondrop")) {
                     dropElement = dropElement.parentElement;
                 }
-
-                if (elem !== null) {
+                if (dropElement !== null) {
                     commandBus.publish(Commands.ATTEMPT_CARD_DROP, {col: dropElement.getAttribute("col"), row: dropElement.getAttribute("row"), card: card});
                 } else {
                     onDropRefused();

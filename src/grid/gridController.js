@@ -58,6 +58,7 @@
         rows = data.rows;
         traitDirections = data.traitDirections;
         gridCells = (cols * rows) + rows * (traitDirections[1] + traitDirections[3]) + cols * (traitDirections[0] + traitDirections[2]);
+        droppedCoordinates = [];
 
         // clean up the stack of unused cards
         tempStack = stack.concat();
@@ -67,6 +68,7 @@
             }
         }
         droppedCoordinates = [];
+
     });
 
     eventBus.subscribe(GameMessages.NEW_TRAITS_CHOSEN, function (data) {

@@ -11,7 +11,7 @@ var GameMessages = {
     NEW_STACK_CREATED: "new-stack-created",
     NEW_TRAITS_CHOSEN: "new-traits-chosen",
 
-    NEW_PLAYABLE_CARD: "new-playable-card",
+    NEW_PLAYABLE_CARD: "new-playable-card-b",
 
     CARD_DROPPED: "card-dropped",
     CARD_DROP_REFUSED: "card-drop-refused",
