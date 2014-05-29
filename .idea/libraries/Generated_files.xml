@@ -1,13 +1,5 @@
 <component name="libraryTable">
   <library name="Generated files" type="javaScript">
-    <properties>
-      <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/src/grid/gridView.min.js" />
-        <item url="file://$PROJECT_DIR$/src/grid/gridController.min.js" />
-        <item url="file://$PROJECT_DIR$/src/stack/playableCard.min.js" />
-        <item url="file://$PROJECT_DIR$/src/title/titlePresenter.min.js" />
-      </sourceFilesUrls>
-    </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/src/stack/stack.min.js" />
       <root url="file://$PROJECT_DIR$/src/model/levels.min.js" />

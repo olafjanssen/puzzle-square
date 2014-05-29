@@ -7,6 +7,8 @@
     <orderEntry type="library" name="JsTestDriver Assertion Framework" level="application" />
     <orderEntry type="library" name="Node.js v0.10.26 Core Modules" level="application" />
     <orderEntry type="library" name="Node.js v0.10.26 Core Modules" level="application" />
+    <orderEntry type="library" name="puzzle-square node_modules" level="project" />
+    <orderEntry type="library" name="sass-stdlib" level="application" />
   </component>
 </module>
 

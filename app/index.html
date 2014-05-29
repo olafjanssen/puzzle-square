@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <title>puzzle square</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width = device-width, initial-scale = 1, user-scalable = no"/>
+
         <link rel="shortcut icon" href="/favicon.ico">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css styles/vendor.css -->
@@ -21,21 +22,35 @@
 
     </head>
     <body>
-        <!--[if lt IE 10]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
 
-
-        <div class="hero-unit">
-          <h1>'Allo, 'Allo!</h1>
-          <p>You now have</p>
-          <ul>
-            <li>HTML5 Boilerplate</li>
-            <li>Sass</li>
-            <li>Modernizr</li>
-          </ul>
+        <div id="floor">
+            <div id="dynamic-background"></div>
+            <div id="play-area">
+                <div id="grid"></div>
+                <div id="stack"></div>
+                <div id="backside"></div>
+            </div>
         </div>
-
+        <div id="betwixt">
+            <div id="win-image"></div>
+            <div id="next-focus" class='focus-button'></div>
+        </div>
+        <div id="level-menu">
+            <div class="background-side1"></div>
+            <div class="background-side2"></div>
+            <div id="level-menu-container" scrollable></div>
+        </div>
+        <div id="score">
+            <button id="total-score-label"></button>
+        </div>
+        <div id="title">
+            <div id='title-image'></div>
+            <div class='title-message'></div>
+            <div id="title-focus" class='focus-button'></div>
+        </div>
+        <div id="splash">
+            <div id="splash-image"></div>
+        </div>
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->

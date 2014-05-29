@@ -135,23 +135,23 @@ body {
 }
 
 .img1 {
-  background-image: url(../images/levels/image1.jpg);
+  background-image: url(../../app/images/levels/image1.jpg);
 }
 
 .img2 {
-  background-image: url(../images/levels/image2.jpg);
+  background-image: url(../../app/images/levels/image2.jpg);
 }
 
 .img3 {
-  background-image: url(../images/levels/image3.jpg);
+  background-image: url(../../app/images/levels/image3.jpg);
 }
 
 .img4 {
-  background-image: url(../images/levels/image4.jpg);
+  background-image: url(../../app/images/levels/image4.jpg);
 }
 
 .img5 {
-  background-image: url(../images/levels/image5.jpg);
+  background-image: url(../../app/images/levels/image5.jpg);
 }
 
 #backside > table {
@@ -163,7 +163,7 @@ body {
 }
 
 .card {
-  background-image: url(../images/decks/deck1.png);
+  background-image: url(../../app/images/decks/deck1.png);
   border: 0.25em solid #ddd;
   .box-sizing(border-box);
   background-size: 500%;
