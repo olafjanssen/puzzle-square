@@ -1,5 +1,5 @@
 
-@import "common/mixins";
+@import "../../app/styles/mixins";
 
 body * {
   -webkit-user-select: none;
@@ -205,12 +205,12 @@ body {
   background-position-y: 0%;
 }
 
-@import "grid/grid";
+@import "../../app/styles/grid";
 @import "splash/splash";
 @import "title/title";
 @import "stack/stack";
-@import "betwixt/betwixt";
+@import "../../app/styles/betwixt";
 @import "score/score";
 @import "levelmenu/levelMenu";
-@import "background/dynamicBackground";
+@import "../../app/styles/dynamicBackground";
 

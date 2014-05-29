@@ -9,18 +9,18 @@
   left: 50%;
   top: 50%;
   opacity: 0;
-  .transition(opacity 4s ease);
+  @include transition(opacity 4s ease);
 
-  .fx& {
+  &.fx {
     opacity: 1;
 
     #win-image {
-      .transform(rotate(720deg));
+      @include transform(rotate(720deg));
     }
   }
 
   #win-image {
-    .transition(all 1s ease-out);
+    @include transition(all 1s ease-out);
     background-size: cover;
     border: 1em solid #ddd;
     margin: 0 auto;

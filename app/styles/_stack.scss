@@ -3,28 +3,28 @@
   opacity: 0;
 
   &.show {
-    .transition(opacity 2s ease);
+    @include transition(opacity 2s ease);
     opacity: 1;
   }
 
   & > .card {
-    .transform(scale(1.25));
+    @include transform(scale(1.25));
     background-color: white;
     position: absolute;
     height: 100%;
     width: 100%;
 
     &.animate-card {
-      .animation(dragged-card-animation 3s ease infinite);
+      @include animation(dragged-card-animation 3s ease infinite);
     }
 
     &.during-drag {
-      .transform-transition(0.5s ease);
-      .transform(rotate(-10deg) scale(1.5));
+      @include transform-transition(0.5s ease);
+      @include transform(rotate(-10deg) scale(1.5));
     }
 
     &.animate-dnd {
-      .transition(all 0.5s ease);
+      @include transition(all 0.5s ease);
     }
   }
 }

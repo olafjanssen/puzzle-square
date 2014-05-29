@@ -1,32 +1,32 @@
 .grid-cell {
-  .transform-transition(2s ease);
+  @include transform-transition(2s ease);
   display: inline-block;
   position: relative;
 
   .grid-filled & {
-    .transform-transition(2s ease-in);
+    @include transform-transition(2s ease-in);
   }
 
   .card {
     margin: 2.5%;
     height: 95%;
     width: 95%;
-    .transform-transition(0.5s ease-out);
-    .transform(scale(1.5));
+    @include transform-transition(0.5s ease-out);
+    @include transform(scale(1.5));
     z-index: 1;
 
     &.dropped {
-      .transform(scale(1.0));
+      @include transform(scale(1.0));
     }
 
   }
 
   .card-fx {
     border: 1em solid rgba(0, 0, 0, 0.2);
-    .transition(all 0.5s ease-out);
-    .box-sizing(border-box);
+    @include transition(all 0.5s ease-out);
+    @include box-sizing(border-box);
     border-radius: 10em;
-    .transform(scale(1));
+    @include transform(scale(1));
     position: absolute;
     height: 100%;
     width: 100%;
@@ -35,7 +35,7 @@
     top: 0;
 
     &.dropped {
-      .transform(scale(5));
+      @include transform(scale(5));
       z-index: 1;
       opacity: 0;
     }

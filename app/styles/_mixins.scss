@@ -1,0 +1,28 @@
+@mixin transform($arg) {
+  -webkit-transform: $arg;
+  transform: $arg;
+}
+
+@mixin transition($arg) {
+  -webkit-transition: $arg;
+  -moz-transition: $arg;
+  transition: $arg;
+}
+
+@mixin transform-transition($arg) {
+  -webkit-transition: -webkit-transform $arg;
+  -moz-transition: -moz-transform $arg;
+  transition: transform $arg;
+}
+
+@mixin animation($arg) {
+  -webkit-animation: $arg;
+  -moz-animation: $arg;
+  animation: $arg;
+}
+
+@mixin box-sizing($arg){
+  -webkit-box-sizing: $arg;
+  -moz-box-sizing: $arg;
+  box-sizing: $arg;
+}
