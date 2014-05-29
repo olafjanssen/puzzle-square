@@ -1,5 +1,13 @@
 <component name="libraryTable">
   <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/bower_components/amplify/lib/amplify.request.min.js" />
+        <item url="file://$PROJECT_DIR$/bower_components/amplify/lib/amplify.min.js" />
+        <item url="file://$PROJECT_DIR$/bower_components/amplify/lib/amplify.core.min.js" />
+        <item url="file://$PROJECT_DIR$/bower_components/amplify/lib/amplify.store.min.js" />
+      </sourceFilesUrls>
+    </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/src/stack/stack.min.js" />
       <root url="file://$PROJECT_DIR$/src/model/levels.min.js" />
@@ -19,6 +27,10 @@
       <root url="file://$PROJECT_DIR$/src/grid/gridController.min.js" />
       <root url="file://$PROJECT_DIR$/src/stack/playableCard.min.js" />
       <root url="file://$PROJECT_DIR$/src/title/titlePresenter.min.js" />
+      <root url="file://$PROJECT_DIR$/bower_components/amplify/lib/amplify.request.min.js" />
+      <root url="file://$PROJECT_DIR$/bower_components/amplify/lib/amplify.min.js" />
+      <root url="file://$PROJECT_DIR$/bower_components/amplify/lib/amplify.core.min.js" />
+      <root url="file://$PROJECT_DIR$/bower_components/amplify/lib/amplify.store.min.js" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
