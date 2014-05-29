@@ -1,0 +1,34 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/src/grid/gridView.min.js" />
+        <item url="file://$PROJECT_DIR$/src/grid/gridController.min.js" />
+        <item url="file://$PROJECT_DIR$/src/stack/playableCard.min.js" />
+        <item url="file://$PROJECT_DIR$/src/title/titlePresenter.min.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/src/stack/stack.min.js" />
+      <root url="file://$PROJECT_DIR$/src/model/levels.min.js" />
+      <root url="file://$PROJECT_DIR$/src/model/decks.min.js" />
+      <root url="file://$PROJECT_DIR$/src/model/setupType.min.js" />
+      <root url="file://$PROJECT_DIR$/src/state.min.js" />
+      <root url="file://$PROJECT_DIR$/src/model/deck.min.js" />
+      <root url="file://$PROJECT_DIR$/src/model/levelType.min.js" />
+      <root url="file://$PROJECT_DIR$/src/splash/splashPresenter.min.js" />
+      <root url="file://$PROJECT_DIR$/src/model/card.min.js" />
+      <root url="file://$PROJECT_DIR$/src/common/messages.min.js" />
+      <root url="file://$PROJECT_DIR$/src/appController.min.js" />
+      <root url="file://$PROJECT_DIR$/src/gameSettings.min.js" />
+      <root url="file://$PROJECT_DIR$/src/game/gameFactory.min.js" />
+      <root url="file://$PROJECT_DIR$/src/levelmenu.min.js" />
+      <root url="file://$PROJECT_DIR$/src/grid/gridView.min.js" />
+      <root url="file://$PROJECT_DIR$/src/grid/gridController.min.js" />
+      <root url="file://$PROJECT_DIR$/src/stack/playableCard.min.js" />
+      <root url="file://$PROJECT_DIR$/src/title/titlePresenter.min.js" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

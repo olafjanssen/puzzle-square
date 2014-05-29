@@ -1,0 +1,1477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="09ac01db-1e54-4d10-a923-dc6743df6c37" name="Default" comment="Fixing bugs related to the previous commits.">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FFF_Tusj.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/decks/deck1.ai" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/decks/deck1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/flurryflakes.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/levels/image1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/levels/image2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/levels/image3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/levels/image4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/levels/image5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/puzzlesquare.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/puzzlesquare.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/jsTestDriver.conf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/requires/amplify.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/requires/jquery-2.1.0.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/requires/modernizr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/service/mysql-create.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/service/service.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src-test/model/cardTest.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/background/dynamicBackground.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/background/dynamicBackground.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/betwixt/betwixt.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/betwixt/betwixtPresenter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/messages.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/mixins.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/game/gameFactory.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/game/levelManager.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/grid/grid.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/grid/gridController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/grid/gridView.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/layout/layout.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/levelmenu/levelMenu.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/levelmenu/levelmenu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/card.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/decks.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/levels.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/setupType.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/puzzlesquare.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/score/score.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/score/scorePresenter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/splash/splash.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/splash/splashPresenter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/stack/playableCard.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/stack/stack.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/stack/stackPresenter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/state.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/state/localStore.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/state/stateManager.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/state/store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/title/title.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/title/titlePresenter.js" afterPath="" />
+    </list>
+    <ignored path="puzzle-square.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="puzzle-square" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/styling.css" />
+        <option value="$PROJECT_DIR$/src/grid/grid.js" />
+        <option value="$PROJECT_DIR$/src/loader.js" />
+        <option value="$PROJECT_DIR$/src/common/events.js" />
+        <option value="$PROJECT_DIR$/src/splash/splashView.js" />
+        <option value="$PROJECT_DIR$/src/title/titleView.js" />
+        <option value="$PROJECT_DIR$/src/model/levelType.js" />
+        <option value="$PROJECT_DIR$/src/appController.js" />
+        <option value="$PROJECT_DIR$/jsTestDriver.conf" />
+        <option value="$PROJECT_DIR$/src/levelmenu.js" />
+        <option value="$PROJECT_DIR$/src/splash/splash.css" />
+        <option value="$PROJECT_DIR$/src/common/mixins.less" />
+        <option value="$PROJECT_DIR$/src/title/title.less" />
+        <option value="$PROJECT_DIR$/src/splash/splash.less" />
+        <option value="$PROJECT_DIR$/src-test/model/cardTest.js" />
+        <option value="$PROJECT_DIR$/src/betwixt/betwixtView.js" />
+        <option value="$PROJECT_DIR$/src/betwixt/betwixt.less" />
+        <option value="$PROJECT_DIR$/src/stack/stack.less" />
+        <option value="$PROJECT_DIR$/src/model/decks.js" />
+        <option value="$PROJECT_DIR$/service/mysql-create.sql" />
+        <option value="$PROJECT_DIR$/src/model/levels.js" />
+        <option value="$PROJECT_DIR$/src/stack/stack.js" />
+        <option value="$PROJECT_DIR$/src/layout/layout.js" />
+        <option value="$PROJECT_DIR$/src/title/titlePresenter.js" />
+        <option value="$PROJECT_DIR$/requires/amplify.min.js" />
+        <option value="$PROJECT_DIR$/src/background/dynamicBackground.js" />
+        <option value="$PROJECT_DIR$/src/puzzlesquare.css" />
+        <option value="$PROJECT_DIR$/src/levelmenu/levelMenu.less" />
+        <option value="$PROJECT_DIR$/src/puzzlesquare.less" />
+        <option value="$PROJECT_DIR$/src/score/score.less" />
+        <option value="$PROJECT_DIR$/src/levelmenu/levelmenu.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/src/betwixt/betwixtPresenter.js" />
+        <option value="$PROJECT_DIR$/src/grid/gridView.js" />
+        <option value="$PROJECT_DIR$/src/score/scorePresenter.js" />
+        <option value="$PROJECT_DIR$/src/splash/splashPresenter.js" />
+        <option value="$PROJECT_DIR$/src/stack/stackPresenter.js" />
+        <option value="$PROJECT_DIR$/src/state/store.js" />
+        <option value="$PROJECT_DIR$/src/state/stateManager.js" />
+        <option value="$PROJECT_DIR$/src/state/localStore.js" />
+        <option value="$PROJECT_DIR$/src/state.js" />
+        <option value="$PROJECT_DIR$/src/game/levelManager.js" />
+        <option value="dbtable:/3b01e9c4/f6e01ca9-7cd1-4bbd-bd93-8ca6bcc17cc7/square..events" />
+        <option value="$PROJECT_DIR$/service/service.php" />
+        <option value="$PROJECT_DIR$/src/game/gameFactory.js" />
+        <option value="$PROJECT_DIR$/src/model/card.js" />
+        <option value="$PROJECT_DIR$/src/common/messages.js" />
+        <option value="$PROJECT_DIR$/src/stack/playableCard.js" />
+        <option value="$PROJECT_DIR$/src/grid/gridController.js" />
+        <option value="$PROJECT_DIR$/src/background/dynamicBackground.less" />
+        <option value="$PROJECT_DIR$/src/grid/grid.less" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBowerSettings">
+    <exe-path />
+    <config-path />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="22" />
+    <option name="width" value="1680" />
+    <option name="height" value="1024" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Code quality toolsJavaScript</id>
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>SQL</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>GjsLint</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="puzzle-square" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="puzzle-square" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="puzzle-square" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="puzzle-square" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="puzzle-square" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="puzzle-square" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="puzzle-square" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grid" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="puzzle-square" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="puzzle-square" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="betwixt" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="puzzle-square" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="puzzle-square" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="background" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Tests" />
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="recentsLimit" value="5" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="options.lastSelected" value="settings" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="FullScreen" value="false" />
+    <property name="LayoutCode.rearrangeEntriesJavaScript" value="false" />
+    <property name="last_opened_file_path" value="/usr/bin/less" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="63" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="64" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="65" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="603" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="86" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="86" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="89" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="534" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="LayoutCode.rearrangeEntriesCSS" value="false" />
+    <property name="LayoutCode.rearrangeEntriesLESS" value="false" />
+    <property name="LayoutCode.rearrangeEntriesHTML" value="false" />
+    <property name="LayoutCode.rearrangeEntriesPlain text" value="false" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/requires" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/levelmenu" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/model" />
+      <recent name="$PROJECT_DIR$/requires" />
+      <recent name="$PROJECT_DIR$/src/grid" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="XSLT" factoryName="XSLT">
+      <option name="myOutputFile" />
+      <option name="myOpenOutputFile" value="false" />
+      <option name="myOpenInBrowser" value="false" />
+      <option name="mySmartErrorHandling" value="true" />
+      <option name="myRunnerPort" value="34873" />
+      <option name="myVmArguments" />
+      <option name="myWorkingDirectory" />
+      <option name="myModule" />
+      <option name="myJdk" />
+      <parameters />
+      <OutputType value="CONSOLE" save-to-file="false" />
+      <FileType name="XML" />
+      <JdkChoice value="FROM_MODULE" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="153c8f0b-6773-4c42-86f2-1aa239e9ac55" server_name="MAMP">
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Test Driver" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="ALL_CONFIGS_IN_DIRECTORY" />
+      <setting name="allInDirectory" value="$PROJECT_DIR$" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="Chrome" />
+      <RunnerSettings RunnerId="JsTestDriverClientRunner" />
+      <ConfigurationWrapper RunnerId="JsTestDriverClientRunner" />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="JsTestDriver.Test Driver" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" myUseAcceleration="nothing">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="09ac01db-1e54-4d10-a923-dc6743df6c37" name="Default" comment="" />
+      <created>1393026349345</created>
+      <updated>1393026349345</updated>
+      <workItem from="1401307141040" duration="30000" />
+      <workItem from="1401307184410" duration="817000" />
+      <workItem from="1401308136073" duration="198000" />
+      <workItem from="1401308406039" duration="409000" />
+      <workItem from="1401308831225" duration="7024000" />
+      <workItem from="1401348770014" duration="645000" />
+      <workItem from="1401349431741" duration="214000" />
+      <workItem from="1401349663370" duration="466000" />
+      <workItem from="1401392373062" duration="8000" />
+    </task>
+    <task id="LOCAL-00001" summary="Update project structure">
+      <created>1393026741301</created>
+      <updated>1393026741301</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added amplify, wrote first gridView module snippet.&#10;Added less support.">
+      <created>1393072186138</created>
+      <updated>1393072186138</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added 3rd party scripts: amplify, jquery, modernizr">
+      <created>1393100329630</created>
+      <updated>1393100329630</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Create messages (=events)">
+      <created>1393100353093</created>
+      <updated>1393100353093</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Separated grid view and controller, using messages to render and fill grid.">
+      <created>1393100383113</created>
+      <updated>1393100383113</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Extracted splash page from main html script.">
+      <created>1393100398847</created>
+      <updated>1393100398847</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Separated and extracted the title page and splash.">
+      <created>1393101400687</created>
+      <updated>1393101400687</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Fixed a lot of warnings.">
+      <created>1393109229448</created>
+      <updated>1393109229448</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added stack module">
+      <created>1393165640020</created>
+      <updated>1393165640020</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Rearranged model classes">
+      <created>1393165662125</created>
+      <updated>1393165662125</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added game factory">
+      <created>1393165675443</created>
+      <updated>1393165675443</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Filling the grid at the start of the level">
+      <created>1393170958518</created>
+      <updated>1393170958518</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Allows position filling of central cards.">
+      <created>1393173023083</created>
+      <updated>1393173023083</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Connect title page button">
+      <created>1393174679047</created>
+      <updated>1393174679047</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Cards can be properly compared now.">
+      <created>1393189667207</created>
+      <updated>1393189667207</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Drag and dropping works again, so does the stack.">
+      <created>1393189684294</created>
+      <updated>1393189684294</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Cleaned up grid controller.">
+      <created>1393189898148</created>
+      <updated>1393189898148</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added first JsTestDriver test case.">
+      <created>1393236878495</created>
+      <updated>1393236878495</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Created a responsive table.">
+      <created>1393274932534</created>
+      <updated>1393274932534</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Split responsive behavior into a layout manager module.">
+      <created>1393276600399</created>
+      <updated>1393276600399</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Adding the stack to the layout manager.">
+      <created>1393280248054</created>
+      <updated>1393280248054</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Cleaned up overlay layer.">
+      <created>1393366571058</created>
+      <updated>1393366571058</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Minimized grid size by not showing rows and columns of empty trait borders.">
+      <created>1393368040315</created>
+      <updated>1393368040315</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Grid styling">
+      <created>1393370283270</created>
+      <updated>1393370283270</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Extracted title page styling">
+      <created>1393454753407</created>
+      <updated>1393454753407</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Added transition mixins.">
+      <created>1393454946622</created>
+      <updated>1393454946622</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Styling updates.">
+      <created>1393629673506</created>
+      <updated>1393629673506</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Use jQuery for the splash and title page">
+      <created>1393629705518</created>
+      <updated>1393629705519</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Hide corner cards and give cards a border.">
+      <created>1393683937344</created>
+      <updated>1393683937345</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Made DOM follow HTML5 doctype and updated several classes accordingly.">
+      <created>1393706392721</created>
+      <updated>1393706392721</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Flipped around cards according to Eyal's wishes.">
+      <created>1393706649651</created>
+      <updated>1393706649651</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Touch handler on title button.">
+      <created>1393708582944</created>
+      <updated>1393708582944</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Game start grid transition.">
+      <created>1393781354641</created>
+      <updated>1393781354641</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Give dragged card a jiggle animation.">
+      <created>1393785256610</created>
+      <updated>1393785256610</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Fixed the layout manager to show properly all sizes and ratios of grids.">
+      <created>1393792191709</created>
+      <updated>1393792191709</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Cards not fitting in the grid are removed from the stack while playing.">
+      <created>1393797975575</created>
+      <updated>1393797975575</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Improvemen of rendering new cards.">
+      <created>1393802518226</created>
+      <updated>1393802518226</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Fixed problem that card was not immutable. Now allows for proper 4-card game type.">
+      <created>1394147266443</created>
+      <updated>1394147266443</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Drop animation and drop fx.">
+      <created>1394232586568</created>
+      <updated>1394232586568</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Fix NPE in resize listener of the grid layout.">
+      <created>1394461748959</created>
+      <updated>1394461748959</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Check for a filled grid and animate the grid away when it is full.">
+      <created>1394463836879</created>
+      <updated>1394463836879</updated>
+    </task>
+    <task id="LOCAL-00042" summary="First version of a betwixt games view.">
+      <created>1394468115312</created>
+      <updated>1394468115312</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Continuous flow of levels with an active betwixt panel.">
+      <created>1394486073906</created>
+      <updated>1394486073906</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Fix the grid cell count of a grid with 2 trait directions and properly throw away cards-not-in-grid for such grids.">
+      <created>1394577543065</created>
+      <updated>1394577543065</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Add a guid user id">
+      <created>1394662721771</created>
+      <updated>1394662721771</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Changed levels object into an array of objects with id and data">
+      <created>1394663841880</created>
+      <updated>1394663841880</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Changed levels object into an array of objects with id and data.&#10;Removed Card and GameSettings as Objects.&#10;Introduced localStorage store for during game events so that player will return to old game if he refreshes.&#10;">
+      <created>1394881557037</created>
+      <updated>1394881557037</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Clear local storage when the user id changes.">
+      <created>1394882545881</created>
+      <updated>1394882545881</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Fix use of mergeCards.">
+      <created>1394894486988</created>
+      <updated>1394894486988</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Completed levels are now locally stored.">
+      <created>1394894504351</created>
+      <updated>1394894504352</updated>
+    </task>
+    <task id="LOCAL-00051" summary="First implementation of a service to store a user's game events.">
+      <created>1395002592368</created>
+      <updated>1395002592368</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Commit user store events to the server and update the local store from the response.">
+      <created>1395089576435</created>
+      <updated>1395089576435</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Fetch events from the server when starting up.">
+      <created>1395094499388</created>
+      <updated>1395094499388</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Add total and game score.">
+      <created>1395158853990</created>
+      <updated>1395158853991</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Improvements on scoring.">
+      <created>1395178855438</created>
+      <updated>1395178855438</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Add concept of command bus and make START_NEW_GAME a command.">
+      <created>1395243562205</created>
+      <updated>1395243562205</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Make attempt card drop a command. Checking for full grid is handled in the drop card command handler, not in response to listening to a dropped card event.">
+      <created>1395243990626</created>
+      <updated>1395243990626</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Make fill position a command.">
+      <created>1395244432809</created>
+      <updated>1395244432809</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Got rid of new card in grid or not in grid events, resulting from the dropped card event.">
+      <created>1395246357551</created>
+      <updated>1395246357551</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Separated the UI messages from the game messages.">
+      <created>1395263041366</created>
+      <updated>1395263041367</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Renamed regular messages to game messages.">
+      <created>1395263117472</created>
+      <updated>1395263117472</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Fix several local store errors.">
+      <created>1395265754463</created>
+      <updated>1395265754463</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Use closure to fix binding to all game messages.">
+      <created>1395270876855</created>
+      <updated>1395270876855</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Fix removing playable card after playing it.">
+      <created>1395271037204</created>
+      <updated>1395271037205</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Clean local store when grid is filled.">
+      <created>1395271258394</created>
+      <updated>1395271258394</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Fix removing betwixt view.">
+      <created>1395271392489</created>
+      <updated>1395271392489</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Fix score view.">
+      <created>1395271618219</created>
+      <updated>1395271618219</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Fix loading from the local store.">
+      <created>1395329971494</created>
+      <updated>1395329971495</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Fix misdropping cards on an already filled grid cell.">
+      <created>1395330677475</created>
+      <updated>1395330677475</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Dynamic parallax background, first iteration.">
+      <created>1395345908696</created>
+      <updated>1395345908696</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Fix that card can be dropped in a valid place but that already contains a card!">
+      <created>1395392286621</created>
+      <updated>1395392286622</updated>
+    </task>
+    <task id="LOCAL-00072" summary="A level menu, first try.">
+      <created>1395441997844</created>
+      <updated>1395441997845</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Towards JSLint compatibility">
+      <created>1396048087675</created>
+      <updated>1396048087675</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Towards JSLint compatibility&#10;">
+      <created>1396048751973</created>
+      <updated>1396048751974</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Towards JSLint compatibility&#10;">
+      <created>1396050507133</created>
+      <updated>1396050507135</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Fixing bugs related to the previous commits.">
+      <created>1401314264403</created>
+      <updated>1401314264403</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="9811000" />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="22" width="1680" height="1024" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27623126" sideWeight="0.4993895" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32869378" sideWeight="0.4993895" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297619" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297619" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32655245" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1910867" sideWeight="0.1764706" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879582" sideWeight="0.49940476" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32869378" sideWeight="0.4993895" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24940476" sideWeight="0.81910276" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1910867" sideWeight="0.8219396" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32655245" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="JsTestDriver Server" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32869378" sideWeight="0.5003559" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32869378" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277487" sideWeight="0.49940476" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39914164" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+    <MESSAGE value="First implementation of a service to store a user's game events." />
+    <MESSAGE value="Commit user store events to the server and update the local store from the response." />
+    <MESSAGE value="Fetch events from the server when starting up." />
+    <MESSAGE value="Add total and game score." />
+    <MESSAGE value="Improvements on scoring." />
+    <MESSAGE value="Add concept of command bus and make START_NEW_GAME a command." />
+    <MESSAGE value="Make attempt card drop a command. Checking for full grid is handled in the drop card command handler, not in response to listening to a dropped card event." />
+    <MESSAGE value="Make fill position a command." />
+    <MESSAGE value="Got rid of new card in grid or not in grid events, resulting from the dropped card event." />
+    <MESSAGE value="Separated the UI messages from the game messages." />
+    <MESSAGE value="Renamed regular messages to game messages." />
+    <MESSAGE value="Fix several local store errors." />
+    <MESSAGE value="Use closure to fix binding to all game messages." />
+    <MESSAGE value="Fix removing playable card after playing it." />
+    <MESSAGE value="Clean local store when grid is filled." />
+    <MESSAGE value="Fix removing betwixt view." />
+    <MESSAGE value="Fix score view." />
+    <MESSAGE value="Fix loading from the local store." />
+    <MESSAGE value="Fix misdropping cards on an already filled grid cell." />
+    <MESSAGE value="Dynamic parallax background, first iteration." />
+    <MESSAGE value="Fix that card can be dropped in a valid place but that already contains a card!" />
+    <MESSAGE value="A level menu, first try." />
+    <MESSAGE value="Towards JSLint compatibility" />
+    <MESSAGE value="Towards JSLint compatibility&#10;" />
+    <MESSAGE value="Fixing bugs related to the previous commits." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing bugs related to the previous commits." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/common/messages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="690">
+          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/puzzlesquare.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/decks/deck1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/levels/image1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/levels/image2.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jsTestDriver.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+          <caret line="5" column="25" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/mixins.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33673468" vertical-offset="0" max-vertical-offset="495">
+          <caret line="11" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="105">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/title/titlePresenter.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="741">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.4734693" vertical-offset="4067" max-vertical-offset="14055">
+          <caret line="125" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/title/title.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.625" vertical-offset="75" max-vertical-offset="690">
+          <caret line="6" column="9" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layout/layout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="706" max-vertical-offset="1320">
+          <caret line="16" column="25" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26872963" vertical-offset="0" max-vertical-offset="2865">
+          <caret line="11" column="7" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requires/amplify.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.8369384" vertical-offset="4109" max-vertical-offset="4710">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/betwixt/betwixt.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="765">
+          <caret line="17" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/setupType.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/levels.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <caret line="2" column="112" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/decks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="630">
+          <caret line="30" column="5" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/score/scorePresenter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="317" max-vertical-offset="930">
+          <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/splash/splashPresenter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="405">
+          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/levelManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="390">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stack/stackPresenter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="285">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-test/model/cardTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
+          <caret line="46" column="68" selection-start-line="46" selection-start-column="68" selection-end-line="46" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/puzzlesquare.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="7637" max-vertical-offset="8250">
+          <caret line="532" column="0" selection-start-line="532" selection-start-column="0" selection-end-line="532" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/puzzlesquare.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="3330">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/state/localStore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990">
+          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/state/stateManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="390">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/state/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="2805">
+          <caret line="164" column="44" selection-start-line="164" selection-start-column="44" selection-end-line="164" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/3b01e9c4/f6e01ca9-7cd1-4bbd-bd93-8ca6bcc17cc7/square..events">
+      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/mysql-create.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/service.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.125" vertical-offset="825" max-vertical-offset="1380">
+          <caret line="72" column="47" selection-start-line="72" selection-start-column="47" selection-end-line="72" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/state.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/title/titlePresenter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/levelmenu/levelmenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1065" max-vertical-offset="3045">
+          <caret line="100" column="52" selection-start-line="100" selection-start-column="38" selection-end-line="100" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/gameFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1575">
+          <caret line="36" column="53" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/card.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="366" max-vertical-offset="1230">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.375" vertical-offset="15" max-vertical-offset="1995">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stack/playableCard.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="601">
+          <caret line="0" column="57" selection-start-line="0" selection-start-column="57" selection-end-line="0" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/messages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
+          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stack/stack.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="720">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/splash/splash.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="375">
+          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/score/score.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="345">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/levelmenu/levelMenu.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1590">
+          <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grid/gridView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1830">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stack/playableCard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1845">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/betwixt/betwixtPresenter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/background/dynamicBackground.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="555">
+          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/background/dynamicBackground.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="870">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grid/gridController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2055">
+          <caret line="26" column="66" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grid/grid.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="690">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grid/grid.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1200">
+          <caret line="36" column="15" selection-start-line="36" selection-start-column="15" selection-end-line="36" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>puzzle-square</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Generated files</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+

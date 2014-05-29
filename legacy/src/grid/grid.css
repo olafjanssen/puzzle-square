@@ -1,0 +1,40 @@
+table {
+  border-collapse: collapse;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+table td {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 108px;
+  height: 108px;
+}
+table tr td:first-child,
+table tr:last-child td,
+table tr td:last-child,
+table tr:first-child td {
+  border: none;
+}
+table tr:nth-child(n+2):nth-last-child(n+2) td:first-child {
+  border-right: 6px solid rgba(0, 0, 0, 0.5);
+}
+table tr:nth-child(n+2):nth-last-child(n+2) td:last-child {
+  border-left: 6px solid rgba(0, 0, 0, 0.5);
+}
+table tr:first-child td:nth-child(n+2):nth-last-child(n+2) {
+  border-bottom: 6px solid rgba(0, 0, 0, 0.5);
+}
+table tr:last-child td:nth-child(n+2):nth-last-child(n+2) {
+  border-top: 6px solid rgba(0, 0, 0, 0.5);
+}
+table tr:last-child td[ondrop],
+table tr:first-child td[ondrop] {
+  border-left: 2px solid rgba(0, 0, 0, 0.5);
+  border-right: 2px solid rgba(0, 0, 0, 0.5);
+}
+table tr td[ondrop]:first-child,
+table tr td[ondrop]:last-child {
+  border-top: 2px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
