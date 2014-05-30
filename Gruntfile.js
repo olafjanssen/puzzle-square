@@ -31,7 +31,7 @@ module.exports = function (grunt) {
         watch: {
             bower: {
                 files: ['bower.json'],
-                tasks: ['bowerInstall']
+                tasks: ['bowerInstall'],
             },
             js: {
                 files: ['<%= config.app %>/scripts/{,*/}*.js'],
@@ -363,9 +363,19 @@ module.exports = function (grunt) {
                 'imagemin',
                 'svgmin'
             ]
+        },
+
+        // Combine requireJS with bower
+        bower: {
+            target: {
+                rjsConfig: 'app/config.js'
+            }
         }
     });
 
+    // wire the bower components in using requireJS
+    grunt.loadNpmTasks('grunt-bower-requirejs');
+    grunt.registerTask('default', ['bower']);
 
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {

@@ -1,19 +1,6 @@
 /*global require */
 
-//(function () {
-//    'use strict';
-//
-//// disable scrolling
-//    function stopScrolling(touchEvent) {
-//        var target = touchEvent.target;
-//        while (target && !target.hasAttribute('scrollable')) {
-//            target = target.parentElement;
-//        }
-//        if (target === null) {
-//            touchEvent.preventDefault();
-//        }
-//    }
-//
+
 //    // global (bad) shuffling method
 //    function shuffle(o) { //v1.0
 //        for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x) {
@@ -54,7 +41,7 @@
 
 // start the app
 
-require(['dynamicBackground', 'amplify', 'messages'], function (dynamicBackground, amplify, Messages) {
+require(['jquery', 'amplify', 'scripts/messages', 'scripts/dynamicBackground'], function ($, amplify, Messages) {
     'use strict';
 
     function stopScrolling(touchEvent) {
