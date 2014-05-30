@@ -41,7 +41,7 @@
 
 // start the app
 
-require(['jquery', 'amplify', 'messages', 'dynamicBackground', 'splashPresenter', 'titlePresenter'], function ($, amplify, Messages) {
+require(['jquery', 'amplify', 'messages', 'dynamicBackground', 'splashPresenter', 'titlePresenter', 'playableCard', 'stackPresenter'], function ($, amplify, Messages) {
     'use strict';
 
     function stopScrolling(touchEvent) {
