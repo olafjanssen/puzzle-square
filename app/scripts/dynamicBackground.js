@@ -4,7 +4,7 @@
 
 /*global define */
 
-define(['amplify', 'scripts/messages'], function (eventBus, Messages) {
+define(['amplify', 'messages'], function (eventBus, Messages) {
     'use strict';
 
     var levels = 3,
