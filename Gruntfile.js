@@ -370,11 +370,24 @@ module.exports = function (grunt) {
             target: {
                 rjsConfig: 'app/config.js'
             }
+        },
+
+        requirejs: {
+            compile: {
+                options: {
+                    baseUrl: 'app/scripts',
+                    mainConfigFile: 'app/scripts/config.js',
+                    out: 'dist/scripts/optimized.js',
+                    name: 'main'
+                }
+            }
         }
     });
 
     // wire the bower components in using requireJS
     grunt.loadNpmTasks('grunt-bower-requirejs');
+    grunt.loadNpmTasks('grunt-requirejs');
+
     grunt.registerTask('default', ['bower']);
 
     grunt.registerTask('serve', function (target) {
@@ -415,6 +428,7 @@ module.exports = function (grunt) {
         'clean:dist',
         'useminPrepare',
         'concurrent:dist',
+        'requirejs',
         'autoprefixer',
         'concat',
         'cssmin',
